@@ -24,7 +24,7 @@ mod clone_mod {
             "0x60808060405234601357603a908160198239f35b600080fdfe600080fdfea2646970667358221220bc5fd0c5168b7569563575a9579d64176045b9b45f6289e7ab31150de042fae764736f6c634300080e0033" . parse () . expect ("invalid bytecode")
         });
     pub struct Clone<M>(ethers::contract::Contract<M>);
-    impl<M> Clone for Clone<M> {
+    impl<M> std::clone::Clone for Clone<M> {
         fn clone(&self) -> Self {
             Clone(self.0.clone())
         }
