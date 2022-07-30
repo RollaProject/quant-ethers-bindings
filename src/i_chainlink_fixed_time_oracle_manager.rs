@@ -1,6 +1,6 @@
-pub use ichainlinkfixedtimeoraclemanager_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod ichainlinkfixedtimeoraclemanager_mod {
+pub use i_chainlink_fixed_time_oracle_manager::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod i_chainlink_fixed_time_oracle_manager {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -19,7 +19,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
     pub static ICHAINLINKFIXEDTIMEORACLEMANAGER_ABI: ethers::contract::Lazy<
         ethers::core::abi::Abi,
     > = ethers::contract::Lazy::new(|| {
-        serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"uint24\",\"name\":\"fixedTime\",\"type\":\"uint24\",\"components\":[],\"indexed\":false},{\"internalType\":\"bool\",\"name\":\"isValidTime\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"FixedTimeUpdate\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"OracleAdded\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint88\",\"name\":\"expiryTimestamp\",\"type\":\"uint88\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"expiryRoundId\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"priceSubmitter\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"bool\",\"name\":\"isFallback\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"PriceRegistrySubmission\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addAssetOracle\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"assetOracles\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"assets\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint24\",\"name\":\"\",\"type\":\"uint24\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"chainlinkFixedTimeUpdates\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"fallbackPeriodSeconds\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetOracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetsLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getCurrentPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlyingAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_strikePrice\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isValidOption\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTimestamp\",\"type\":\"uint88\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"searchRoundToSubmit\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTimestamp\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"_calldata\",\"type\":\"bytes\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setExpiryPriceInRegistry\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTimestamp\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_roundIdAfterExpiry\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setExpiryPriceInRegistryByRound\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTimestamp\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_price\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setExpiryPriceInRegistryFallback\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint24\",\"name\":\"fixedTime\",\"type\":\"uint24\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"isValidTime\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setFixedTimeUpdate\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"strikeAssetDecimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]}]") . expect ("invalid abi")
+        ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"uint24\",\"name\":\"fixedTime\",\"type\":\"uint24\",\"components\":[],\"indexed\":false},{\"internalType\":\"bool\",\"name\":\"isValidTime\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"FixedTimeUpdate\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"OracleAdded\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint88\",\"name\":\"expiryTimestamp\",\"type\":\"uint88\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"expiryRoundId\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"priceSubmitter\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"bool\",\"name\":\"isFallback\",\"type\":\"bool\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"PriceRegistrySubmission\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addAssetOracle\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"assetOracles\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"assets\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint24\",\"name\":\"\",\"type\":\"uint24\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"chainlinkFixedTimeUpdates\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"fallbackPeriodSeconds\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetOracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetsLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getCurrentPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlyingAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_strikePrice\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isValidOption\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTimestamp\",\"type\":\"uint88\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"searchRoundToSubmit\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTimestamp\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"_calldata\",\"type\":\"bytes\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setExpiryPriceInRegistry\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTimestamp\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_roundIdAfterExpiry\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setExpiryPriceInRegistryByRound\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTimestamp\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_price\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setExpiryPriceInRegistryFallback\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint24\",\"name\":\"fixedTime\",\"type\":\"uint24\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"isValidTime\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setFixedTimeUpdate\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"strikeAssetDecimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]}]") . expect ("invalid abi")
     });
     pub struct IChainlinkFixedTimeOracleManager<M>(ethers::contract::Contract<M>);
     impl<M> Clone for IChainlinkFixedTimeOracleManager<M> {
@@ -325,7 +325,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `addAssetOracle`function with signature `addAssetOracle(address,address)` and selector `[140, 180, 186, 35]`"]
+    #[doc = "Container type for all input parameters for the `addAssetOracle` function with signature `addAssetOracle(address,address)` and selector `[140, 180, 186, 35]`"]
     #[derive(
         Clone,
         Debug,
@@ -340,7 +340,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
         pub asset: ethers::core::types::Address,
         pub oracle: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `assetOracles`function with signature `assetOracles(address)` and selector `[43, 102, 57, 134]`"]
+    #[doc = "Container type for all input parameters for the `assetOracles` function with signature `assetOracles(address)` and selector `[43, 102, 57, 134]`"]
     #[derive(
         Clone,
         Debug,
@@ -352,7 +352,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
     )]
     #[ethcall(name = "assetOracles", abi = "assetOracles(address)")]
     pub struct AssetOraclesCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `assets`function with signature `assets(uint256)` and selector `[207, 53, 189, 208]`"]
+    #[doc = "Container type for all input parameters for the `assets` function with signature `assets(uint256)` and selector `[207, 53, 189, 208]`"]
     #[derive(
         Clone,
         Debug,
@@ -364,7 +364,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
     )]
     #[ethcall(name = "assets", abi = "assets(uint256)")]
     pub struct AssetsCall(pub ethers::core::types::U256);
-    #[doc = "Container type for all input parameters for the `chainlinkFixedTimeUpdates`function with signature `chainlinkFixedTimeUpdates(uint24)` and selector `[135, 228, 224, 12]`"]
+    #[doc = "Container type for all input parameters for the `chainlinkFixedTimeUpdates` function with signature `chainlinkFixedTimeUpdates(uint24)` and selector `[135, 228, 224, 12]`"]
     #[derive(
         Clone,
         Debug,
@@ -379,7 +379,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
         abi = "chainlinkFixedTimeUpdates(uint24)"
     )]
     pub struct ChainlinkFixedTimeUpdatesCall(pub u32);
-    #[doc = "Container type for all input parameters for the `fallbackPeriodSeconds`function with signature `fallbackPeriodSeconds()` and selector `[171, 145, 220, 185]`"]
+    #[doc = "Container type for all input parameters for the `fallbackPeriodSeconds` function with signature `fallbackPeriodSeconds()` and selector `[171, 145, 220, 185]`"]
     #[derive(
         Clone,
         Debug,
@@ -391,7 +391,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
     )]
     #[ethcall(name = "fallbackPeriodSeconds", abi = "fallbackPeriodSeconds()")]
     pub struct FallbackPeriodSecondsCall;
-    #[doc = "Container type for all input parameters for the `getAssetOracle`function with signature `getAssetOracle(address)` and selector `[13, 176, 21, 244]`"]
+    #[doc = "Container type for all input parameters for the `getAssetOracle` function with signature `getAssetOracle(address)` and selector `[13, 176, 21, 244]`"]
     #[derive(
         Clone,
         Debug,
@@ -405,7 +405,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
     pub struct GetAssetOracleCall {
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getAssetsLength`function with signature `getAssetsLength()` and selector `[168, 157, 73, 12]`"]
+    #[doc = "Container type for all input parameters for the `getAssetsLength` function with signature `getAssetsLength()` and selector `[168, 157, 73, 12]`"]
     #[derive(
         Clone,
         Debug,
@@ -417,7 +417,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
     )]
     #[ethcall(name = "getAssetsLength", abi = "getAssetsLength()")]
     pub struct GetAssetsLengthCall;
-    #[doc = "Container type for all input parameters for the `getCurrentPrice`function with signature `getCurrentPrice(address)` and selector `[132, 204, 49, 91]`"]
+    #[doc = "Container type for all input parameters for the `getCurrentPrice` function with signature `getCurrentPrice(address)` and selector `[132, 204, 49, 91]`"]
     #[derive(
         Clone,
         Debug,
@@ -431,7 +431,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
     pub struct GetCurrentPriceCall {
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isValidOption`function with signature `isValidOption(address,uint88,uint256)` and selector `[226, 65, 18, 97]`"]
+    #[doc = "Container type for all input parameters for the `isValidOption` function with signature `isValidOption(address,uint88,uint256)` and selector `[226, 65, 18, 97]`"]
     #[derive(
         Clone,
         Debug,
@@ -447,7 +447,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
         pub expiry_time: u128,
         pub strike_price: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `searchRoundToSubmit`function with signature `searchRoundToSubmit(address,uint88)` and selector `[10, 130, 31, 234]`"]
+    #[doc = "Container type for all input parameters for the `searchRoundToSubmit` function with signature `searchRoundToSubmit(address,uint88)` and selector `[10, 130, 31, 234]`"]
     #[derive(
         Clone,
         Debug,
@@ -465,7 +465,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
         pub asset: ethers::core::types::Address,
         pub expiry_timestamp: u128,
     }
-    #[doc = "Container type for all input parameters for the `setExpiryPriceInRegistry`function with signature `setExpiryPriceInRegistry(address,uint88,bytes)` and selector `[185, 189, 135, 150]`"]
+    #[doc = "Container type for all input parameters for the `setExpiryPriceInRegistry` function with signature `setExpiryPriceInRegistry(address,uint88,bytes)` and selector `[185, 189, 135, 150]`"]
     #[derive(
         Clone,
         Debug,
@@ -484,7 +484,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
         pub expiry_timestamp: u128,
         pub calldata: ethers::core::types::Bytes,
     }
-    #[doc = "Container type for all input parameters for the `setExpiryPriceInRegistryByRound`function with signature `setExpiryPriceInRegistryByRound(address,uint88,uint256)` and selector `[74, 197, 54, 83]`"]
+    #[doc = "Container type for all input parameters for the `setExpiryPriceInRegistryByRound` function with signature `setExpiryPriceInRegistryByRound(address,uint88,uint256)` and selector `[74, 197, 54, 83]`"]
     #[derive(
         Clone,
         Debug,
@@ -503,7 +503,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
         pub expiry_timestamp: u128,
         pub round_id_after_expiry: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setExpiryPriceInRegistryFallback`function with signature `setExpiryPriceInRegistryFallback(address,uint88,uint256)` and selector `[110, 227, 130, 123]`"]
+    #[doc = "Container type for all input parameters for the `setExpiryPriceInRegistryFallback` function with signature `setExpiryPriceInRegistryFallback(address,uint88,uint256)` and selector `[110, 227, 130, 123]`"]
     #[derive(
         Clone,
         Debug,
@@ -522,7 +522,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
         pub expiry_timestamp: u128,
         pub price: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setFixedTimeUpdate`function with signature `setFixedTimeUpdate(uint24,bool)` and selector `[198, 151, 59, 150]`"]
+    #[doc = "Container type for all input parameters for the `setFixedTimeUpdate` function with signature `setFixedTimeUpdate(uint24,bool)` and selector `[198, 151, 59, 150]`"]
     #[derive(
         Clone,
         Debug,
@@ -537,7 +537,7 @@ mod ichainlinkfixedtimeoraclemanager_mod {
         pub fixed_time: u32,
         pub is_valid_time: bool,
     }
-    #[doc = "Container type for all input parameters for the `strikeAssetDecimals`function with signature `strikeAssetDecimals()` and selector `[193, 50, 86, 97]`"]
+    #[doc = "Container type for all input parameters for the `strikeAssetDecimals` function with signature `strikeAssetDecimals()` and selector `[193, 50, 86, 97]`"]
     #[derive(
         Clone,
         Debug,
@@ -831,4 +831,114 @@ mod ichainlinkfixedtimeoraclemanager_mod {
             IChainlinkFixedTimeOracleManagerCalls::StrikeAssetDecimals(var)
         }
     }
+    #[doc = "Container type for all return fields from the `assetOracles` function with signature `assetOracles(address)` and selector `[43, 102, 57, 134]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AssetOraclesReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `assets` function with signature `assets(uint256)` and selector `[207, 53, 189, 208]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AssetsReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `chainlinkFixedTimeUpdates` function with signature `chainlinkFixedTimeUpdates(uint24)` and selector `[135, 228, 224, 12]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ChainlinkFixedTimeUpdatesReturn(pub bool);
+    #[doc = "Container type for all return fields from the `fallbackPeriodSeconds` function with signature `fallbackPeriodSeconds()` and selector `[171, 145, 220, 185]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct FallbackPeriodSecondsReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getAssetOracle` function with signature `getAssetOracle(address)` and selector `[13, 176, 21, 244]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAssetOracleReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `getAssetsLength` function with signature `getAssetsLength()` and selector `[168, 157, 73, 12]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAssetsLengthReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getCurrentPrice` function with signature `getCurrentPrice(address)` and selector `[132, 204, 49, 91]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetCurrentPriceReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `isValidOption` function with signature `isValidOption(address,uint88,uint256)` and selector `[226, 65, 18, 97]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsValidOptionReturn(pub bool);
+    #[doc = "Container type for all return fields from the `searchRoundToSubmit` function with signature `searchRoundToSubmit(address,uint88)` and selector `[10, 130, 31, 234]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SearchRoundToSubmitReturn(pub u128);
+    #[doc = "Container type for all return fields from the `strikeAssetDecimals` function with signature `strikeAssetDecimals()` and selector `[193, 50, 86, 97]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct StrikeAssetDecimalsReturn(pub u8);
 }

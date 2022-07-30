@@ -1,6 +1,6 @@
-pub use iquantcalculator_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod iquantcalculator_mod {
+pub use i_quant_calculator::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod i_quant_calculator {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,7 +18,7 @@ mod iquantcalculator_mod {
     use std::sync::Arc;
     pub static IQUANTCALCULATOR_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"assetsRegistry\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_collateralTokenId\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"calculateClaimableCollateral\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"returnableCollateral\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"collateralAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amountToClaim\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_qTokenToMint\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_qTokenForCollateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getCollateralRequirement\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"collateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"collateralAmount\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getExercisePayout\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isSettled\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"payoutToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"payoutAmount\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_qTokenShort\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_qTokenLong\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_amountToNeutralize\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getNeutralizationPayout\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"collateralType\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"collateralOwed\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"optionsDecimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"optionsFactory\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"priceRegistry\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"strikeAssetDecimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"assetsRegistry\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_collateralTokenId\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"calculateClaimableCollateral\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"returnableCollateral\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"collateralAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amountToClaim\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_qTokenToMint\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_qTokenForCollateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getCollateralRequirement\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"collateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"collateralAmount\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getExercisePayout\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isSettled\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"payoutToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"payoutAmount\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_qTokenShort\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_qTokenLong\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_amountToNeutralize\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getNeutralizationPayout\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"collateralType\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"collateralOwed\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"optionsDecimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"optionsFactory\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"priceRegistry\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"strikeAssetDecimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     pub struct IQuantCalculator<M>(ethers::contract::Contract<M>);
     impl<M> Clone for IQuantCalculator<M> {
@@ -161,7 +161,7 @@ mod iquantcalculator_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `assetsRegistry`function with signature `assetsRegistry()` and selector `[145, 19, 3, 180]`"]
+    #[doc = "Container type for all input parameters for the `assetsRegistry` function with signature `assetsRegistry()` and selector `[145, 19, 3, 180]`"]
     #[derive(
         Clone,
         Debug,
@@ -173,7 +173,7 @@ mod iquantcalculator_mod {
     )]
     #[ethcall(name = "assetsRegistry", abi = "assetsRegistry()")]
     pub struct AssetsRegistryCall;
-    #[doc = "Container type for all input parameters for the `calculateClaimableCollateral`function with signature `calculateClaimableCollateral(uint256,uint256,address)` and selector `[42, 45, 125, 148]`"]
+    #[doc = "Container type for all input parameters for the `calculateClaimableCollateral` function with signature `calculateClaimableCollateral(uint256,uint256,address)` and selector `[42, 45, 125, 148]`"]
     #[derive(
         Clone,
         Debug,
@@ -192,7 +192,7 @@ mod iquantcalculator_mod {
         pub amount: ethers::core::types::U256,
         pub user: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getCollateralRequirement`function with signature `getCollateralRequirement(address,address,uint256)` and selector `[29, 248, 46, 89]`"]
+    #[doc = "Container type for all input parameters for the `getCollateralRequirement` function with signature `getCollateralRequirement(address,address,uint256)` and selector `[29, 248, 46, 89]`"]
     #[derive(
         Clone,
         Debug,
@@ -211,7 +211,7 @@ mod iquantcalculator_mod {
         pub q_token_for_collateral: ethers::core::types::Address,
         pub amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `getExercisePayout`function with signature `getExercisePayout(address,uint256)` and selector `[87, 40, 76, 42]`"]
+    #[doc = "Container type for all input parameters for the `getExercisePayout` function with signature `getExercisePayout(address,uint256)` and selector `[87, 40, 76, 42]`"]
     #[derive(
         Clone,
         Debug,
@@ -226,7 +226,7 @@ mod iquantcalculator_mod {
         pub q_token: ethers::core::types::Address,
         pub amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `getNeutralizationPayout`function with signature `getNeutralizationPayout(address,address,uint256)` and selector `[9, 156, 168, 114]`"]
+    #[doc = "Container type for all input parameters for the `getNeutralizationPayout` function with signature `getNeutralizationPayout(address,address,uint256)` and selector `[9, 156, 168, 114]`"]
     #[derive(
         Clone,
         Debug,
@@ -245,7 +245,7 @@ mod iquantcalculator_mod {
         pub q_token_long: ethers::core::types::Address,
         pub amount_to_neutralize: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `optionsDecimals`function with signature `optionsDecimals()` and selector `[132, 147, 206, 193]`"]
+    #[doc = "Container type for all input parameters for the `optionsDecimals` function with signature `optionsDecimals()` and selector `[132, 147, 206, 193]`"]
     #[derive(
         Clone,
         Debug,
@@ -257,7 +257,7 @@ mod iquantcalculator_mod {
     )]
     #[ethcall(name = "optionsDecimals", abi = "optionsDecimals()")]
     pub struct OptionsDecimalsCall;
-    #[doc = "Container type for all input parameters for the `optionsFactory`function with signature `optionsFactory()` and selector `[230, 110, 242, 196]`"]
+    #[doc = "Container type for all input parameters for the `optionsFactory` function with signature `optionsFactory()` and selector `[230, 110, 242, 196]`"]
     #[derive(
         Clone,
         Debug,
@@ -269,7 +269,7 @@ mod iquantcalculator_mod {
     )]
     #[ethcall(name = "optionsFactory", abi = "optionsFactory()")]
     pub struct OptionsFactoryCall;
-    #[doc = "Container type for all input parameters for the `priceRegistry`function with signature `priceRegistry()` and selector `[83, 81, 49, 215]`"]
+    #[doc = "Container type for all input parameters for the `priceRegistry` function with signature `priceRegistry()` and selector `[83, 81, 49, 215]`"]
     #[derive(
         Clone,
         Debug,
@@ -281,7 +281,7 @@ mod iquantcalculator_mod {
     )]
     #[ethcall(name = "priceRegistry", abi = "priceRegistry()")]
     pub struct PriceRegistryCall;
-    #[doc = "Container type for all input parameters for the `strikeAssetDecimals`function with signature `strikeAssetDecimals()` and selector `[193, 50, 86, 97]`"]
+    #[doc = "Container type for all input parameters for the `strikeAssetDecimals` function with signature `strikeAssetDecimals()` and selector `[193, 50, 86, 97]`"]
     #[derive(
         Clone,
         Debug,
@@ -434,4 +434,117 @@ mod iquantcalculator_mod {
             IQuantCalculatorCalls::StrikeAssetDecimals(var)
         }
     }
+    #[doc = "Container type for all return fields from the `assetsRegistry` function with signature `assetsRegistry()` and selector `[145, 19, 3, 180]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AssetsRegistryReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `calculateClaimableCollateral` function with signature `calculateClaimableCollateral(uint256,uint256,address)` and selector `[42, 45, 125, 148]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CalculateClaimableCollateralReturn {
+        pub returnable_collateral: ethers::core::types::U256,
+        pub collateral_asset: ethers::core::types::Address,
+        pub amount_to_claim: ethers::core::types::U256,
+    }
+    #[doc = "Container type for all return fields from the `getCollateralRequirement` function with signature `getCollateralRequirement(address,address,uint256)` and selector `[29, 248, 46, 89]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetCollateralRequirementReturn {
+        pub collateral: ethers::core::types::Address,
+        pub collateral_amount: ethers::core::types::U256,
+    }
+    #[doc = "Container type for all return fields from the `getExercisePayout` function with signature `getExercisePayout(address,uint256)` and selector `[87, 40, 76, 42]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetExercisePayoutReturn {
+        pub is_settled: bool,
+        pub payout_token: ethers::core::types::Address,
+        pub payout_amount: ethers::core::types::U256,
+    }
+    #[doc = "Container type for all return fields from the `getNeutralizationPayout` function with signature `getNeutralizationPayout(address,address,uint256)` and selector `[9, 156, 168, 114]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetNeutralizationPayoutReturn {
+        pub collateral_type: ethers::core::types::Address,
+        pub collateral_owed: ethers::core::types::U256,
+    }
+    #[doc = "Container type for all return fields from the `optionsDecimals` function with signature `optionsDecimals()` and selector `[132, 147, 206, 193]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OptionsDecimalsReturn(pub u8);
+    #[doc = "Container type for all return fields from the `optionsFactory` function with signature `optionsFactory()` and selector `[230, 110, 242, 196]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OptionsFactoryReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `priceRegistry` function with signature `priceRegistry()` and selector `[83, 81, 49, 215]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PriceRegistryReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `strikeAssetDecimals` function with signature `strikeAssetDecimals()` and selector `[193, 50, 86, 97]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct StrikeAssetDecimalsReturn(pub u8);
 }

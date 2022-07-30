@@ -1,6 +1,6 @@
-pub use cloneswithimmutableargs_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod cloneswithimmutableargs_mod {
+pub use clones_with_immutable_args::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod clones_with_immutable_args {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,16 +18,13 @@ mod cloneswithimmutableargs_mod {
     use std::sync::Arc;
     pub static CLONESWITHIMMUTABLEARGS_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json::from_str(
-                "[{\"inputs\":[],\"type\":\"error\",\"name\":\"CreateFail\",\"outputs\":[]}]",
-            )
-            .expect("invalid abi")
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static CLONESWITHIMMUTABLEARGS_BYTECODE: ethers::contract::Lazy<
         ethers::core::types::Bytes,
     > = ethers::contract::Lazy::new(|| {
-        "0x60808060405234601757603a9081601d823930815050f35b600080fdfe600080fdfea2646970667358221220f33df447932bc370490b9876b6be55a6c55516f352e860d8a75a4bb54e0f2eec64736f6c634300080e0033" . parse () . expect ("invalid bytecode")
+        "0x6080806040523460175760119081601d823930815050f35b600080fdfe600080fdfea164736f6c634300080f000a" . parse () . expect ("invalid bytecode")
     });
     pub struct ClonesWithImmutableArgs<M>(ethers::contract::Contract<M>);
     impl<M> Clone for ClonesWithImmutableArgs<M> {

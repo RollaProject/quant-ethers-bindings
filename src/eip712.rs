@@ -1,6 +1,6 @@
-pub use eip712_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod eip712_mod {
+pub use eip712::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod eip712 {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,7 +17,9 @@ mod eip712_mod {
     #[doc = "EIP712 was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static EIP712_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     pub struct EIP712<M>(ethers::contract::Contract<M>);
     impl<M> Clone for EIP712<M> {
         fn clone(&self) -> Self {

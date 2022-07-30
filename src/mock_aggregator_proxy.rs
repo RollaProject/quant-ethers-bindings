@@ -1,6 +1,6 @@
-pub use mockaggregatorproxy_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod mockaggregatorproxy_mod {
+pub use mock_aggregator_proxy::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod mock_aggregator_proxy {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,12 +18,12 @@ mod mockaggregatorproxy_mod {
     use std::sync::Arc;
     pub static MOCKAGGREGATORPROXY_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"current\",\"type\":\"int256\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"AnswerUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"startedBy\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewRound\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"OwnershipTransferRequested\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"OwnershipTransferred\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"acceptOwnership\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"accessController\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"aggregator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_aggregator\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"confirmAggregator\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"description\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_roundId\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint80\",\"name\":\"_roundId\",\"type\":\"uint80\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_roundId\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestAnswerValue\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestRound\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestRoundDataValue\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestRoundValue\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestTimestampValue\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"phaseAggregators\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"phaseId\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_aggregator\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"proposeAggregator\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"proposedAggregator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint80\",\"name\":\"\",\"type\":\"uint80\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"proposedGetRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"proposedLatestRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint80\",\"name\":\"\",\"type\":\"uint80\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"roundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"roundIdAnswers\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"roundTimestamps\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_accessController\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setController\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"_latestAnswer\",\"type\":\"int256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLatestAnswer\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_latestRound\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLatestRound\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"struct MockAggregatorProxy.RoundData\",\"name\":\"_latestRoundData\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLatestRoundData\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_latestTimestamp\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLatestTimestamp\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"struct MockAggregatorProxy.RoundData\",\"name\":\"_roundData\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setRoundData\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_roundId\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"_answer\",\"type\":\"int256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setRoundIdAnswer\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_round\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_timestamp\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setTimestamp\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"transferOwnership\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"version\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"current\",\"type\":\"int256\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"AnswerUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"startedBy\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewRound\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"OwnershipTransferRequested\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"OwnershipTransferred\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"accessController\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"aggregator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"description\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_roundId\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint80\",\"name\":\"_roundId\",\"type\":\"uint80\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_roundId\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestAnswerValue\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestRound\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestRoundDataValue\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestRoundValue\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestTimestampValue\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"phaseAggregators\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"phaseId\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"proposedAggregator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint80\",\"name\":\"\",\"type\":\"uint80\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"proposedGetRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"proposedLatestRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint80\",\"name\":\"\",\"type\":\"uint80\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"roundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"roundIdAnswers\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"roundTimestamps\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"_latestAnswer\",\"type\":\"int256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLatestAnswer\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_latestRound\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLatestRound\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"struct MockAggregatorProxy.RoundData\",\"name\":\"_latestRoundData\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLatestRoundData\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_latestTimestamp\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setLatestTimestamp\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"struct MockAggregatorProxy.RoundData\",\"name\":\"_roundData\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setRoundData\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_roundId\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"_answer\",\"type\":\"int256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setRoundIdAnswer\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_round\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_timestamp\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setTimestamp\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"version\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static MOCKAGGREGATORPROXY_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x6080806040523461001657610c42908161001c8239f35b600080fdfe60806040526004361015610013575b600080fd5b60003560e01c80630212dcae1461025e57806304ea97b0146102825780630b8f1e5514610216578063245a7bfc146101ce578063313ce56714610279578063369be1621461027057806350d25bcd146101d757806354fd4d50146101ce57806358303b10146101ce5780636001ac5314610267578063668a0f021461025e5780637284e4161461025557806379ba50971461024c5780637eee1d95146102435780638205bf6a146102435780638da5cb5b146101ce5780638f6b4d911461023a57806392eefe9b146101bc5780639a6fc8f5146102315780639b440660146102285780639f51c5021461021f578063a928c096146101bc578063b5ab58dc14610216578063b633620c1461020d578063bb9467291461020d578063bc43cbaf146101ce578063bc81bae814610204578063c1597304146101fb578063d160c7a9146101f2578063df4a00eb146101e9578063df61c3e2146101e0578063e44d846d146101d7578063e8c4be30146101ce578063ea009699146101c5578063f2fde38b146101bc578063f8a2abd3146101bc5763feaf968c146101b457600080fd5b61000e610b1b565b5061000e61066e565b5061000e610b1b565b5061000e61034b565b5061000e61040c565b5061000e610ae3565b5061000e610a59565b5061000e610a0e565b5061000e6109c6565b5061000e61092a565b5061000e6108df565b5061000e610300565b5061000e6108a7565b5061000e6107c4565b5061000e6106bf565b5061000e610613565b5061000e6105d6565b5061000e6105a4565b5061000e6104c7565b5061000e61028b565b5061000e61045d565b5061000e6103c1565b5061000e610386565b5061000e6102c8565b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e576020600a54604051908152f35b503461000e5760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57600435600855005b503461000e5760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760043560005260016020526020604060002054604051908152f35b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57602060405160008152f35b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57602060405160088152f35b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760043560005260016020526024356040600020556000604051f35b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e576020600854604051908152f35b69ffffffffffffffffffff81160361000e57565b503461000e5760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57610498600435610449565b604051806104c381906000608060a08401938281528260208201528260408201528260608201520152565b0390f35b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e576104ff610bbf565b6003815260207f2e2e2e000000000000000000000000000000000000000000000000000000000081830152604090815192818492835281519182828501526000915b83831061058c575050817fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe092601f921161057f575b01168101030190f35b6000858286010152610576565b81830181015187840187015286945091820191610541565b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57005b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e576020600954604051908152f35b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57604051806104c381906000608060a08401938281528260208201528260408201528260608201520152565b503461000e5760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760043573ffffffffffffffffffffffffffffffffffffffff81160361000e57005b503461000e5760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e576004356106fb81610449565b69ffffffffffffffffffff80911660005260026020526040600020906104c36080610724610bec565b938381541693848652600182015495866020820152600283015491826040830152600460038501549485606085015201541693849101526040519586958693608093969591929660a086019769ffffffffffffffffffff809516875260208701526040860152606085015216910152565b7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc60a091011261000e57600490565b503461000e576108a56107d636610795565b600460808235926107e684610449565b69ffffffffffffffffffff8416600052600260205261084460406000209461080d81610449565b859069ffffffffffffffffffff167fffffffffffffffffffffffffffffffffffffffffffff00000000000000000000825416179055565b60208101356001850155604081013560028501556060810135600385015501359161086e83610449565b019069ffffffffffffffffffff167fffffffffffffffffffffffffffffffffffffffffffff00000000000000000000825416179055565b005b503461000e5760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57600435600955005b503461000e5760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760043560005260006020526020604060002054604051908152f35b503461000e5760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760043561096681610449565b69ffffffffffffffffffff908116600090815260026020818152604092839020805460018201549382015460038301546004909301548651928816835293820194909452938401929092526060830191909152909116608082015260a090f35b503461000e5760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760043561ffff81160361000e57602060405160008152f35b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760043560005260006020526024356040600020556000604051f35b503461000e57610a6836610795565b803590610a7482610449565b608069ffffffffffffffffffff91827fffffffffffffffffffffffffffffffffffffffffffff0000000000000000000094168460035416176003556020810135600455604081013560055560608101356006550135610ad281610449565b169060075416176007556000604051f35b503461000e5760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57600435600a55005b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e576003546004546005546006546007546040805169ffffffffffffffffffff96871681526020810195909552840192909252606083015291909116608082015260a090f35b507f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b604051906040820182811067ffffffffffffffff821117610bdf57604052565b610be7610b8f565b604052565b6040519060a0820182811067ffffffffffffffff821117610bdf5760405256fea26469706673582212208b85dbbb92f0fe2d20889add1ccf9d49ba75171bc4a9028be2bddd5e255a4af164736f6c634300080e0033" . parse () . expect ("invalid bytecode")
+            "0x6080806040523461001657610b50908161001c8239f35b600080fdfe608060409080825260049081361015610018575b600080fd5b600090813560e01c9081630212dcae14610a9c5750806304ea97b014610a635780630b8f1e5514610500578063245a7bfc1461026e578063313ce56714610a29578063369be162146109e657806350d25bcd1461027a57806354fd4d50146109ad57806358303b10146109ad5780636001ac531461093f578063668a0f02146109025780637284e416146107e25780637eee1d95146107a55780638205bf6a146107a55780638da5cb5b1461026e5780638f6b4d911461074b5780639a6fc8f5146106345780639b440660146105805780639f51c50214610547578063b5ab58dc14610500578063b633620c146104ba578063bb946729146104ba578063bc43cbaf1461026e578063bc81bae814610419578063c1597304146103d3578063d160c7a914610391578063df4a00eb146102f8578063df61c3e2146102bb578063e44d846d1461027a578063e8c4be301461026e578063ea009699146101fd5763feaf968c1461018657600080fd5b346101fa57807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101fa57506003549054600554600654600754945169ffffffffffffffffffff94851681526020810193909352604083019190915260608201529116608082015260a090f35b0390f35b80fd5b50346101fa57807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101fa57506003549054600554600654600754945169ffffffffffffffffffff94851681526020810193909352604083019190915260608201529116608082015260a090f35b50505050610013610ad6565b5082346102b757817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102b7576020906008549051908152f35b5080fd5b509190346102f45760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102f45735600a5551f35b8280fd5b509190346102f45760a07ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102f45769ffffffffffffffffffff8061033e610b11565b16917fffffffffffffffffffffffffffffffffffffffffffff00000000000000000000928360035416176003556024359055604435600555606435600655610384610b2a565b1690600754161760075551f35b509190346102f457817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102f457358252816020526024358183205551f35b509190346102f45760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102f4573561ffff8116036102b75751908152602090f35b5091346102f45760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102f45781359269ffffffffffffffffffff938481168091036102b75781526002602081815291839020805460018201549282015460038301549690920154945169ffffffffffffffffffff918816821681529384019290925260408301526060820193909352921616608082015260a090f35b509190346102f45760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102f457602092829135815280845220549051908152f35b509190346102f45760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102f45760209282913581526001845220549051908152f35b509190346102f45760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102f4573560095551f35b509190346102f45760a07ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102f45769ffffffffffffffffffff90816105c7610b11565b168452600260205282842090826105dc610b11565b16917fffffffffffffffffffffffffffffffffffffffffffff0000000000000000000092838254161781556024356001820155604435600282015560643560038201550191610629610b2a565b169082541617905551f35b5082346102b75760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102b75782359269ffffffffffffffffffff9384811680910361074757835260026020528183209180519360a085019085821067ffffffffffffffff83111761071b575091816080936101f6959352868354169586815260018401549788602083015260028501549384848401526003860154958660608501520154169485910152519586958693608093969591929660a086019769ffffffffffffffffffff809516875260208701526040860152606085015216910152565b806041857f4e487b71000000000000000000000000000000000000000000000000000000006024945252fd5b8380fd5b8382346101fa57807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101fa575051806101f681906000608060a08401938281528260208201528260408201528260608201520152565b5082346102b757817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102b7576020906009549051908152f35b508290346101fa57807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101fa578151928284019084821067ffffffffffffffff8311176108d657508293919352600381526020907f2e2e2e0000000000000000000000000000000000000000000000000000000000828201528251938285938452825192838286015282915b8483106108be57505091601f91817fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe094116108b2575b5001168101030190f35b858286010152866108a8565b81830181015188840188015287955091820191610872565b8260416024927f4e487b7100000000000000000000000000000000000000000000000000000000835252fd5b5082346102b757817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102b757602090600a549051908152f35b5090346102b75760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102b7573569ffffffffffffffffffff8116036101fa575051806101f681906000608060a08401938281528260208201528260408201528260608201520152565b5082346102b757817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102b75751908152602090f35b509190346102f457817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102f45735825260016020526024358183205551f35b5082346102b757817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102b7576020905160088152f35b509190346102f45760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102f4573560085551f35b9050346102b757817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102b757602090600a548152f35b50346100135760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261001357602060405160008152f35b60043569ffffffffffffffffffff811681036100135790565b60843569ffffffffffffffffffff81168103610013579056fea164736f6c634300080f000a" . parse () . expect ("invalid bytecode")
         });
     pub struct MockAggregatorProxy<M>(ethers::contract::Contract<M>);
     impl<M> Clone for MockAggregatorProxy<M> {
@@ -94,12 +94,6 @@ mod mockaggregatorproxy_mod {
             let deployer = ethers::contract::ContractDeployer::new(deployer);
             Ok(deployer)
         }
-        #[doc = "Calls the contract's `acceptOwnership` (0x79ba5097) function"]
-        pub fn accept_ownership(&self) -> ethers::contract::builders::ContractCall<M, ()> {
-            self.0
-                .method_hash([121, 186, 80, 151], ())
-                .expect("method not found (this should never happen)")
-        }
         #[doc = "Calls the contract's `accessController` (0xbc43cbaf) function"]
         pub fn access_controller(
             &self,
@@ -114,15 +108,6 @@ mod mockaggregatorproxy_mod {
         ) -> ethers::contract::builders::ContractCall<M, ethers::core::types::Address> {
             self.0
                 .method_hash([36, 90, 123, 252], ())
-                .expect("method not found (this should never happen)")
-        }
-        #[doc = "Calls the contract's `confirmAggregator` (0xa928c096) function"]
-        pub fn confirm_aggregator(
-            &self,
-            aggregator: ethers::core::types::Address,
-        ) -> ethers::contract::builders::ContractCall<M, ()> {
-            self.0
-                .method_hash([169, 40, 192, 150], aggregator)
                 .expect("method not found (this should never happen)")
         }
         #[doc = "Calls the contract's `decimals` (0x313ce567) function"]
@@ -274,15 +259,6 @@ mod mockaggregatorproxy_mod {
                 .method_hash([88, 48, 59, 16], ())
                 .expect("method not found (this should never happen)")
         }
-        #[doc = "Calls the contract's `proposeAggregator` (0xf8a2abd3) function"]
-        pub fn propose_aggregator(
-            &self,
-            aggregator: ethers::core::types::Address,
-        ) -> ethers::contract::builders::ContractCall<M, ()> {
-            self.0
-                .method_hash([248, 162, 171, 211], aggregator)
-                .expect("method not found (this should never happen)")
-        }
         #[doc = "Calls the contract's `proposedAggregator` (0xe8c4be30) function"]
         pub fn proposed_aggregator(
             &self,
@@ -362,15 +338,6 @@ mod mockaggregatorproxy_mod {
                 .method_hash([187, 148, 103, 41], p0)
                 .expect("method not found (this should never happen)")
         }
-        #[doc = "Calls the contract's `setController` (0x92eefe9b) function"]
-        pub fn set_controller(
-            &self,
-            access_controller: ethers::core::types::Address,
-        ) -> ethers::contract::builders::ContractCall<M, ()> {
-            self.0
-                .method_hash([146, 238, 254, 155], access_controller)
-                .expect("method not found (this should never happen)")
-        }
         #[doc = "Calls the contract's `setLatestAnswer` (0x04ea97b0) function"]
         pub fn set_latest_answer(
             &self,
@@ -434,15 +401,6 @@ mod mockaggregatorproxy_mod {
         ) -> ethers::contract::builders::ContractCall<M, ()> {
             self.0
                 .method_hash([209, 96, 199, 169], (round, timestamp))
-                .expect("method not found (this should never happen)")
-        }
-        #[doc = "Calls the contract's `transferOwnership` (0xf2fde38b) function"]
-        pub fn transfer_ownership(
-            &self,
-            to: ethers::core::types::Address,
-        ) -> ethers::contract::builders::ContractCall<M, ()> {
-            self.0
-                .method_hash([242, 253, 227, 139], to)
                 .expect("method not found (this should never happen)")
         }
         #[doc = "Calls the contract's `version` (0x54fd4d50) function"]
@@ -602,19 +560,7 @@ mod mockaggregatorproxy_mod {
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `acceptOwnership`function with signature `acceptOwnership()` and selector `[121, 186, 80, 151]`"]
-    #[derive(
-        Clone,
-        Debug,
-        Default,
-        Eq,
-        PartialEq,
-        ethers :: contract :: EthCall,
-        ethers :: contract :: EthDisplay,
-    )]
-    #[ethcall(name = "acceptOwnership", abi = "acceptOwnership()")]
-    pub struct AcceptOwnershipCall;
-    #[doc = "Container type for all input parameters for the `accessController`function with signature `accessController()` and selector `[188, 67, 203, 175]`"]
+    #[doc = "Container type for all input parameters for the `accessController` function with signature `accessController()` and selector `[188, 67, 203, 175]`"]
     #[derive(
         Clone,
         Debug,
@@ -626,7 +572,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "accessController", abi = "accessController()")]
     pub struct AccessControllerCall;
-    #[doc = "Container type for all input parameters for the `aggregator`function with signature `aggregator()` and selector `[36, 90, 123, 252]`"]
+    #[doc = "Container type for all input parameters for the `aggregator` function with signature `aggregator()` and selector `[36, 90, 123, 252]`"]
     #[derive(
         Clone,
         Debug,
@@ -638,21 +584,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "aggregator", abi = "aggregator()")]
     pub struct AggregatorCall;
-    #[doc = "Container type for all input parameters for the `confirmAggregator`function with signature `confirmAggregator(address)` and selector `[169, 40, 192, 150]`"]
-    #[derive(
-        Clone,
-        Debug,
-        Default,
-        Eq,
-        PartialEq,
-        ethers :: contract :: EthCall,
-        ethers :: contract :: EthDisplay,
-    )]
-    #[ethcall(name = "confirmAggregator", abi = "confirmAggregator(address)")]
-    pub struct ConfirmAggregatorCall {
-        pub aggregator: ethers::core::types::Address,
-    }
-    #[doc = "Container type for all input parameters for the `decimals`function with signature `decimals()` and selector `[49, 60, 229, 103]`"]
+    #[doc = "Container type for all input parameters for the `decimals` function with signature `decimals()` and selector `[49, 60, 229, 103]`"]
     #[derive(
         Clone,
         Debug,
@@ -664,7 +596,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "decimals", abi = "decimals()")]
     pub struct DecimalsCall;
-    #[doc = "Container type for all input parameters for the `description`function with signature `description()` and selector `[114, 132, 228, 22]`"]
+    #[doc = "Container type for all input parameters for the `description` function with signature `description()` and selector `[114, 132, 228, 22]`"]
     #[derive(
         Clone,
         Debug,
@@ -676,7 +608,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "description", abi = "description()")]
     pub struct DescriptionCall;
-    #[doc = "Container type for all input parameters for the `getAnswer`function with signature `getAnswer(uint256)` and selector `[181, 171, 88, 220]`"]
+    #[doc = "Container type for all input parameters for the `getAnswer` function with signature `getAnswer(uint256)` and selector `[181, 171, 88, 220]`"]
     #[derive(
         Clone,
         Debug,
@@ -690,7 +622,7 @@ mod mockaggregatorproxy_mod {
     pub struct GetAnswerCall {
         pub round_id: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `getRoundData`function with signature `getRoundData(uint80)` and selector `[154, 111, 200, 245]`"]
+    #[doc = "Container type for all input parameters for the `getRoundData` function with signature `getRoundData(uint80)` and selector `[154, 111, 200, 245]`"]
     #[derive(
         Clone,
         Debug,
@@ -704,7 +636,7 @@ mod mockaggregatorproxy_mod {
     pub struct GetRoundDataCall {
         pub round_id: u128,
     }
-    #[doc = "Container type for all input parameters for the `getTimestamp`function with signature `getTimestamp(uint256)` and selector `[182, 51, 98, 12]`"]
+    #[doc = "Container type for all input parameters for the `getTimestamp` function with signature `getTimestamp(uint256)` and selector `[182, 51, 98, 12]`"]
     #[derive(
         Clone,
         Debug,
@@ -718,7 +650,7 @@ mod mockaggregatorproxy_mod {
     pub struct GetTimestampCall {
         pub round_id: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `latestAnswer`function with signature `latestAnswer()` and selector `[80, 210, 91, 205]`"]
+    #[doc = "Container type for all input parameters for the `latestAnswer` function with signature `latestAnswer()` and selector `[80, 210, 91, 205]`"]
     #[derive(
         Clone,
         Debug,
@@ -730,7 +662,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "latestAnswer", abi = "latestAnswer()")]
     pub struct LatestAnswerCall;
-    #[doc = "Container type for all input parameters for the `latestAnswerValue`function with signature `latestAnswerValue()` and selector `[228, 77, 132, 109]`"]
+    #[doc = "Container type for all input parameters for the `latestAnswerValue` function with signature `latestAnswerValue()` and selector `[228, 77, 132, 109]`"]
     #[derive(
         Clone,
         Debug,
@@ -742,7 +674,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "latestAnswerValue", abi = "latestAnswerValue()")]
     pub struct LatestAnswerValueCall;
-    #[doc = "Container type for all input parameters for the `latestRound`function with signature `latestRound()` and selector `[102, 138, 15, 2]`"]
+    #[doc = "Container type for all input parameters for the `latestRound` function with signature `latestRound()` and selector `[102, 138, 15, 2]`"]
     #[derive(
         Clone,
         Debug,
@@ -754,7 +686,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "latestRound", abi = "latestRound()")]
     pub struct LatestRoundCall;
-    #[doc = "Container type for all input parameters for the `latestRoundData`function with signature `latestRoundData()` and selector `[254, 175, 150, 140]`"]
+    #[doc = "Container type for all input parameters for the `latestRoundData` function with signature `latestRoundData()` and selector `[254, 175, 150, 140]`"]
     #[derive(
         Clone,
         Debug,
@@ -766,7 +698,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "latestRoundData", abi = "latestRoundData()")]
     pub struct LatestRoundDataCall;
-    #[doc = "Container type for all input parameters for the `latestRoundDataValue`function with signature `latestRoundDataValue()` and selector `[234, 0, 150, 153]`"]
+    #[doc = "Container type for all input parameters for the `latestRoundDataValue` function with signature `latestRoundDataValue()` and selector `[234, 0, 150, 153]`"]
     #[derive(
         Clone,
         Debug,
@@ -778,7 +710,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "latestRoundDataValue", abi = "latestRoundDataValue()")]
     pub struct LatestRoundDataValueCall;
-    #[doc = "Container type for all input parameters for the `latestRoundValue`function with signature `latestRoundValue()` and selector `[2, 18, 220, 174]`"]
+    #[doc = "Container type for all input parameters for the `latestRoundValue` function with signature `latestRoundValue()` and selector `[2, 18, 220, 174]`"]
     #[derive(
         Clone,
         Debug,
@@ -790,7 +722,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "latestRoundValue", abi = "latestRoundValue()")]
     pub struct LatestRoundValueCall;
-    #[doc = "Container type for all input parameters for the `latestTimestamp`function with signature `latestTimestamp()` and selector `[130, 5, 191, 106]`"]
+    #[doc = "Container type for all input parameters for the `latestTimestamp` function with signature `latestTimestamp()` and selector `[130, 5, 191, 106]`"]
     #[derive(
         Clone,
         Debug,
@@ -802,7 +734,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "latestTimestamp", abi = "latestTimestamp()")]
     pub struct LatestTimestampCall;
-    #[doc = "Container type for all input parameters for the `latestTimestampValue`function with signature `latestTimestampValue()` and selector `[126, 238, 29, 149]`"]
+    #[doc = "Container type for all input parameters for the `latestTimestampValue` function with signature `latestTimestampValue()` and selector `[126, 238, 29, 149]`"]
     #[derive(
         Clone,
         Debug,
@@ -814,7 +746,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "latestTimestampValue", abi = "latestTimestampValue()")]
     pub struct LatestTimestampValueCall;
-    #[doc = "Container type for all input parameters for the `owner`function with signature `owner()` and selector `[141, 165, 203, 91]`"]
+    #[doc = "Container type for all input parameters for the `owner` function with signature `owner()` and selector `[141, 165, 203, 91]`"]
     #[derive(
         Clone,
         Debug,
@@ -826,7 +758,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "owner", abi = "owner()")]
     pub struct OwnerCall;
-    #[doc = "Container type for all input parameters for the `phaseAggregators`function with signature `phaseAggregators(uint16)` and selector `[193, 89, 115, 4]`"]
+    #[doc = "Container type for all input parameters for the `phaseAggregators` function with signature `phaseAggregators(uint16)` and selector `[193, 89, 115, 4]`"]
     #[derive(
         Clone,
         Debug,
@@ -838,7 +770,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "phaseAggregators", abi = "phaseAggregators(uint16)")]
     pub struct PhaseAggregatorsCall(pub u16);
-    #[doc = "Container type for all input parameters for the `phaseId`function with signature `phaseId()` and selector `[88, 48, 59, 16]`"]
+    #[doc = "Container type for all input parameters for the `phaseId` function with signature `phaseId()` and selector `[88, 48, 59, 16]`"]
     #[derive(
         Clone,
         Debug,
@@ -850,21 +782,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "phaseId", abi = "phaseId()")]
     pub struct PhaseIdCall;
-    #[doc = "Container type for all input parameters for the `proposeAggregator`function with signature `proposeAggregator(address)` and selector `[248, 162, 171, 211]`"]
-    #[derive(
-        Clone,
-        Debug,
-        Default,
-        Eq,
-        PartialEq,
-        ethers :: contract :: EthCall,
-        ethers :: contract :: EthDisplay,
-    )]
-    #[ethcall(name = "proposeAggregator", abi = "proposeAggregator(address)")]
-    pub struct ProposeAggregatorCall {
-        pub aggregator: ethers::core::types::Address,
-    }
-    #[doc = "Container type for all input parameters for the `proposedAggregator`function with signature `proposedAggregator()` and selector `[232, 196, 190, 48]`"]
+    #[doc = "Container type for all input parameters for the `proposedAggregator` function with signature `proposedAggregator()` and selector `[232, 196, 190, 48]`"]
     #[derive(
         Clone,
         Debug,
@@ -876,7 +794,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "proposedAggregator", abi = "proposedAggregator()")]
     pub struct ProposedAggregatorCall;
-    #[doc = "Container type for all input parameters for the `proposedGetRoundData`function with signature `proposedGetRoundData(uint80)` and selector `[96, 1, 172, 83]`"]
+    #[doc = "Container type for all input parameters for the `proposedGetRoundData` function with signature `proposedGetRoundData(uint80)` and selector `[96, 1, 172, 83]`"]
     #[derive(
         Clone,
         Debug,
@@ -888,7 +806,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "proposedGetRoundData", abi = "proposedGetRoundData(uint80)")]
     pub struct ProposedGetRoundDataCall(pub u128);
-    #[doc = "Container type for all input parameters for the `proposedLatestRoundData`function with signature `proposedLatestRoundData()` and selector `[143, 107, 77, 145]`"]
+    #[doc = "Container type for all input parameters for the `proposedLatestRoundData` function with signature `proposedLatestRoundData()` and selector `[143, 107, 77, 145]`"]
     #[derive(
         Clone,
         Debug,
@@ -900,7 +818,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "proposedLatestRoundData", abi = "proposedLatestRoundData()")]
     pub struct ProposedLatestRoundDataCall;
-    #[doc = "Container type for all input parameters for the `roundData`function with signature `roundData(uint80)` and selector `[188, 129, 186, 232]`"]
+    #[doc = "Container type for all input parameters for the `roundData` function with signature `roundData(uint80)` and selector `[188, 129, 186, 232]`"]
     #[derive(
         Clone,
         Debug,
@@ -912,7 +830,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "roundData", abi = "roundData(uint80)")]
     pub struct RoundDataCall(pub u128);
-    #[doc = "Container type for all input parameters for the `roundIdAnswers`function with signature `roundIdAnswers(uint256)` and selector `[11, 143, 30, 85]`"]
+    #[doc = "Container type for all input parameters for the `roundIdAnswers` function with signature `roundIdAnswers(uint256)` and selector `[11, 143, 30, 85]`"]
     #[derive(
         Clone,
         Debug,
@@ -924,7 +842,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "roundIdAnswers", abi = "roundIdAnswers(uint256)")]
     pub struct RoundIdAnswersCall(pub ethers::core::types::U256);
-    #[doc = "Container type for all input parameters for the `roundTimestamps`function with signature `roundTimestamps(uint256)` and selector `[187, 148, 103, 41]`"]
+    #[doc = "Container type for all input parameters for the `roundTimestamps` function with signature `roundTimestamps(uint256)` and selector `[187, 148, 103, 41]`"]
     #[derive(
         Clone,
         Debug,
@@ -936,21 +854,7 @@ mod mockaggregatorproxy_mod {
     )]
     #[ethcall(name = "roundTimestamps", abi = "roundTimestamps(uint256)")]
     pub struct RoundTimestampsCall(pub ethers::core::types::U256);
-    #[doc = "Container type for all input parameters for the `setController`function with signature `setController(address)` and selector `[146, 238, 254, 155]`"]
-    #[derive(
-        Clone,
-        Debug,
-        Default,
-        Eq,
-        PartialEq,
-        ethers :: contract :: EthCall,
-        ethers :: contract :: EthDisplay,
-    )]
-    #[ethcall(name = "setController", abi = "setController(address)")]
-    pub struct SetControllerCall {
-        pub access_controller: ethers::core::types::Address,
-    }
-    #[doc = "Container type for all input parameters for the `setLatestAnswer`function with signature `setLatestAnswer(int256)` and selector `[4, 234, 151, 176]`"]
+    #[doc = "Container type for all input parameters for the `setLatestAnswer` function with signature `setLatestAnswer(int256)` and selector `[4, 234, 151, 176]`"]
     #[derive(
         Clone,
         Debug,
@@ -964,7 +868,7 @@ mod mockaggregatorproxy_mod {
     pub struct SetLatestAnswerCall {
         pub latest_answer: I256,
     }
-    #[doc = "Container type for all input parameters for the `setLatestRound`function with signature `setLatestRound(uint256)` and selector `[223, 97, 195, 226]`"]
+    #[doc = "Container type for all input parameters for the `setLatestRound` function with signature `setLatestRound(uint256)` and selector `[223, 97, 195, 226]`"]
     #[derive(
         Clone,
         Debug,
@@ -978,7 +882,7 @@ mod mockaggregatorproxy_mod {
     pub struct SetLatestRoundCall {
         pub latest_round: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setLatestRoundData`function with signature `setLatestRoundData((uint80,int256,uint256,uint256,uint80))` and selector `[223, 74, 0, 235]`"]
+    #[doc = "Container type for all input parameters for the `setLatestRoundData` function with signature `setLatestRoundData((uint80,int256,uint256,uint256,uint80))` and selector `[223, 74, 0, 235]`"]
     #[derive(
         Clone,
         Debug,
@@ -995,7 +899,7 @@ mod mockaggregatorproxy_mod {
     pub struct SetLatestRoundDataCall {
         pub latest_round_data: RoundData,
     }
-    #[doc = "Container type for all input parameters for the `setLatestTimestamp`function with signature `setLatestTimestamp(uint256)` and selector `[159, 81, 197, 2]`"]
+    #[doc = "Container type for all input parameters for the `setLatestTimestamp` function with signature `setLatestTimestamp(uint256)` and selector `[159, 81, 197, 2]`"]
     #[derive(
         Clone,
         Debug,
@@ -1009,7 +913,7 @@ mod mockaggregatorproxy_mod {
     pub struct SetLatestTimestampCall {
         pub latest_timestamp: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setRoundData`function with signature `setRoundData((uint80,int256,uint256,uint256,uint80))` and selector `[155, 68, 6, 96]`"]
+    #[doc = "Container type for all input parameters for the `setRoundData` function with signature `setRoundData((uint80,int256,uint256,uint256,uint80))` and selector `[155, 68, 6, 96]`"]
     #[derive(
         Clone,
         Debug,
@@ -1026,7 +930,7 @@ mod mockaggregatorproxy_mod {
     pub struct SetRoundDataCall {
         pub round_data: RoundData,
     }
-    #[doc = "Container type for all input parameters for the `setRoundIdAnswer`function with signature `setRoundIdAnswer(uint256,int256)` and selector `[54, 155, 225, 98]`"]
+    #[doc = "Container type for all input parameters for the `setRoundIdAnswer` function with signature `setRoundIdAnswer(uint256,int256)` and selector `[54, 155, 225, 98]`"]
     #[derive(
         Clone,
         Debug,
@@ -1041,7 +945,7 @@ mod mockaggregatorproxy_mod {
         pub round_id: ethers::core::types::U256,
         pub answer: I256,
     }
-    #[doc = "Container type for all input parameters for the `setTimestamp`function with signature `setTimestamp(uint256,uint256)` and selector `[209, 96, 199, 169]`"]
+    #[doc = "Container type for all input parameters for the `setTimestamp` function with signature `setTimestamp(uint256,uint256)` and selector `[209, 96, 199, 169]`"]
     #[derive(
         Clone,
         Debug,
@@ -1056,21 +960,7 @@ mod mockaggregatorproxy_mod {
         pub round: ethers::core::types::U256,
         pub timestamp: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `transferOwnership`function with signature `transferOwnership(address)` and selector `[242, 253, 227, 139]`"]
-    #[derive(
-        Clone,
-        Debug,
-        Default,
-        Eq,
-        PartialEq,
-        ethers :: contract :: EthCall,
-        ethers :: contract :: EthDisplay,
-    )]
-    #[ethcall(name = "transferOwnership", abi = "transferOwnership(address)")]
-    pub struct TransferOwnershipCall {
-        pub to: ethers::core::types::Address,
-    }
-    #[doc = "Container type for all input parameters for the `version`function with signature `version()` and selector `[84, 253, 77, 80]`"]
+    #[doc = "Container type for all input parameters for the `version` function with signature `version()` and selector `[84, 253, 77, 80]`"]
     #[derive(
         Clone,
         Debug,
@@ -1084,10 +974,8 @@ mod mockaggregatorproxy_mod {
     pub struct VersionCall;
     #[derive(Debug, Clone, PartialEq, Eq, ethers :: contract :: EthAbiType)]
     pub enum MockAggregatorProxyCalls {
-        AcceptOwnership(AcceptOwnershipCall),
         AccessController(AccessControllerCall),
         Aggregator(AggregatorCall),
-        ConfirmAggregator(ConfirmAggregatorCall),
         Decimals(DecimalsCall),
         Description(DescriptionCall),
         GetAnswer(GetAnswerCall),
@@ -1104,14 +992,12 @@ mod mockaggregatorproxy_mod {
         Owner(OwnerCall),
         PhaseAggregators(PhaseAggregatorsCall),
         PhaseId(PhaseIdCall),
-        ProposeAggregator(ProposeAggregatorCall),
         ProposedAggregator(ProposedAggregatorCall),
         ProposedGetRoundData(ProposedGetRoundDataCall),
         ProposedLatestRoundData(ProposedLatestRoundDataCall),
         RoundData(RoundDataCall),
         RoundIdAnswers(RoundIdAnswersCall),
         RoundTimestamps(RoundTimestampsCall),
-        SetController(SetControllerCall),
         SetLatestAnswer(SetLatestAnswerCall),
         SetLatestRound(SetLatestRoundCall),
         SetLatestRoundData(SetLatestRoundDataCall),
@@ -1119,16 +1005,10 @@ mod mockaggregatorproxy_mod {
         SetRoundData(SetRoundDataCall),
         SetRoundIdAnswer(SetRoundIdAnswerCall),
         SetTimestamp(SetTimestampCall),
-        TransferOwnership(TransferOwnershipCall),
         Version(VersionCall),
     }
     impl ethers::core::abi::AbiDecode for MockAggregatorProxyCalls {
         fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
-            if let Ok(decoded) =
-                <AcceptOwnershipCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
-            {
-                return Ok(MockAggregatorProxyCalls::AcceptOwnership(decoded));
-            }
             if let Ok(decoded) =
                 <AccessControllerCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -1138,11 +1018,6 @@ mod mockaggregatorproxy_mod {
                 <AggregatorCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
                 return Ok(MockAggregatorProxyCalls::Aggregator(decoded));
-            }
-            if let Ok(decoded) =
-                <ConfirmAggregatorCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
-            {
-                return Ok(MockAggregatorProxyCalls::ConfirmAggregator(decoded));
             }
             if let Ok(decoded) =
                 <DecimalsCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
@@ -1224,11 +1099,6 @@ mod mockaggregatorproxy_mod {
                 return Ok(MockAggregatorProxyCalls::PhaseId(decoded));
             }
             if let Ok(decoded) =
-                <ProposeAggregatorCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
-            {
-                return Ok(MockAggregatorProxyCalls::ProposeAggregator(decoded));
-            }
-            if let Ok(decoded) =
                 <ProposedAggregatorCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
                 return Ok(MockAggregatorProxyCalls::ProposedAggregator(decoded));
@@ -1257,11 +1127,6 @@ mod mockaggregatorproxy_mod {
                 <RoundTimestampsCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
                 return Ok(MockAggregatorProxyCalls::RoundTimestamps(decoded));
-            }
-            if let Ok(decoded) =
-                <SetControllerCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
-            {
-                return Ok(MockAggregatorProxyCalls::SetController(decoded));
             }
             if let Ok(decoded) =
                 <SetLatestAnswerCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
@@ -1299,11 +1164,6 @@ mod mockaggregatorproxy_mod {
                 return Ok(MockAggregatorProxyCalls::SetTimestamp(decoded));
             }
             if let Ok(decoded) =
-                <TransferOwnershipCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
-            {
-                return Ok(MockAggregatorProxyCalls::TransferOwnership(decoded));
-            }
-            if let Ok(decoded) =
                 <VersionCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
                 return Ok(MockAggregatorProxyCalls::Version(decoded));
@@ -1314,10 +1174,8 @@ mod mockaggregatorproxy_mod {
     impl ethers::core::abi::AbiEncode for MockAggregatorProxyCalls {
         fn encode(self) -> Vec<u8> {
             match self {
-                MockAggregatorProxyCalls::AcceptOwnership(element) => element.encode(),
                 MockAggregatorProxyCalls::AccessController(element) => element.encode(),
                 MockAggregatorProxyCalls::Aggregator(element) => element.encode(),
-                MockAggregatorProxyCalls::ConfirmAggregator(element) => element.encode(),
                 MockAggregatorProxyCalls::Decimals(element) => element.encode(),
                 MockAggregatorProxyCalls::Description(element) => element.encode(),
                 MockAggregatorProxyCalls::GetAnswer(element) => element.encode(),
@@ -1334,14 +1192,12 @@ mod mockaggregatorproxy_mod {
                 MockAggregatorProxyCalls::Owner(element) => element.encode(),
                 MockAggregatorProxyCalls::PhaseAggregators(element) => element.encode(),
                 MockAggregatorProxyCalls::PhaseId(element) => element.encode(),
-                MockAggregatorProxyCalls::ProposeAggregator(element) => element.encode(),
                 MockAggregatorProxyCalls::ProposedAggregator(element) => element.encode(),
                 MockAggregatorProxyCalls::ProposedGetRoundData(element) => element.encode(),
                 MockAggregatorProxyCalls::ProposedLatestRoundData(element) => element.encode(),
                 MockAggregatorProxyCalls::RoundData(element) => element.encode(),
                 MockAggregatorProxyCalls::RoundIdAnswers(element) => element.encode(),
                 MockAggregatorProxyCalls::RoundTimestamps(element) => element.encode(),
-                MockAggregatorProxyCalls::SetController(element) => element.encode(),
                 MockAggregatorProxyCalls::SetLatestAnswer(element) => element.encode(),
                 MockAggregatorProxyCalls::SetLatestRound(element) => element.encode(),
                 MockAggregatorProxyCalls::SetLatestRoundData(element) => element.encode(),
@@ -1349,7 +1205,6 @@ mod mockaggregatorproxy_mod {
                 MockAggregatorProxyCalls::SetRoundData(element) => element.encode(),
                 MockAggregatorProxyCalls::SetRoundIdAnswer(element) => element.encode(),
                 MockAggregatorProxyCalls::SetTimestamp(element) => element.encode(),
-                MockAggregatorProxyCalls::TransferOwnership(element) => element.encode(),
                 MockAggregatorProxyCalls::Version(element) => element.encode(),
             }
         }
@@ -1357,10 +1212,8 @@ mod mockaggregatorproxy_mod {
     impl ::std::fmt::Display for MockAggregatorProxyCalls {
         fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
             match self {
-                MockAggregatorProxyCalls::AcceptOwnership(element) => element.fmt(f),
                 MockAggregatorProxyCalls::AccessController(element) => element.fmt(f),
                 MockAggregatorProxyCalls::Aggregator(element) => element.fmt(f),
-                MockAggregatorProxyCalls::ConfirmAggregator(element) => element.fmt(f),
                 MockAggregatorProxyCalls::Decimals(element) => element.fmt(f),
                 MockAggregatorProxyCalls::Description(element) => element.fmt(f),
                 MockAggregatorProxyCalls::GetAnswer(element) => element.fmt(f),
@@ -1377,14 +1230,12 @@ mod mockaggregatorproxy_mod {
                 MockAggregatorProxyCalls::Owner(element) => element.fmt(f),
                 MockAggregatorProxyCalls::PhaseAggregators(element) => element.fmt(f),
                 MockAggregatorProxyCalls::PhaseId(element) => element.fmt(f),
-                MockAggregatorProxyCalls::ProposeAggregator(element) => element.fmt(f),
                 MockAggregatorProxyCalls::ProposedAggregator(element) => element.fmt(f),
                 MockAggregatorProxyCalls::ProposedGetRoundData(element) => element.fmt(f),
                 MockAggregatorProxyCalls::ProposedLatestRoundData(element) => element.fmt(f),
                 MockAggregatorProxyCalls::RoundData(element) => element.fmt(f),
                 MockAggregatorProxyCalls::RoundIdAnswers(element) => element.fmt(f),
                 MockAggregatorProxyCalls::RoundTimestamps(element) => element.fmt(f),
-                MockAggregatorProxyCalls::SetController(element) => element.fmt(f),
                 MockAggregatorProxyCalls::SetLatestAnswer(element) => element.fmt(f),
                 MockAggregatorProxyCalls::SetLatestRound(element) => element.fmt(f),
                 MockAggregatorProxyCalls::SetLatestRoundData(element) => element.fmt(f),
@@ -1392,14 +1243,8 @@ mod mockaggregatorproxy_mod {
                 MockAggregatorProxyCalls::SetRoundData(element) => element.fmt(f),
                 MockAggregatorProxyCalls::SetRoundIdAnswer(element) => element.fmt(f),
                 MockAggregatorProxyCalls::SetTimestamp(element) => element.fmt(f),
-                MockAggregatorProxyCalls::TransferOwnership(element) => element.fmt(f),
                 MockAggregatorProxyCalls::Version(element) => element.fmt(f),
             }
-        }
-    }
-    impl ::std::convert::From<AcceptOwnershipCall> for MockAggregatorProxyCalls {
-        fn from(var: AcceptOwnershipCall) -> Self {
-            MockAggregatorProxyCalls::AcceptOwnership(var)
         }
     }
     impl ::std::convert::From<AccessControllerCall> for MockAggregatorProxyCalls {
@@ -1410,11 +1255,6 @@ mod mockaggregatorproxy_mod {
     impl ::std::convert::From<AggregatorCall> for MockAggregatorProxyCalls {
         fn from(var: AggregatorCall) -> Self {
             MockAggregatorProxyCalls::Aggregator(var)
-        }
-    }
-    impl ::std::convert::From<ConfirmAggregatorCall> for MockAggregatorProxyCalls {
-        fn from(var: ConfirmAggregatorCall) -> Self {
-            MockAggregatorProxyCalls::ConfirmAggregator(var)
         }
     }
     impl ::std::convert::From<DecimalsCall> for MockAggregatorProxyCalls {
@@ -1497,11 +1337,6 @@ mod mockaggregatorproxy_mod {
             MockAggregatorProxyCalls::PhaseId(var)
         }
     }
-    impl ::std::convert::From<ProposeAggregatorCall> for MockAggregatorProxyCalls {
-        fn from(var: ProposeAggregatorCall) -> Self {
-            MockAggregatorProxyCalls::ProposeAggregator(var)
-        }
-    }
     impl ::std::convert::From<ProposedAggregatorCall> for MockAggregatorProxyCalls {
         fn from(var: ProposedAggregatorCall) -> Self {
             MockAggregatorProxyCalls::ProposedAggregator(var)
@@ -1530,11 +1365,6 @@ mod mockaggregatorproxy_mod {
     impl ::std::convert::From<RoundTimestampsCall> for MockAggregatorProxyCalls {
         fn from(var: RoundTimestampsCall) -> Self {
             MockAggregatorProxyCalls::RoundTimestamps(var)
-        }
-    }
-    impl ::std::convert::From<SetControllerCall> for MockAggregatorProxyCalls {
-        fn from(var: SetControllerCall) -> Self {
-            MockAggregatorProxyCalls::SetController(var)
         }
     }
     impl ::std::convert::From<SetLatestAnswerCall> for MockAggregatorProxyCalls {
@@ -1572,16 +1402,322 @@ mod mockaggregatorproxy_mod {
             MockAggregatorProxyCalls::SetTimestamp(var)
         }
     }
-    impl ::std::convert::From<TransferOwnershipCall> for MockAggregatorProxyCalls {
-        fn from(var: TransferOwnershipCall) -> Self {
-            MockAggregatorProxyCalls::TransferOwnership(var)
-        }
-    }
     impl ::std::convert::From<VersionCall> for MockAggregatorProxyCalls {
         fn from(var: VersionCall) -> Self {
             MockAggregatorProxyCalls::Version(var)
         }
     }
+    #[doc = "Container type for all return fields from the `accessController` function with signature `accessController()` and selector `[188, 67, 203, 175]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AccessControllerReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `aggregator` function with signature `aggregator()` and selector `[36, 90, 123, 252]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AggregatorReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `decimals` function with signature `decimals()` and selector `[49, 60, 229, 103]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DecimalsReturn(pub u8);
+    #[doc = "Container type for all return fields from the `description` function with signature `description()` and selector `[114, 132, 228, 22]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DescriptionReturn(pub String);
+    #[doc = "Container type for all return fields from the `getAnswer` function with signature `getAnswer(uint256)` and selector `[181, 171, 88, 220]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAnswerReturn(pub I256);
+    #[doc = "Container type for all return fields from the `getRoundData` function with signature `getRoundData(uint80)` and selector `[154, 111, 200, 245]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetRoundDataReturn {
+        pub round_id: u128,
+        pub answer: I256,
+        pub started_at: ethers::core::types::U256,
+        pub updated_at: ethers::core::types::U256,
+        pub answered_in_round: u128,
+    }
+    #[doc = "Container type for all return fields from the `getTimestamp` function with signature `getTimestamp(uint256)` and selector `[182, 51, 98, 12]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetTimestampReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `latestAnswer` function with signature `latestAnswer()` and selector `[80, 210, 91, 205]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestAnswerReturn(pub I256);
+    #[doc = "Container type for all return fields from the `latestAnswerValue` function with signature `latestAnswerValue()` and selector `[228, 77, 132, 109]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestAnswerValueReturn(pub I256);
+    #[doc = "Container type for all return fields from the `latestRound` function with signature `latestRound()` and selector `[102, 138, 15, 2]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestRoundReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `latestRoundData` function with signature `latestRoundData()` and selector `[254, 175, 150, 140]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestRoundDataReturn {
+        pub round_id: u128,
+        pub answer: I256,
+        pub started_at: ethers::core::types::U256,
+        pub updated_at: ethers::core::types::U256,
+        pub answered_in_round: u128,
+    }
+    #[doc = "Container type for all return fields from the `latestRoundDataValue` function with signature `latestRoundDataValue()` and selector `[234, 0, 150, 153]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestRoundDataValueReturn {
+        pub round_id: u128,
+        pub answer: I256,
+        pub started_at: ethers::core::types::U256,
+        pub updated_at: ethers::core::types::U256,
+        pub answered_in_round: u128,
+    }
+    #[doc = "Container type for all return fields from the `latestRoundValue` function with signature `latestRoundValue()` and selector `[2, 18, 220, 174]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestRoundValueReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `latestTimestamp` function with signature `latestTimestamp()` and selector `[130, 5, 191, 106]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestTimestampReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `latestTimestampValue` function with signature `latestTimestampValue()` and selector `[126, 238, 29, 149]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestTimestampValueReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `owner` function with signature `owner()` and selector `[141, 165, 203, 91]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OwnerReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `phaseAggregators` function with signature `phaseAggregators(uint16)` and selector `[193, 89, 115, 4]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PhaseAggregatorsReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `phaseId` function with signature `phaseId()` and selector `[88, 48, 59, 16]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PhaseIdReturn(pub u16);
+    #[doc = "Container type for all return fields from the `proposedAggregator` function with signature `proposedAggregator()` and selector `[232, 196, 190, 48]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ProposedAggregatorReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `proposedGetRoundData` function with signature `proposedGetRoundData(uint80)` and selector `[96, 1, 172, 83]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ProposedGetRoundDataReturn {
+        pub round_id: u128,
+        pub answer: I256,
+        pub started_at: ethers::core::types::U256,
+        pub updated_at: ethers::core::types::U256,
+        pub answered_in_round: u128,
+    }
+    #[doc = "Container type for all return fields from the `proposedLatestRoundData` function with signature `proposedLatestRoundData()` and selector `[143, 107, 77, 145]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ProposedLatestRoundDataReturn {
+        pub round_id: u128,
+        pub answer: I256,
+        pub started_at: ethers::core::types::U256,
+        pub updated_at: ethers::core::types::U256,
+        pub answered_in_round: u128,
+    }
+    #[doc = "Container type for all return fields from the `roundData` function with signature `roundData(uint80)` and selector `[188, 129, 186, 232]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RoundDataReturn {
+        pub round_id: u128,
+        pub answer: I256,
+        pub started_at: ethers::core::types::U256,
+        pub updated_at: ethers::core::types::U256,
+        pub answered_in_round: u128,
+    }
+    #[doc = "Container type for all return fields from the `roundIdAnswers` function with signature `roundIdAnswers(uint256)` and selector `[11, 143, 30, 85]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RoundIdAnswersReturn(pub I256);
+    #[doc = "Container type for all return fields from the `roundTimestamps` function with signature `roundTimestamps(uint256)` and selector `[187, 148, 103, 41]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RoundTimestampsReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `version` function with signature `version()` and selector `[84, 253, 77, 80]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct VersionReturn(pub ethers::core::types::U256);
     #[doc = "`RoundData(uint80,int256,uint256,uint256,uint80)`"]
     #[derive(
         Clone,

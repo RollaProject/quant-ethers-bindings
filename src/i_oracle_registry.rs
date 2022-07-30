@@ -1,6 +1,6 @@
-pub use ioracleregistry_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod ioracleregistry_mod {
+pub use i_oracle_registry::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod i_oracle_registry {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,7 +18,7 @@ mod ioracleregistry_mod {
     use std::sync::Arc;
     pub static IORACLEREGISTRY_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ActivatedOracle\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint248\",\"name\":\"oracleId\",\"type\":\"uint248\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"AddedOracle\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"DeactivatedOracle\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"activateOracle\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addOracle\",\"outputs\":[{\"internalType\":\"uint248\",\"name\":\"\",\"type\":\"uint248\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"deactivateOracle\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getOracleId\",\"outputs\":[{\"internalType\":\"uint248\",\"name\":\"\",\"type\":\"uint248\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getOraclesLength\",\"outputs\":[{\"internalType\":\"uint248\",\"name\":\"\",\"type\":\"uint248\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isOracleActive\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isOracleRegistered\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"oracleInfo\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint248\",\"name\":\"\",\"type\":\"uint248\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"oracles\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"ActivatedOracle\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint248\",\"name\":\"oracleId\",\"type\":\"uint248\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"AddedOracle\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"DeactivatedOracle\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"activateOracle\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addOracle\",\"outputs\":[{\"internalType\":\"uint248\",\"name\":\"\",\"type\":\"uint248\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"deactivateOracle\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getOracleId\",\"outputs\":[{\"internalType\":\"uint248\",\"name\":\"\",\"type\":\"uint248\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getOraclesLength\",\"outputs\":[{\"internalType\":\"uint248\",\"name\":\"\",\"type\":\"uint248\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isOracleActive\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isOracleRegistered\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"oracleInfo\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint248\",\"name\":\"\",\"type\":\"uint248\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"oracles\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     pub struct IOracleRegistry<M>(ethers::contract::Contract<M>);
     impl<M> Clone for IOracleRegistry<M> {
@@ -231,7 +231,7 @@ mod ioracleregistry_mod {
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `activateOracle`function with signature `activateOracle(address)` and selector `[122, 138, 1, 71]`"]
+    #[doc = "Container type for all input parameters for the `activateOracle` function with signature `activateOracle(address)` and selector `[122, 138, 1, 71]`"]
     #[derive(
         Clone,
         Debug,
@@ -245,7 +245,7 @@ mod ioracleregistry_mod {
     pub struct ActivateOracleCall {
         pub oracle: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `addOracle`function with signature `addOracle(address)` and selector `[223, 93, 209, 165]`"]
+    #[doc = "Container type for all input parameters for the `addOracle` function with signature `addOracle(address)` and selector `[223, 93, 209, 165]`"]
     #[derive(
         Clone,
         Debug,
@@ -259,7 +259,7 @@ mod ioracleregistry_mod {
     pub struct AddOracleCall {
         pub oracle: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `deactivateOracle`function with signature `deactivateOracle(address)` and selector `[237, 105, 198, 4]`"]
+    #[doc = "Container type for all input parameters for the `deactivateOracle` function with signature `deactivateOracle(address)` and selector `[237, 105, 198, 4]`"]
     #[derive(
         Clone,
         Debug,
@@ -273,7 +273,7 @@ mod ioracleregistry_mod {
     pub struct DeactivateOracleCall {
         pub oracle: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getOracleId`function with signature `getOracleId(address)` and selector `[188, 19, 135, 42]`"]
+    #[doc = "Container type for all input parameters for the `getOracleId` function with signature `getOracleId(address)` and selector `[188, 19, 135, 42]`"]
     #[derive(
         Clone,
         Debug,
@@ -287,7 +287,7 @@ mod ioracleregistry_mod {
     pub struct GetOracleIdCall {
         pub oracle: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getOraclesLength`function with signature `getOraclesLength()` and selector `[227, 8, 178, 117]`"]
+    #[doc = "Container type for all input parameters for the `getOraclesLength` function with signature `getOraclesLength()` and selector `[227, 8, 178, 117]`"]
     #[derive(
         Clone,
         Debug,
@@ -299,7 +299,7 @@ mod ioracleregistry_mod {
     )]
     #[ethcall(name = "getOraclesLength", abi = "getOraclesLength()")]
     pub struct GetOraclesLengthCall;
-    #[doc = "Container type for all input parameters for the `isOracleActive`function with signature `isOracleActive(address)` and selector `[5, 242, 157, 15]`"]
+    #[doc = "Container type for all input parameters for the `isOracleActive` function with signature `isOracleActive(address)` and selector `[5, 242, 157, 15]`"]
     #[derive(
         Clone,
         Debug,
@@ -313,7 +313,7 @@ mod ioracleregistry_mod {
     pub struct IsOracleActiveCall {
         pub oracle: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `isOracleRegistered`function with signature `isOracleRegistered(address)` and selector `[185, 181, 92, 154]`"]
+    #[doc = "Container type for all input parameters for the `isOracleRegistered` function with signature `isOracleRegistered(address)` and selector `[185, 181, 92, 154]`"]
     #[derive(
         Clone,
         Debug,
@@ -327,7 +327,7 @@ mod ioracleregistry_mod {
     pub struct IsOracleRegisteredCall {
         pub oracle: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `oracleInfo`function with signature `oracleInfo(address)` and selector `[188, 98, 63, 235]`"]
+    #[doc = "Container type for all input parameters for the `oracleInfo` function with signature `oracleInfo(address)` and selector `[188, 98, 63, 235]`"]
     #[derive(
         Clone,
         Debug,
@@ -339,7 +339,7 @@ mod ioracleregistry_mod {
     )]
     #[ethcall(name = "oracleInfo", abi = "oracleInfo(address)")]
     pub struct OracleInfoCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `oracles`function with signature `oracles(uint256)` and selector `[91, 105, 167, 216]`"]
+    #[doc = "Container type for all input parameters for the `oracles` function with signature `oracles(uint256)` and selector `[91, 105, 167, 216]`"]
     #[derive(
         Clone,
         Debug,
@@ -488,4 +488,103 @@ mod ioracleregistry_mod {
             IOracleRegistryCalls::Oracles(var)
         }
     }
+    #[doc = "Container type for all return fields from the `activateOracle` function with signature `activateOracle(address)` and selector `[122, 138, 1, 71]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ActivateOracleReturn(pub bool);
+    #[doc = "Container type for all return fields from the `addOracle` function with signature `addOracle(address)` and selector `[223, 93, 209, 165]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AddOracleReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `deactivateOracle` function with signature `deactivateOracle(address)` and selector `[237, 105, 198, 4]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DeactivateOracleReturn(pub bool);
+    #[doc = "Container type for all return fields from the `getOracleId` function with signature `getOracleId(address)` and selector `[188, 19, 135, 42]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetOracleIdReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getOraclesLength` function with signature `getOraclesLength()` and selector `[227, 8, 178, 117]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetOraclesLengthReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `isOracleActive` function with signature `isOracleActive(address)` and selector `[5, 242, 157, 15]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsOracleActiveReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isOracleRegistered` function with signature `isOracleRegistered(address)` and selector `[185, 181, 92, 154]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsOracleRegisteredReturn(pub bool);
+    #[doc = "Container type for all return fields from the `oracleInfo` function with signature `oracleInfo(address)` and selector `[188, 98, 63, 235]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OracleInfoReturn(pub bool, pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `oracles` function with signature `oracles(uint256)` and selector `[91, 105, 167, 216]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OraclesReturn(pub ethers::core::types::Address);
 }

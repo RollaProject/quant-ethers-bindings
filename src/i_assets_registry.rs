@@ -1,6 +1,6 @@
-pub use iassetsregistry_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod iassetsregistry_mod {
+pub use i_assets_registry::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod i_assets_registry {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,7 +18,7 @@ mod iassetsregistry_mod {
     use std::sync::Arc;
     pub static IASSETSREGISTRY_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"underlying\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint8\",\"name\":\"decimals\",\"type\":\"uint8\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"AssetAdded\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlying\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"_symbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"_decimals\",\"type\":\"uint8\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addAsset\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlying\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addAssetWithOptionalERC20Methods\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"assetProperties\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"decimals\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"isRegistered\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetsLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"length\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"registeredAssets\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"underlying\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint8\",\"name\":\"decimals\",\"type\":\"uint8\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"AssetAdded\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlying\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"_symbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"_decimals\",\"type\":\"uint8\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addAsset\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlying\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"addAssetWithOptionalERC20Methods\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"assetProperties\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"decimals\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"isRegistered\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAssetsLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"length\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"registeredAssets\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     pub struct IAssetsRegistry<M>(ethers::contract::Contract<M>);
     impl<M> Clone for IAssetsRegistry<M> {
@@ -128,7 +128,7 @@ mod iassetsregistry_mod {
         pub symbol: String,
         pub decimals: u8,
     }
-    #[doc = "Container type for all input parameters for the `addAsset`function with signature `addAsset(address,string,string,uint8)` and selector `[99, 228, 213, 29]`"]
+    #[doc = "Container type for all input parameters for the `addAsset` function with signature `addAsset(address,string,string,uint8)` and selector `[99, 228, 213, 29]`"]
     #[derive(
         Clone,
         Debug,
@@ -145,7 +145,7 @@ mod iassetsregistry_mod {
         pub symbol: String,
         pub decimals: u8,
     }
-    #[doc = "Container type for all input parameters for the `addAssetWithOptionalERC20Methods`function with signature `addAssetWithOptionalERC20Methods(address)` and selector `[79, 99, 104, 66]`"]
+    #[doc = "Container type for all input parameters for the `addAssetWithOptionalERC20Methods` function with signature `addAssetWithOptionalERC20Methods(address)` and selector `[79, 99, 104, 66]`"]
     #[derive(
         Clone,
         Debug,
@@ -162,7 +162,7 @@ mod iassetsregistry_mod {
     pub struct AddAssetWithOptionalERC20MethodsCall {
         pub underlying: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `assetProperties`function with signature `assetProperties(address)` and selector `[187, 148, 83, 165]`"]
+    #[doc = "Container type for all input parameters for the `assetProperties` function with signature `assetProperties(address)` and selector `[187, 148, 83, 165]`"]
     #[derive(
         Clone,
         Debug,
@@ -176,7 +176,7 @@ mod iassetsregistry_mod {
     pub struct AssetPropertiesCall {
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getAssetsLength`function with signature `getAssetsLength()` and selector `[168, 157, 73, 12]`"]
+    #[doc = "Container type for all input parameters for the `getAssetsLength` function with signature `getAssetsLength()` and selector `[168, 157, 73, 12]`"]
     #[derive(
         Clone,
         Debug,
@@ -188,7 +188,7 @@ mod iassetsregistry_mod {
     )]
     #[ethcall(name = "getAssetsLength", abi = "getAssetsLength()")]
     pub struct GetAssetsLengthCall;
-    #[doc = "Container type for all input parameters for the `registeredAssets`function with signature `registeredAssets(uint256)` and selector `[160, 131, 189, 60]`"]
+    #[doc = "Container type for all input parameters for the `registeredAssets` function with signature `registeredAssets(uint256)` and selector `[160, 131, 189, 60]`"]
     #[derive(
         Clone,
         Debug,
@@ -290,5 +290,47 @@ mod iassetsregistry_mod {
         fn from(var: RegisteredAssetsCall) -> Self {
             IAssetsRegistryCalls::RegisteredAssets(var)
         }
+    }
+    #[doc = "Container type for all return fields from the `assetProperties` function with signature `assetProperties(address)` and selector `[187, 148, 83, 165]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AssetPropertiesReturn {
+        pub name: String,
+        pub symbol: String,
+        pub decimals: u8,
+        pub is_registered: bool,
+    }
+    #[doc = "Container type for all return fields from the `getAssetsLength` function with signature `getAssetsLength()` and selector `[168, 157, 73, 12]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAssetsLengthReturn {
+        pub length: ethers::core::types::U256,
+    }
+    #[doc = "Container type for all return fields from the `registeredAssets` function with signature `registeredAssets(uint256)` and selector `[160, 131, 189, 60]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct RegisteredAssetsReturn {
+        pub asset: ethers::core::types::Address,
     }
 }

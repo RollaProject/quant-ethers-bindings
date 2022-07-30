@@ -1,6 +1,6 @@
-pub use icollateraltoken_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod icollateraltoken_mod {
+pub use i_collateral_token::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod i_collateral_token {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,7 +18,7 @@ mod icollateraltoken_mod {
     use std::sync::Arc;
     pub static ICOLLATERALTOKEN_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"qTokenAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"qTokenAsCollateral\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"CollateralTokenCreated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"collateralTokenId\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"burnCollateralToken\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_qTokenAddress\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"createOptionCollateralToken\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_qTokenAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_qTokenAsCollateral\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"createSpreadCollateralToken\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_qTokenAsCollateral\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"getCollateralTokenId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"idToInfo\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"nonce\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"metaSetApprovalForAll\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"collateralTokenId\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"mintCollateralToken\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"optionsFactory_\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setOptionsFactory\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"qTokenAddress\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"qTokenAsCollateral\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"CollateralTokenCreated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"collateralTokenId\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"burnCollateralToken\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_qTokenAddress\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"createOptionCollateralToken\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_qTokenAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_qTokenAsCollateral\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"createSpreadCollateralToken\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_qTokenAsCollateral\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"getCollateralTokenId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"idToInfo\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"nonce\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"metaSetApprovalForAll\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"collateralTokenId\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"mintCollateralToken\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"optionsFactory_\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setOptionsFactory\",\"outputs\":[]}]") . expect ("invalid abi")
         });
     pub struct ICollateralToken<M>(ethers::contract::Contract<M>);
     impl<M> Clone for ICollateralToken<M> {
@@ -182,7 +182,7 @@ mod icollateraltoken_mod {
         pub q_token_as_collateral: ethers::core::types::Address,
         pub id: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `burnCollateralToken`function with signature `burnCollateralToken(address,uint256,uint256)` and selector `[62, 2, 145, 121]`"]
+    #[doc = "Container type for all input parameters for the `burnCollateralToken` function with signature `burnCollateralToken(address,uint256,uint256)` and selector `[62, 2, 145, 121]`"]
     #[derive(
         Clone,
         Debug,
@@ -201,7 +201,7 @@ mod icollateraltoken_mod {
         pub collateral_token_id: ethers::core::types::U256,
         pub amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `createOptionCollateralToken`function with signature `createOptionCollateralToken(address)` and selector `[28, 130, 165, 89]`"]
+    #[doc = "Container type for all input parameters for the `createOptionCollateralToken` function with signature `createOptionCollateralToken(address)` and selector `[28, 130, 165, 89]`"]
     #[derive(
         Clone,
         Debug,
@@ -218,7 +218,7 @@ mod icollateraltoken_mod {
     pub struct CreateOptionCollateralTokenCall {
         pub q_token_address: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `createSpreadCollateralToken`function with signature `createSpreadCollateralToken(address,address)` and selector `[225, 173, 146, 33]`"]
+    #[doc = "Container type for all input parameters for the `createSpreadCollateralToken` function with signature `createSpreadCollateralToken(address,address)` and selector `[225, 173, 146, 33]`"]
     #[derive(
         Clone,
         Debug,
@@ -236,7 +236,7 @@ mod icollateraltoken_mod {
         pub q_token_address: ethers::core::types::Address,
         pub q_token_as_collateral: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getCollateralTokenId`function with signature `getCollateralTokenId(address,address)` and selector `[110, 209, 255, 109]`"]
+    #[doc = "Container type for all input parameters for the `getCollateralTokenId` function with signature `getCollateralTokenId(address,address)` and selector `[110, 209, 255, 109]`"]
     #[derive(
         Clone,
         Debug,
@@ -254,7 +254,7 @@ mod icollateraltoken_mod {
         pub q_token: ethers::core::types::Address,
         pub q_token_as_collateral: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `idToInfo`function with signature `idToInfo(uint256)` and selector `[217, 74, 126, 83]`"]
+    #[doc = "Container type for all input parameters for the `idToInfo` function with signature `idToInfo(uint256)` and selector `[217, 74, 126, 83]`"]
     #[derive(
         Clone,
         Debug,
@@ -266,7 +266,7 @@ mod icollateraltoken_mod {
     )]
     #[ethcall(name = "idToInfo", abi = "idToInfo(uint256)")]
     pub struct IdToInfoCall(pub ethers::core::types::U256);
-    #[doc = "Container type for all input parameters for the `metaSetApprovalForAll`function with signature `metaSetApprovalForAll(address,address,bool,uint256,uint256,uint8,bytes32,bytes32)` and selector `[180, 230, 10, 50]`"]
+    #[doc = "Container type for all input parameters for the `metaSetApprovalForAll` function with signature `metaSetApprovalForAll(address,address,bool,uint256,uint256,uint8,bytes32,bytes32)` and selector `[180, 230, 10, 50]`"]
     #[derive(
         Clone,
         Debug,
@@ -290,7 +290,7 @@ mod icollateraltoken_mod {
         pub r: [u8; 32],
         pub s: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `mintCollateralToken`function with signature `mintCollateralToken(address,uint256,uint256)` and selector `[227, 127, 90, 199]`"]
+    #[doc = "Container type for all input parameters for the `mintCollateralToken` function with signature `mintCollateralToken(address,uint256,uint256)` and selector `[227, 127, 90, 199]`"]
     #[derive(
         Clone,
         Debug,
@@ -309,7 +309,7 @@ mod icollateraltoken_mod {
         pub collateral_token_id: ethers::core::types::U256,
         pub amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `setOptionsFactory`function with signature `setOptionsFactory(address)` and selector `[71, 169, 93, 72]`"]
+    #[doc = "Container type for all input parameters for the `setOptionsFactory` function with signature `setOptionsFactory(address)` and selector `[71, 169, 93, 72]`"]
     #[derive(
         Clone,
         Debug,
@@ -451,4 +451,57 @@ mod icollateraltoken_mod {
             ICollateralTokenCalls::SetOptionsFactory(var)
         }
     }
+    #[doc = "Container type for all return fields from the `createOptionCollateralToken` function with signature `createOptionCollateralToken(address)` and selector `[28, 130, 165, 89]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CreateOptionCollateralTokenReturn {
+        pub id: ethers::core::types::U256,
+    }
+    #[doc = "Container type for all return fields from the `createSpreadCollateralToken` function with signature `createSpreadCollateralToken(address,address)` and selector `[225, 173, 146, 33]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CreateSpreadCollateralTokenReturn {
+        pub id: ethers::core::types::U256,
+    }
+    #[doc = "Container type for all return fields from the `getCollateralTokenId` function with signature `getCollateralTokenId(address,address)` and selector `[110, 209, 255, 109]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetCollateralTokenIdReturn {
+        pub id: ethers::core::types::U256,
+    }
+    #[doc = "Container type for all return fields from the `idToInfo` function with signature `idToInfo(uint256)` and selector `[217, 74, 126, 83]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IdToInfoReturn(
+        pub ethers::core::types::Address,
+        pub ethers::core::types::Address,
+    );
 }

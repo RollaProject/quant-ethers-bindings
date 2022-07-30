@@ -1,6 +1,6 @@
-pub use mockchainlinkaggregatorproxy_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod mockchainlinkaggregatorproxy_mod {
+pub use mock_chainlink_aggregator_proxy::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod mock_chainlink_aggregator_proxy {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,13 +18,13 @@ mod mockchainlinkaggregatorproxy_mod {
     use std::sync::Arc;
     pub static MOCKCHAINLINKAGGREGATORPROXY_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"defaultLatestAnswer_\",\"type\":\"int256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"defaultLatestAnswer_\",\"type\":\"int256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static MOCKCHAINLINKAGGREGATORPROXY_BYTECODE: ethers::contract::Lazy<
         ethers::core::types::Bytes,
     > = ethers::contract::Lazy::new(|| {
-        "0x60803461005057601f61010238819003918201601f19168301916001600160401b038311848410176100555780849260209460405283398101031261005057516000556040516096908161006c8239f35b600080fd5b634e487b7160e01b600052604160045260246000fdfe6080806040526004361015601257600080fd5b600090813560e01c6350d25bcd14602857600080fd5b34605c57817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112605c57602091548152f35b5080fdfea264697066735822122080cd6baef9b95af2b90858b84534cb3bf00dfa6b0d053c49ed5922d08fa170b364736f6c634300080e0033" . parse () . expect ("invalid bytecode")
+        "0x60803461005057601f6100d938819003918201601f19168301916001600160401b03831184841017610055578084926020946040528339810103126100505751600055604051606d908161006c8239f35b600080fd5b634e487b7160e01b600052604160045260246000fdfe6080806040526004361015601257600080fd5b600090813560e01c6350d25bcd14602857600080fd5b34605c57817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112605c57602091548152f35b5080fdfea164736f6c634300080f000a" . parse () . expect ("invalid bytecode")
     });
     pub struct MockChainlinkAggregatorProxy<M>(ethers::contract::Contract<M>);
     impl<M> Clone for MockChainlinkAggregatorProxy<M> {
@@ -113,7 +113,7 @@ mod mockchainlinkaggregatorproxy_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `latestAnswer`function with signature `latestAnswer()` and selector `[80, 210, 91, 205]`"]
+    #[doc = "Container type for all input parameters for the `latestAnswer` function with signature `latestAnswer()` and selector `[80, 210, 91, 205]`"]
     #[derive(
         Clone,
         Debug,
@@ -125,4 +125,15 @@ mod mockchainlinkaggregatorproxy_mod {
     )]
     #[ethcall(name = "latestAnswer", abi = "latestAnswer()")]
     pub struct LatestAnswerCall;
+    #[doc = "Container type for all return fields from the `latestAnswer` function with signature `latestAnswer()` and selector `[80, 210, 91, 205]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestAnswerReturn(pub I256);
 }

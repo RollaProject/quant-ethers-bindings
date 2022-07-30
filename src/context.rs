@@ -1,6 +1,6 @@
-pub use context_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod context_mod {
+pub use context::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod context {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,7 +17,9 @@ mod context_mod {
     #[doc = "Context was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static CONTEXT_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     pub struct Context<M>(ethers::contract::Contract<M>);
     impl<M> Clone for Context<M> {
         fn clone(&self) -> Self {

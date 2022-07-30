@@ -1,6 +1,6 @@
-pub use iqtoken_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod iqtoken_mod {
+pub use iq_token::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod iq_token {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,7 +18,7 @@ mod iqtoken_mod {
     use std::sync::Arc;
     pub static IQTOKEN_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"burn\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"controller\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"expiryTime\",\"outputs\":[{\"internalType\":\"uint88\",\"name\":\"\",\"type\":\"uint88\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"isCall\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"mint\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"oracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"strikeAsset\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"strikePrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"underlyingAsset\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"burn\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"controller\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"expiryTime\",\"outputs\":[{\"internalType\":\"uint88\",\"name\":\"\",\"type\":\"uint88\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"isCall\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"mint\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"oracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"strikeAsset\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"strikePrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"underlyingAsset\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     pub struct IQToken<M>(ethers::contract::Contract<M>);
     impl<M> Clone for IQToken<M> {
@@ -127,7 +127,7 @@ mod iqtoken_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `burn`function with signature `burn(address,uint256)` and selector `[157, 194, 159, 172]`"]
+    #[doc = "Container type for all input parameters for the `burn` function with signature `burn(address,uint256)` and selector `[157, 194, 159, 172]`"]
     #[derive(
         Clone,
         Debug,
@@ -142,7 +142,7 @@ mod iqtoken_mod {
         pub account: ethers::core::types::Address,
         pub amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `controller`function with signature `controller()` and selector `[247, 124, 71, 145]`"]
+    #[doc = "Container type for all input parameters for the `controller` function with signature `controller()` and selector `[247, 124, 71, 145]`"]
     #[derive(
         Clone,
         Debug,
@@ -154,7 +154,7 @@ mod iqtoken_mod {
     )]
     #[ethcall(name = "controller", abi = "controller()")]
     pub struct ControllerCall;
-    #[doc = "Container type for all input parameters for the `expiryTime`function with signature `expiryTime()` and selector `[153, 188, 10, 234]`"]
+    #[doc = "Container type for all input parameters for the `expiryTime` function with signature `expiryTime()` and selector `[153, 188, 10, 234]`"]
     #[derive(
         Clone,
         Debug,
@@ -166,7 +166,7 @@ mod iqtoken_mod {
     )]
     #[ethcall(name = "expiryTime", abi = "expiryTime()")]
     pub struct ExpiryTimeCall;
-    #[doc = "Container type for all input parameters for the `isCall`function with signature `isCall()` and selector `[109, 99, 100, 120]`"]
+    #[doc = "Container type for all input parameters for the `isCall` function with signature `isCall()` and selector `[109, 99, 100, 120]`"]
     #[derive(
         Clone,
         Debug,
@@ -178,7 +178,7 @@ mod iqtoken_mod {
     )]
     #[ethcall(name = "isCall", abi = "isCall()")]
     pub struct IsCallCall;
-    #[doc = "Container type for all input parameters for the `mint`function with signature `mint(address,uint256)` and selector `[64, 193, 15, 25]`"]
+    #[doc = "Container type for all input parameters for the `mint` function with signature `mint(address,uint256)` and selector `[64, 193, 15, 25]`"]
     #[derive(
         Clone,
         Debug,
@@ -193,7 +193,7 @@ mod iqtoken_mod {
         pub account: ethers::core::types::Address,
         pub amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `oracle`function with signature `oracle()` and selector `[125, 192, 209, 208]`"]
+    #[doc = "Container type for all input parameters for the `oracle` function with signature `oracle()` and selector `[125, 192, 209, 208]`"]
     #[derive(
         Clone,
         Debug,
@@ -205,7 +205,7 @@ mod iqtoken_mod {
     )]
     #[ethcall(name = "oracle", abi = "oracle()")]
     pub struct OracleCall;
-    #[doc = "Container type for all input parameters for the `strikeAsset`function with signature `strikeAsset()` and selector `[23, 214, 155, 200]`"]
+    #[doc = "Container type for all input parameters for the `strikeAsset` function with signature `strikeAsset()` and selector `[23, 214, 155, 200]`"]
     #[derive(
         Clone,
         Debug,
@@ -217,7 +217,7 @@ mod iqtoken_mod {
     )]
     #[ethcall(name = "strikeAsset", abi = "strikeAsset()")]
     pub struct StrikeAssetCall;
-    #[doc = "Container type for all input parameters for the `strikePrice`function with signature `strikePrice()` and selector `[197, 41, 135, 207]`"]
+    #[doc = "Container type for all input parameters for the `strikePrice` function with signature `strikePrice()` and selector `[197, 41, 135, 207]`"]
     #[derive(
         Clone,
         Debug,
@@ -229,7 +229,7 @@ mod iqtoken_mod {
     )]
     #[ethcall(name = "strikePrice", abi = "strikePrice()")]
     pub struct StrikePriceCall;
-    #[doc = "Container type for all input parameters for the `underlyingAsset`function with signature `underlyingAsset()` and selector `[113, 88, 218, 124]`"]
+    #[doc = "Container type for all input parameters for the `underlyingAsset` function with signature `underlyingAsset()` and selector `[113, 88, 218, 124]`"]
     #[derive(
         Clone,
         Debug,
@@ -372,4 +372,81 @@ mod iqtoken_mod {
             IQTokenCalls::UnderlyingAsset(var)
         }
     }
+    #[doc = "Container type for all return fields from the `controller` function with signature `controller()` and selector `[247, 124, 71, 145]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ControllerReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `expiryTime` function with signature `expiryTime()` and selector `[153, 188, 10, 234]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ExpiryTimeReturn(pub u128);
+    #[doc = "Container type for all return fields from the `isCall` function with signature `isCall()` and selector `[109, 99, 100, 120]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsCallReturn(pub bool);
+    #[doc = "Container type for all return fields from the `oracle` function with signature `oracle()` and selector `[125, 192, 209, 208]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OracleReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `strikeAsset` function with signature `strikeAsset()` and selector `[23, 214, 155, 200]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct StrikeAssetReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `strikePrice` function with signature `strikePrice()` and selector `[197, 41, 135, 207]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct StrikePriceReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `underlyingAsset` function with signature `underlyingAsset()` and selector `[113, 88, 218, 124]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct UnderlyingAssetReturn(pub ethers::core::types::Address);
 }

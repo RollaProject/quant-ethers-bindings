@@ -1,6 +1,6 @@
-pub use test_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod test_mod {
+pub use test::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod test {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,7 +18,7 @@ mod test_mod {
     use std::sync::Arc;
     pub static TEST_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"msg\",\"type\":\"string\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"WARNING_Deprecated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_address\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_bytes\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_bytes32\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_int\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"val\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_address\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"bytes\",\"name\":\"val\",\"type\":\"bytes\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_bytes\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"bytes32\",\"name\":\"val\",\"type\":\"bytes32\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_bytes32\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"int256\",\"name\":\"val\",\"type\":\"int256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"decimals\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_decimal_int\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"val\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"decimals\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_decimal_uint\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"int256\",\"name\":\"val\",\"type\":\"int256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_int\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"string\",\"name\":\"val\",\"type\":\"string\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_string\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"val\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_uint\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_string\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_uint\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"logs\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"IS_TEST\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"x\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"min\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"max\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"bound\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"result\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"deal\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"adjust\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"deal\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"deal\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"what\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"args\",\"type\":\"bytes\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"deployCode\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"what\",\"type\":\"string\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"deployCode\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"failed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"hoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"origin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"hoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"origin\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"hoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"hoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"rewind\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"skip\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"startHoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"origin\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"startHoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"startHoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"origin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"startHoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"tip\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"vm\",\"outputs\":[{\"internalType\":\"contract Vm\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_address\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"val\",\"type\":\"uint256[]\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_array\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"int256[]\",\"name\":\"val\",\"type\":\"int256[]\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_array\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_bytes\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_bytes32\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_int\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"val\",\"type\":\"address\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_address\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256[]\",\"name\":\"val\",\"type\":\"uint256[]\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_array\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"int256[]\",\"name\":\"val\",\"type\":\"int256[]\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_array\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"bytes\",\"name\":\"val\",\"type\":\"bytes\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_bytes\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"bytes32\",\"name\":\"val\",\"type\":\"bytes32\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_bytes32\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"int256\",\"name\":\"val\",\"type\":\"int256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"decimals\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_decimal_int\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"val\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"decimals\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_decimal_uint\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"int256\",\"name\":\"val\",\"type\":\"int256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_int\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"string\",\"name\":\"val\",\"type\":\"string\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_string\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"val\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_named_uint\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_string\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"log_uint\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"logs\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"IS_SCRIPT\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"IS_TEST\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"x\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"min\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"max\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"bound\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"result\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"deal\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"adjust\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"deal\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"deal\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"what\",\"type\":\"string\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"args\",\"type\":\"bytes\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"deployCode\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"what\",\"type\":\"string\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"deployCode\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"failed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"hoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"origin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"hoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"origin\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"hoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"hoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"rewind\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"skip\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"startHoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"origin\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"startHoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"startHoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"origin\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"startHoax\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"give\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"tip\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"vm\",\"outputs\":[{\"internalType\":\"contract Vm\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     pub struct Test<M>(ethers::contract::Contract<M>);
     impl<M> Clone for Test<M> {
@@ -48,6 +48,12 @@ mod test_mod {
             client: ::std::sync::Arc<M>,
         ) -> Self {
             ethers::contract::Contract::new(address.into(), TEST_ABI.clone(), client).into()
+        }
+        #[doc = "Calls the contract's `IS_SCRIPT` (0xf8ccbf47) function"]
+        pub fn is_script(&self) -> ethers::contract::builders::ContractCall<M, bool> {
+            self.0
+                .method_hash([248, 204, 191, 71], ())
+                .expect("method not found (this should never happen)")
         }
         #[doc = "Calls the contract's `IS_TEST` (0xfa7626d4) function"]
         pub fn is_test(&self) -> ethers::contract::builders::ContractCall<M, bool> {
@@ -134,7 +140,7 @@ mod test_mod {
                 .expect("method not found (this should never happen)")
         }
         #[doc = "Calls the contract's `hoax` (0x29a9e300) function"]
-        pub fn hoax_2(
+        pub fn hoax_1(
             &self,
             who: ethers::core::types::Address,
             origin: ethers::core::types::Address,
@@ -155,7 +161,7 @@ mod test_mod {
                 .expect("method not found (this should never happen)")
         }
         #[doc = "Calls the contract's `hoax` (0xe9a79a7b) function"]
-        pub fn hoax_4(
+        pub fn hoax_2(
             &self,
             who: ethers::core::types::Address,
             give: ethers::core::types::U256,
@@ -193,7 +199,7 @@ mod test_mod {
                 .expect("method not found (this should never happen)")
         }
         #[doc = "Calls the contract's `startHoax` (0x3bf82db1) function"]
-        pub fn start_hoax_2(
+        pub fn start_hoax_3(
             &self,
             who: ethers::core::types::Address,
             origin: ethers::core::types::Address,
@@ -213,7 +219,7 @@ mod test_mod {
                 .expect("method not found (this should never happen)")
         }
         #[doc = "Calls the contract's `startHoax` (0xd06d8229) function"]
-        pub fn start_hoax_4(
+        pub fn start_hoax_2(
             &self,
             who: ethers::core::types::Address,
             origin: ethers::core::types::Address,
@@ -241,18 +247,20 @@ mod test_mod {
                 .method_hash([58, 118, 132, 99], ())
                 .expect("method not found (this should never happen)")
         }
-        #[doc = "Gets the contract's `WARNING_Deprecated` event"]
-        pub fn warning_deprecated_filter(
-            &self,
-        ) -> ethers::contract::builders::Event<M, WarningDeprecatedFilter> {
-            self.0.event()
-        }
         #[doc = "Gets the contract's `log` event"]
         pub fn log_filter(&self) -> ethers::contract::builders::Event<M, LogFilter> {
             self.0.event()
         }
         #[doc = "Gets the contract's `log_address` event"]
         pub fn log_address_filter(&self) -> ethers::contract::builders::Event<M, LogAddressFilter> {
+            self.0.event()
+        }
+        #[doc = "Gets the contract's `log_array` event"]
+        pub fn log_array_1_filter(&self) -> ethers::contract::builders::Event<M, LogArray1Filter> {
+            self.0.event()
+        }
+        #[doc = "Gets the contract's `log_array` event"]
+        pub fn log_array_2_filter(&self) -> ethers::contract::builders::Event<M, LogArray2Filter> {
             self.0.event()
         }
         #[doc = "Gets the contract's `log_bytes` event"]
@@ -273,6 +281,18 @@ mod test_mod {
         pub fn log_named_address_filter(
             &self,
         ) -> ethers::contract::builders::Event<M, LogNamedAddressFilter> {
+            self.0.event()
+        }
+        #[doc = "Gets the contract's `log_named_array` event"]
+        pub fn log_named_array_1_filter(
+            &self,
+        ) -> ethers::contract::builders::Event<M, LogNamedArray1Filter> {
+            self.0.event()
+        }
+        #[doc = "Gets the contract's `log_named_array` event"]
+        pub fn log_named_array_2_filter(
+            &self,
+        ) -> ethers::contract::builders::Event<M, LogNamedArray2Filter> {
             self.0.event()
         }
         #[doc = "Gets the contract's `log_named_bytes` event"]
@@ -348,19 +368,6 @@ mod test_mod {
         ethers :: contract :: EthEvent,
         ethers :: contract :: EthDisplay,
     )]
-    #[ethevent(name = "WARNING_Deprecated", abi = "WARNING_Deprecated(string)")]
-    pub struct WarningDeprecatedFilter {
-        pub msg: String,
-    }
-    #[derive(
-        Clone,
-        Debug,
-        Default,
-        Eq,
-        PartialEq,
-        ethers :: contract :: EthEvent,
-        ethers :: contract :: EthDisplay,
-    )]
     #[ethevent(name = "log", abi = "log(string)")]
     pub struct LogFilter(pub String);
     #[derive(
@@ -374,6 +381,32 @@ mod test_mod {
     )]
     #[ethevent(name = "log_address", abi = "log_address(address)")]
     pub struct LogAddressFilter(pub ethers::core::types::Address);
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthEvent,
+        ethers :: contract :: EthDisplay,
+    )]
+    #[ethevent(name = "log_array", abi = "log_array(uint256[])")]
+    pub struct LogArray1Filter {
+        pub val: Vec<ethers::core::types::U256>,
+    }
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthEvent,
+        ethers :: contract :: EthDisplay,
+    )]
+    #[ethevent(name = "log_array", abi = "log_array(int256[])")]
+    pub struct LogArray2Filter {
+        pub val: Vec<I256>,
+    }
     #[derive(
         Clone,
         Debug,
@@ -420,6 +453,34 @@ mod test_mod {
     pub struct LogNamedAddressFilter {
         pub key: String,
         pub val: ethers::core::types::Address,
+    }
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthEvent,
+        ethers :: contract :: EthDisplay,
+    )]
+    #[ethevent(name = "log_named_array", abi = "log_named_array(string,uint256[])")]
+    pub struct LogNamedArray1Filter {
+        pub key: String,
+        pub val: Vec<ethers::core::types::U256>,
+    }
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthEvent,
+        ethers :: contract :: EthDisplay,
+    )]
+    #[ethevent(name = "log_named_array", abi = "log_named_array(string,int256[])")]
+    pub struct LogNamedArray2Filter {
+        pub key: String,
+        pub val: Vec<I256>,
     }
     #[derive(
         Clone,
@@ -562,13 +623,16 @@ mod test_mod {
     pub struct LogsFilter(pub ethers::core::types::Bytes);
     #[derive(Debug, Clone, PartialEq, Eq, ethers :: contract :: EthAbiType)]
     pub enum TestEvents {
-        WarningDeprecatedFilter(WarningDeprecatedFilter),
         LogFilter(LogFilter),
         LogAddressFilter(LogAddressFilter),
+        LogArray1Filter(LogArray1Filter),
+        LogArray2Filter(LogArray2Filter),
         LogBytesFilter(LogBytesFilter),
         LogBytes32Filter(LogBytes32Filter),
         LogIntFilter(LogIntFilter),
         LogNamedAddressFilter(LogNamedAddressFilter),
+        LogNamedArray1Filter(LogNamedArray1Filter),
+        LogNamedArray2Filter(LogNamedArray2Filter),
         LogNamedBytesFilter(LogNamedBytesFilter),
         LogNamedBytes32Filter(LogNamedBytes32Filter),
         LogNamedDecimalIntFilter(LogNamedDecimalIntFilter),
@@ -585,14 +649,17 @@ mod test_mod {
         where
             Self: Sized,
         {
-            if let Ok(decoded) = WarningDeprecatedFilter::decode_log(log) {
-                return Ok(TestEvents::WarningDeprecatedFilter(decoded));
-            }
             if let Ok(decoded) = LogFilter::decode_log(log) {
                 return Ok(TestEvents::LogFilter(decoded));
             }
             if let Ok(decoded) = LogAddressFilter::decode_log(log) {
                 return Ok(TestEvents::LogAddressFilter(decoded));
+            }
+            if let Ok(decoded) = LogArray1Filter::decode_log(log) {
+                return Ok(TestEvents::LogArray1Filter(decoded));
+            }
+            if let Ok(decoded) = LogArray2Filter::decode_log(log) {
+                return Ok(TestEvents::LogArray2Filter(decoded));
             }
             if let Ok(decoded) = LogBytesFilter::decode_log(log) {
                 return Ok(TestEvents::LogBytesFilter(decoded));
@@ -605,6 +672,12 @@ mod test_mod {
             }
             if let Ok(decoded) = LogNamedAddressFilter::decode_log(log) {
                 return Ok(TestEvents::LogNamedAddressFilter(decoded));
+            }
+            if let Ok(decoded) = LogNamedArray1Filter::decode_log(log) {
+                return Ok(TestEvents::LogNamedArray1Filter(decoded));
+            }
+            if let Ok(decoded) = LogNamedArray2Filter::decode_log(log) {
+                return Ok(TestEvents::LogNamedArray2Filter(decoded));
             }
             if let Ok(decoded) = LogNamedBytesFilter::decode_log(log) {
                 return Ok(TestEvents::LogNamedBytesFilter(decoded));
@@ -642,13 +715,16 @@ mod test_mod {
     impl ::std::fmt::Display for TestEvents {
         fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
             match self {
-                TestEvents::WarningDeprecatedFilter(element) => element.fmt(f),
                 TestEvents::LogFilter(element) => element.fmt(f),
                 TestEvents::LogAddressFilter(element) => element.fmt(f),
+                TestEvents::LogArray1Filter(element) => element.fmt(f),
+                TestEvents::LogArray2Filter(element) => element.fmt(f),
                 TestEvents::LogBytesFilter(element) => element.fmt(f),
                 TestEvents::LogBytes32Filter(element) => element.fmt(f),
                 TestEvents::LogIntFilter(element) => element.fmt(f),
                 TestEvents::LogNamedAddressFilter(element) => element.fmt(f),
+                TestEvents::LogNamedArray1Filter(element) => element.fmt(f),
+                TestEvents::LogNamedArray2Filter(element) => element.fmt(f),
                 TestEvents::LogNamedBytesFilter(element) => element.fmt(f),
                 TestEvents::LogNamedBytes32Filter(element) => element.fmt(f),
                 TestEvents::LogNamedDecimalIntFilter(element) => element.fmt(f),
@@ -662,7 +738,19 @@ mod test_mod {
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `IS_TEST`function with signature `IS_TEST()` and selector `[250, 118, 38, 212]`"]
+    #[doc = "Container type for all input parameters for the `IS_SCRIPT` function with signature `IS_SCRIPT()` and selector `[248, 204, 191, 71]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthCall,
+        ethers :: contract :: EthDisplay,
+    )]
+    #[ethcall(name = "IS_SCRIPT", abi = "IS_SCRIPT()")]
+    pub struct IsScriptCall;
+    #[doc = "Container type for all input parameters for the `IS_TEST` function with signature `IS_TEST()` and selector `[250, 118, 38, 212]`"]
     #[derive(
         Clone,
         Debug,
@@ -674,7 +762,7 @@ mod test_mod {
     )]
     #[ethcall(name = "IS_TEST", abi = "IS_TEST()")]
     pub struct IsTestCall;
-    #[doc = "Container type for all input parameters for the `bound`function with signature `bound(uint256,uint256,uint256)` and selector `[90, 108, 30, 237]`"]
+    #[doc = "Container type for all input parameters for the `bound` function with signature `bound(uint256,uint256,uint256)` and selector `[90, 108, 30, 237]`"]
     #[derive(
         Clone,
         Debug,
@@ -690,7 +778,7 @@ mod test_mod {
         pub min: ethers::core::types::U256,
         pub max: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `deal`function with signature `deal(address,address,uint256)` and selector `[107, 206, 152, 155]`"]
+    #[doc = "Container type for all input parameters for the `deal` function with signature `deal(address,address,uint256)` and selector `[107, 206, 152, 155]`"]
     #[derive(
         Clone,
         Debug,
@@ -706,7 +794,7 @@ mod test_mod {
         pub to: ethers::core::types::Address,
         pub give: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `deal`function with signature `deal(address,address,uint256,bool)` and selector `[151, 117, 74, 233]`"]
+    #[doc = "Container type for all input parameters for the `deal` function with signature `deal(address,address,uint256,bool)` and selector `[151, 117, 74, 233]`"]
     #[derive(
         Clone,
         Debug,
@@ -723,7 +811,7 @@ mod test_mod {
         pub give: ethers::core::types::U256,
         pub adjust: bool,
     }
-    #[doc = "Container type for all input parameters for the `deal`function with signature `deal(address,uint256)` and selector `[200, 138, 94, 109]`"]
+    #[doc = "Container type for all input parameters for the `deal` function with signature `deal(address,uint256)` and selector `[200, 138, 94, 109]`"]
     #[derive(
         Clone,
         Debug,
@@ -738,7 +826,7 @@ mod test_mod {
         pub to: ethers::core::types::Address,
         pub give: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `deployCode`function with signature `deployCode(string,bytes)` and selector `[41, 206, 157, 222]`"]
+    #[doc = "Container type for all input parameters for the `deployCode` function with signature `deployCode(string,bytes)` and selector `[41, 206, 157, 222]`"]
     #[derive(
         Clone,
         Debug,
@@ -753,7 +841,7 @@ mod test_mod {
         pub what: String,
         pub args: ethers::core::types::Bytes,
     }
-    #[doc = "Container type for all input parameters for the `deployCode`function with signature `deployCode(string)` and selector `[154, 131, 37, 160]`"]
+    #[doc = "Container type for all input parameters for the `deployCode` function with signature `deployCode(string)` and selector `[154, 131, 37, 160]`"]
     #[derive(
         Clone,
         Debug,
@@ -767,7 +855,7 @@ mod test_mod {
     pub struct DeployCodeCall {
         pub what: String,
     }
-    #[doc = "Container type for all input parameters for the `failed`function with signature `failed()` and selector `[186, 65, 79, 166]`"]
+    #[doc = "Container type for all input parameters for the `failed` function with signature `failed()` and selector `[186, 65, 79, 166]`"]
     #[derive(
         Clone,
         Debug,
@@ -779,7 +867,7 @@ mod test_mod {
     )]
     #[ethcall(name = "failed", abi = "failed()")]
     pub struct FailedCall;
-    #[doc = "Container type for all input parameters for the `hoax`function with signature `hoax(address)` and selector `[35, 50, 64, 238]`"]
+    #[doc = "Container type for all input parameters for the `hoax` function with signature `hoax(address)` and selector `[35, 50, 64, 238]`"]
     #[derive(
         Clone,
         Debug,
@@ -793,7 +881,7 @@ mod test_mod {
     pub struct Hoax0Call {
         pub who: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `hoax`function with signature `hoax(address,address)` and selector `[41, 169, 227, 0]`"]
+    #[doc = "Container type for all input parameters for the `hoax` function with signature `hoax(address,address)` and selector `[41, 169, 227, 0]`"]
     #[derive(
         Clone,
         Debug,
@@ -804,11 +892,11 @@ mod test_mod {
         ethers :: contract :: EthDisplay,
     )]
     #[ethcall(name = "hoax", abi = "hoax(address,address)")]
-    pub struct Hoax2Call {
+    pub struct Hoax1Call {
         pub who: ethers::core::types::Address,
         pub origin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `hoax`function with signature `hoax(address,address,uint256)` and selector `[175, 155, 190, 95]`"]
+    #[doc = "Container type for all input parameters for the `hoax` function with signature `hoax(address,address,uint256)` and selector `[175, 155, 190, 95]`"]
     #[derive(
         Clone,
         Debug,
@@ -824,7 +912,7 @@ mod test_mod {
         pub origin: ethers::core::types::Address,
         pub give: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `hoax`function with signature `hoax(address,uint256)` and selector `[233, 167, 154, 123]`"]
+    #[doc = "Container type for all input parameters for the `hoax` function with signature `hoax(address,uint256)` and selector `[233, 167, 154, 123]`"]
     #[derive(
         Clone,
         Debug,
@@ -835,11 +923,11 @@ mod test_mod {
         ethers :: contract :: EthDisplay,
     )]
     #[ethcall(name = "hoax", abi = "hoax(address,uint256)")]
-    pub struct Hoax4Call {
+    pub struct Hoax2Call {
         pub who: ethers::core::types::Address,
         pub give: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `rewind`function with signature `rewind(uint256)` and selector `[45, 108, 23, 163]`"]
+    #[doc = "Container type for all input parameters for the `rewind` function with signature `rewind(uint256)` and selector `[45, 108, 23, 163]`"]
     #[derive(
         Clone,
         Debug,
@@ -853,7 +941,7 @@ mod test_mod {
     pub struct RewindCall {
         pub time: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `skip`function with signature `skip(uint256)` and selector `[185, 192, 113, 180]`"]
+    #[doc = "Container type for all input parameters for the `skip` function with signature `skip(uint256)` and selector `[185, 192, 113, 180]`"]
     #[derive(
         Clone,
         Debug,
@@ -867,7 +955,7 @@ mod test_mod {
     pub struct SkipCall {
         pub time: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `startHoax`function with signature `startHoax(address,uint256)` and selector `[16, 133, 84, 242]`"]
+    #[doc = "Container type for all input parameters for the `startHoax` function with signature `startHoax(address,uint256)` and selector `[16, 133, 84, 242]`"]
     #[derive(
         Clone,
         Debug,
@@ -882,7 +970,7 @@ mod test_mod {
         pub who: ethers::core::types::Address,
         pub give: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `startHoax`function with signature `startHoax(address,address,uint256)` and selector `[59, 248, 45, 177]`"]
+    #[doc = "Container type for all input parameters for the `startHoax` function with signature `startHoax(address,address,uint256)` and selector `[59, 248, 45, 177]`"]
     #[derive(
         Clone,
         Debug,
@@ -893,12 +981,12 @@ mod test_mod {
         ethers :: contract :: EthDisplay,
     )]
     #[ethcall(name = "startHoax", abi = "startHoax(address,address,uint256)")]
-    pub struct StartHoax2Call {
+    pub struct StartHoax3Call {
         pub who: ethers::core::types::Address,
         pub origin: ethers::core::types::Address,
         pub give: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `startHoax`function with signature `startHoax(address)` and selector `[111, 89, 112, 117]`"]
+    #[doc = "Container type for all input parameters for the `startHoax` function with signature `startHoax(address)` and selector `[111, 89, 112, 117]`"]
     #[derive(
         Clone,
         Debug,
@@ -912,7 +1000,7 @@ mod test_mod {
     pub struct StartHoax0Call {
         pub who: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `startHoax`function with signature `startHoax(address,address)` and selector `[208, 109, 130, 41]`"]
+    #[doc = "Container type for all input parameters for the `startHoax` function with signature `startHoax(address,address)` and selector `[208, 109, 130, 41]`"]
     #[derive(
         Clone,
         Debug,
@@ -923,11 +1011,11 @@ mod test_mod {
         ethers :: contract :: EthDisplay,
     )]
     #[ethcall(name = "startHoax", abi = "startHoax(address,address)")]
-    pub struct StartHoax4Call {
+    pub struct StartHoax2Call {
         pub who: ethers::core::types::Address,
         pub origin: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `tip`function with signature `tip(address,address,uint256)` and selector `[216, 37, 85, 241]`"]
+    #[doc = "Container type for all input parameters for the `tip` function with signature `tip(address,address,uint256)` and selector `[216, 37, 85, 241]`"]
     #[derive(
         Clone,
         Debug,
@@ -943,7 +1031,7 @@ mod test_mod {
         pub to: ethers::core::types::Address,
         pub give: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `vm`function with signature `vm()` and selector `[58, 118, 132, 99]`"]
+    #[doc = "Container type for all input parameters for the `vm` function with signature `vm()` and selector `[58, 118, 132, 99]`"]
     #[derive(
         Clone,
         Debug,
@@ -957,6 +1045,7 @@ mod test_mod {
     pub struct VmCall;
     #[derive(Debug, Clone, PartialEq, Eq, ethers :: contract :: EthAbiType)]
     pub enum TestCalls {
+        IsScript(IsScriptCall),
         IsTest(IsTestCall),
         Bound(BoundCall),
         DealWithToken(DealWithTokenCall),
@@ -966,20 +1055,25 @@ mod test_mod {
         DeployCode(DeployCodeCall),
         Failed(FailedCall),
         Hoax0(Hoax0Call),
-        Hoax2(Hoax2Call),
+        Hoax1(Hoax1Call),
         Hoax3(Hoax3Call),
-        Hoax4(Hoax4Call),
+        Hoax2(Hoax2Call),
         Rewind(RewindCall),
         Skip(SkipCall),
         StartHoax1(StartHoax1Call),
-        StartHoax2(StartHoax2Call),
+        StartHoax3(StartHoax3Call),
         StartHoax0(StartHoax0Call),
-        StartHoax4(StartHoax4Call),
+        StartHoax2(StartHoax2Call),
         Tip(TipCall),
         Vm(VmCall),
     }
     impl ethers::core::abi::AbiDecode for TestCalls {
         fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
+            if let Ok(decoded) =
+                <IsScriptCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
+            {
+                return Ok(TestCalls::IsScript(decoded));
+            }
             if let Ok(decoded) = <IsTestCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
                 return Ok(TestCalls::IsTest(decoded));
@@ -1019,17 +1113,17 @@ mod test_mod {
             {
                 return Ok(TestCalls::Hoax0(decoded));
             }
-            if let Ok(decoded) = <Hoax2Call as ethers::core::abi::AbiDecode>::decode(data.as_ref())
+            if let Ok(decoded) = <Hoax1Call as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(TestCalls::Hoax2(decoded));
+                return Ok(TestCalls::Hoax1(decoded));
             }
             if let Ok(decoded) = <Hoax3Call as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
                 return Ok(TestCalls::Hoax3(decoded));
             }
-            if let Ok(decoded) = <Hoax4Call as ethers::core::abi::AbiDecode>::decode(data.as_ref())
+            if let Ok(decoded) = <Hoax2Call as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(TestCalls::Hoax4(decoded));
+                return Ok(TestCalls::Hoax2(decoded));
             }
             if let Ok(decoded) = <RewindCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -1044,9 +1138,9 @@ mod test_mod {
                 return Ok(TestCalls::StartHoax1(decoded));
             }
             if let Ok(decoded) =
-                <StartHoax2Call as ethers::core::abi::AbiDecode>::decode(data.as_ref())
+                <StartHoax3Call as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(TestCalls::StartHoax2(decoded));
+                return Ok(TestCalls::StartHoax3(decoded));
             }
             if let Ok(decoded) =
                 <StartHoax0Call as ethers::core::abi::AbiDecode>::decode(data.as_ref())
@@ -1054,9 +1148,9 @@ mod test_mod {
                 return Ok(TestCalls::StartHoax0(decoded));
             }
             if let Ok(decoded) =
-                <StartHoax4Call as ethers::core::abi::AbiDecode>::decode(data.as_ref())
+                <StartHoax2Call as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
-                return Ok(TestCalls::StartHoax4(decoded));
+                return Ok(TestCalls::StartHoax2(decoded));
             }
             if let Ok(decoded) = <TipCall as ethers::core::abi::AbiDecode>::decode(data.as_ref()) {
                 return Ok(TestCalls::Tip(decoded));
@@ -1070,6 +1164,7 @@ mod test_mod {
     impl ethers::core::abi::AbiEncode for TestCalls {
         fn encode(self) -> Vec<u8> {
             match self {
+                TestCalls::IsScript(element) => element.encode(),
                 TestCalls::IsTest(element) => element.encode(),
                 TestCalls::Bound(element) => element.encode(),
                 TestCalls::DealWithToken(element) => element.encode(),
@@ -1079,15 +1174,15 @@ mod test_mod {
                 TestCalls::DeployCode(element) => element.encode(),
                 TestCalls::Failed(element) => element.encode(),
                 TestCalls::Hoax0(element) => element.encode(),
-                TestCalls::Hoax2(element) => element.encode(),
+                TestCalls::Hoax1(element) => element.encode(),
                 TestCalls::Hoax3(element) => element.encode(),
-                TestCalls::Hoax4(element) => element.encode(),
+                TestCalls::Hoax2(element) => element.encode(),
                 TestCalls::Rewind(element) => element.encode(),
                 TestCalls::Skip(element) => element.encode(),
                 TestCalls::StartHoax1(element) => element.encode(),
-                TestCalls::StartHoax2(element) => element.encode(),
+                TestCalls::StartHoax3(element) => element.encode(),
                 TestCalls::StartHoax0(element) => element.encode(),
-                TestCalls::StartHoax4(element) => element.encode(),
+                TestCalls::StartHoax2(element) => element.encode(),
                 TestCalls::Tip(element) => element.encode(),
                 TestCalls::Vm(element) => element.encode(),
             }
@@ -1096,6 +1191,7 @@ mod test_mod {
     impl ::std::fmt::Display for TestCalls {
         fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
             match self {
+                TestCalls::IsScript(element) => element.fmt(f),
                 TestCalls::IsTest(element) => element.fmt(f),
                 TestCalls::Bound(element) => element.fmt(f),
                 TestCalls::DealWithToken(element) => element.fmt(f),
@@ -1105,18 +1201,23 @@ mod test_mod {
                 TestCalls::DeployCode(element) => element.fmt(f),
                 TestCalls::Failed(element) => element.fmt(f),
                 TestCalls::Hoax0(element) => element.fmt(f),
-                TestCalls::Hoax2(element) => element.fmt(f),
+                TestCalls::Hoax1(element) => element.fmt(f),
                 TestCalls::Hoax3(element) => element.fmt(f),
-                TestCalls::Hoax4(element) => element.fmt(f),
+                TestCalls::Hoax2(element) => element.fmt(f),
                 TestCalls::Rewind(element) => element.fmt(f),
                 TestCalls::Skip(element) => element.fmt(f),
                 TestCalls::StartHoax1(element) => element.fmt(f),
-                TestCalls::StartHoax2(element) => element.fmt(f),
+                TestCalls::StartHoax3(element) => element.fmt(f),
                 TestCalls::StartHoax0(element) => element.fmt(f),
-                TestCalls::StartHoax4(element) => element.fmt(f),
+                TestCalls::StartHoax2(element) => element.fmt(f),
                 TestCalls::Tip(element) => element.fmt(f),
                 TestCalls::Vm(element) => element.fmt(f),
             }
+        }
+    }
+    impl ::std::convert::From<IsScriptCall> for TestCalls {
+        fn from(var: IsScriptCall) -> Self {
+            TestCalls::IsScript(var)
         }
     }
     impl ::std::convert::From<IsTestCall> for TestCalls {
@@ -1164,9 +1265,9 @@ mod test_mod {
             TestCalls::Hoax0(var)
         }
     }
-    impl ::std::convert::From<Hoax2Call> for TestCalls {
-        fn from(var: Hoax2Call) -> Self {
-            TestCalls::Hoax2(var)
+    impl ::std::convert::From<Hoax1Call> for TestCalls {
+        fn from(var: Hoax1Call) -> Self {
+            TestCalls::Hoax1(var)
         }
     }
     impl ::std::convert::From<Hoax3Call> for TestCalls {
@@ -1174,9 +1275,9 @@ mod test_mod {
             TestCalls::Hoax3(var)
         }
     }
-    impl ::std::convert::From<Hoax4Call> for TestCalls {
-        fn from(var: Hoax4Call) -> Self {
-            TestCalls::Hoax4(var)
+    impl ::std::convert::From<Hoax2Call> for TestCalls {
+        fn from(var: Hoax2Call) -> Self {
+            TestCalls::Hoax2(var)
         }
     }
     impl ::std::convert::From<RewindCall> for TestCalls {
@@ -1194,9 +1295,9 @@ mod test_mod {
             TestCalls::StartHoax1(var)
         }
     }
-    impl ::std::convert::From<StartHoax2Call> for TestCalls {
-        fn from(var: StartHoax2Call) -> Self {
-            TestCalls::StartHoax2(var)
+    impl ::std::convert::From<StartHoax3Call> for TestCalls {
+        fn from(var: StartHoax3Call) -> Self {
+            TestCalls::StartHoax3(var)
         }
     }
     impl ::std::convert::From<StartHoax0Call> for TestCalls {
@@ -1204,9 +1305,9 @@ mod test_mod {
             TestCalls::StartHoax0(var)
         }
     }
-    impl ::std::convert::From<StartHoax4Call> for TestCalls {
-        fn from(var: StartHoax4Call) -> Self {
-            TestCalls::StartHoax4(var)
+    impl ::std::convert::From<StartHoax2Call> for TestCalls {
+        fn from(var: StartHoax2Call) -> Self {
+            TestCalls::StartHoax2(var)
         }
     }
     impl ::std::convert::From<TipCall> for TestCalls {
@@ -1219,4 +1320,87 @@ mod test_mod {
             TestCalls::Vm(var)
         }
     }
+    #[doc = "Container type for all return fields from the `IS_SCRIPT` function with signature `IS_SCRIPT()` and selector `[248, 204, 191, 71]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsScriptReturn(pub bool);
+    #[doc = "Container type for all return fields from the `IS_TEST` function with signature `IS_TEST()` and selector `[250, 118, 38, 212]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsTestReturn(pub bool);
+    #[doc = "Container type for all return fields from the `bound` function with signature `bound(uint256,uint256,uint256)` and selector `[90, 108, 30, 237]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct BoundReturn {
+        pub result: ethers::core::types::U256,
+    }
+    #[doc = "Container type for all return fields from the `deployCode` function with signature `deployCode(string,bytes)` and selector `[41, 206, 157, 222]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DeployCodeWithArgsReturn {
+        pub addr: ethers::core::types::Address,
+    }
+    #[doc = "Container type for all return fields from the `deployCode` function with signature `deployCode(string)` and selector `[154, 131, 37, 160]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DeployCodeReturn {
+        pub addr: ethers::core::types::Address,
+    }
+    #[doc = "Container type for all return fields from the `failed` function with signature `failed()` and selector `[186, 65, 79, 166]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct FailedReturn(pub bool);
+    #[doc = "Container type for all return fields from the `vm` function with signature `vm()` and selector `[58, 118, 132, 99]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct VmReturn(pub ethers::core::types::Address);
 }

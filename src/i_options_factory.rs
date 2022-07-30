@@ -1,6 +1,6 @@
-pub use ioptionsfactory_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod ioptionsfactory_mod {
+pub use i_options_factory::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod i_options_factory {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,7 +18,7 @@ mod ioptionsfactory_mod {
     use std::sync::Arc;
     pub static IOPTIONSFACTORY_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"qTokenAddress\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"underlying\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint88\",\"name\":\"expiry\",\"type\":\"uint88\",\"components\":[],\"indexed\":false},{\"internalType\":\"bool\",\"name\":\"isCall\",\"type\":\"bool\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"strikePrice\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"collateralTokenId\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"OptionCreated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"assetsRegistry\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"collateralToken\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"controller\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlyingAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"_isCall\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_strikePrice\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"createOption\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlyingAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_qTokenAsCollateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"_isCall\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_strikePrice\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getCollateralToken\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlyingAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"_isCall\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_strikePrice\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getQToken\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"implementation\",\"outputs\":[{\"internalType\":\"contract QToken\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isQToken\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"optionsDecimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"oracleRegistry\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"strikeAsset\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"qTokenAddress\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"creator\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"address\",\"name\":\"underlying\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"oracle\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint88\",\"name\":\"expiry\",\"type\":\"uint88\",\"components\":[],\"indexed\":false},{\"internalType\":\"bool\",\"name\":\"isCall\",\"type\":\"bool\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"strikePrice\",\"type\":\"uint256\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"collateralTokenId\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"OptionCreated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"assetsRegistry\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"collateralToken\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"controller\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlyingAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"_isCall\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_strikePrice\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"createOption\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlyingAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_qTokenAsCollateral\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"_isCall\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_strikePrice\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getCollateralToken\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlyingAsset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"_isCall\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_strikePrice\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getQToken\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"implementation\",\"outputs\":[{\"internalType\":\"contract QToken\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"isQToken\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"optionsDecimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"oracleRegistry\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"strikeAsset\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     pub struct IOptionsFactory<M>(ethers::contract::Contract<M>);
     impl<M> Clone for IOptionsFactory<M> {
@@ -214,7 +214,7 @@ mod ioptionsfactory_mod {
         pub strike_price: ethers::core::types::U256,
         pub collateral_token_id: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `assetsRegistry`function with signature `assetsRegistry()` and selector `[145, 19, 3, 180]`"]
+    #[doc = "Container type for all input parameters for the `assetsRegistry` function with signature `assetsRegistry()` and selector `[145, 19, 3, 180]`"]
     #[derive(
         Clone,
         Debug,
@@ -226,7 +226,7 @@ mod ioptionsfactory_mod {
     )]
     #[ethcall(name = "assetsRegistry", abi = "assetsRegistry()")]
     pub struct AssetsRegistryCall;
-    #[doc = "Container type for all input parameters for the `collateralToken`function with signature `collateralToken()` and selector `[178, 1, 107, 212]`"]
+    #[doc = "Container type for all input parameters for the `collateralToken` function with signature `collateralToken()` and selector `[178, 1, 107, 212]`"]
     #[derive(
         Clone,
         Debug,
@@ -238,7 +238,7 @@ mod ioptionsfactory_mod {
     )]
     #[ethcall(name = "collateralToken", abi = "collateralToken()")]
     pub struct CollateralTokenCall;
-    #[doc = "Container type for all input parameters for the `controller`function with signature `controller()` and selector `[247, 124, 71, 145]`"]
+    #[doc = "Container type for all input parameters for the `controller` function with signature `controller()` and selector `[247, 124, 71, 145]`"]
     #[derive(
         Clone,
         Debug,
@@ -250,7 +250,7 @@ mod ioptionsfactory_mod {
     )]
     #[ethcall(name = "controller", abi = "controller()")]
     pub struct ControllerCall;
-    #[doc = "Container type for all input parameters for the `createOption`function with signature `createOption(address,address,uint88,bool,uint256)` and selector `[31, 166, 233, 34]`"]
+    #[doc = "Container type for all input parameters for the `createOption` function with signature `createOption(address,address,uint88,bool,uint256)` and selector `[31, 166, 233, 34]`"]
     #[derive(
         Clone,
         Debug,
@@ -271,7 +271,7 @@ mod ioptionsfactory_mod {
         pub is_call: bool,
         pub strike_price: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `getCollateralToken`function with signature `getCollateralToken(address,address,address,uint88,bool,uint256)` and selector `[123, 8, 21, 245]`"]
+    #[doc = "Container type for all input parameters for the `getCollateralToken` function with signature `getCollateralToken(address,address,address,uint88,bool,uint256)` and selector `[123, 8, 21, 245]`"]
     #[derive(
         Clone,
         Debug,
@@ -293,7 +293,7 @@ mod ioptionsfactory_mod {
         pub is_call: bool,
         pub strike_price: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `getQToken`function with signature `getQToken(address,address,uint88,bool,uint256)` and selector `[189, 18, 143, 203]`"]
+    #[doc = "Container type for all input parameters for the `getQToken` function with signature `getQToken(address,address,uint88,bool,uint256)` and selector `[189, 18, 143, 203]`"]
     #[derive(
         Clone,
         Debug,
@@ -314,7 +314,7 @@ mod ioptionsfactory_mod {
         pub is_call: bool,
         pub strike_price: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `implementation`function with signature `implementation()` and selector `[92, 96, 218, 27]`"]
+    #[doc = "Container type for all input parameters for the `implementation` function with signature `implementation()` and selector `[92, 96, 218, 27]`"]
     #[derive(
         Clone,
         Debug,
@@ -326,7 +326,7 @@ mod ioptionsfactory_mod {
     )]
     #[ethcall(name = "implementation", abi = "implementation()")]
     pub struct ImplementationCall;
-    #[doc = "Container type for all input parameters for the `isQToken`function with signature `isQToken(address)` and selector `[12, 116, 128, 78]`"]
+    #[doc = "Container type for all input parameters for the `isQToken` function with signature `isQToken(address)` and selector `[12, 116, 128, 78]`"]
     #[derive(
         Clone,
         Debug,
@@ -338,7 +338,7 @@ mod ioptionsfactory_mod {
     )]
     #[ethcall(name = "isQToken", abi = "isQToken(address)")]
     pub struct IsQTokenCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `optionsDecimals`function with signature `optionsDecimals()` and selector `[132, 147, 206, 193]`"]
+    #[doc = "Container type for all input parameters for the `optionsDecimals` function with signature `optionsDecimals()` and selector `[132, 147, 206, 193]`"]
     #[derive(
         Clone,
         Debug,
@@ -350,7 +350,7 @@ mod ioptionsfactory_mod {
     )]
     #[ethcall(name = "optionsDecimals", abi = "optionsDecimals()")]
     pub struct OptionsDecimalsCall;
-    #[doc = "Container type for all input parameters for the `oracleRegistry`function with signature `oracleRegistry()` and selector `[75, 185, 58, 177]`"]
+    #[doc = "Container type for all input parameters for the `oracleRegistry` function with signature `oracleRegistry()` and selector `[75, 185, 58, 177]`"]
     #[derive(
         Clone,
         Debug,
@@ -362,7 +362,7 @@ mod ioptionsfactory_mod {
     )]
     #[ethcall(name = "oracleRegistry", abi = "oracleRegistry()")]
     pub struct OracleRegistryCall;
-    #[doc = "Container type for all input parameters for the `strikeAsset`function with signature `strikeAsset()` and selector `[23, 214, 155, 200]`"]
+    #[doc = "Container type for all input parameters for the `strikeAsset` function with signature `strikeAsset()` and selector `[23, 214, 155, 200]`"]
     #[derive(
         Clone,
         Debug,
@@ -537,4 +537,128 @@ mod ioptionsfactory_mod {
             IOptionsFactoryCalls::StrikeAsset(var)
         }
     }
+    #[doc = "Container type for all return fields from the `assetsRegistry` function with signature `assetsRegistry()` and selector `[145, 19, 3, 180]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AssetsRegistryReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `collateralToken` function with signature `collateralToken()` and selector `[178, 1, 107, 212]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CollateralTokenReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `controller` function with signature `controller()` and selector `[247, 124, 71, 145]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ControllerReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `createOption` function with signature `createOption(address,address,uint88,bool,uint256)` and selector `[31, 166, 233, 34]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct CreateOptionReturn(
+        pub ethers::core::types::Address,
+        pub ethers::core::types::U256,
+    );
+    #[doc = "Container type for all return fields from the `getCollateralToken` function with signature `getCollateralToken(address,address,address,uint88,bool,uint256)` and selector `[123, 8, 21, 245]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetCollateralTokenReturn(pub ethers::core::types::U256, pub bool);
+    #[doc = "Container type for all return fields from the `getQToken` function with signature `getQToken(address,address,uint88,bool,uint256)` and selector `[189, 18, 143, 203]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetQTokenReturn(pub ethers::core::types::Address, pub bool);
+    #[doc = "Container type for all return fields from the `implementation` function with signature `implementation()` and selector `[92, 96, 218, 27]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ImplementationReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `isQToken` function with signature `isQToken(address)` and selector `[12, 116, 128, 78]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsQTokenReturn(pub bool);
+    #[doc = "Container type for all return fields from the `optionsDecimals` function with signature `optionsDecimals()` and selector `[132, 147, 206, 193]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OptionsDecimalsReturn(pub u8);
+    #[doc = "Container type for all return fields from the `oracleRegistry` function with signature `oracleRegistry()` and selector `[75, 185, 58, 177]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OracleRegistryReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `strikeAsset` function with signature `strikeAsset()` and selector `[23, 214, 155, 200]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct StrikeAssetReturn(pub ethers::core::types::Address);
 }

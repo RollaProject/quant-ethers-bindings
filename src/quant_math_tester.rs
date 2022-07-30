@@ -1,6 +1,6 @@
-pub use quantmathtester_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod quantmathtester_mod {
+pub use quant_math_tester::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod quant_math_tester {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,12 +18,12 @@ mod quantmathtester_mod {
     use std::sync::Arc;
     pub static QUANTMATHTESTER_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"addTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"divTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"decimals\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"fromScaledUintTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"a\",\"type\":\"int256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"fromUnscaledIntTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"isEqualTest\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"isGreaterThanOrEqualTest\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"isGreaterThanTest\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"isLessThanOrEqualTest\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"isLessThanTest\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"maxTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"minTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"mulTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"subTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"uint256\",\"name\":\"decimals\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"roundDown\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"toScaledUintTest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"addTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"divTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"decimals\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"fromScaledUintTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"a\",\"type\":\"int256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"fromUnscaledIntTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"isEqualTest\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"isGreaterThanOrEqualTest\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"isGreaterThanTest\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"isLessThanOrEqualTest\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"isLessThanTest\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"maxTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"minTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"mulTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"b\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"subTest\",\"outputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"struct QuantMath.FixedPointInt\",\"name\":\"a\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"int256\",\"name\":\"value\",\"type\":\"int256\",\"components\":[]}]},{\"internalType\":\"uint256\",\"name\":\"decimals\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"roundDown\",\"type\":\"bool\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"toScaledUintTest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static QUANTMATHTESTER_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x6080806040523461001657610e16908161001c8239f35b600080fdfe60806040526004361015610013575b600080fd5b60003560e01c8063186c1a061461012b57806323fe1cfb146101225780632d5a6b3f1461011957806333293dc0146101105780633366567c1461010757806346537197146100fe57806366829be9146100f557806377714493146100ec578063a07fdf1b146100e3578063bb27b976146100da578063c334a50b146100d1578063dc9ebe0b146100c8578063e2052e0d146100bf5763ffd908f2146100b757600080fd5b61000e6109e7565b5061000e610994565b5061000e6108b5565b5061000e610864565b5061000e61074f565b5061000e6106fd565b5061000e610615565b5061000e6105c4565b5061000e6104a8565b5061000e6103c9565b5061000e61035b565b5061000e6102be565b5061000e610248565b5061000e6101f7565b604051906020820182811067ffffffffffffffff82111761015457604052565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc602091011261000e576101b5610134565b906004358252565b7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffdc602091011261000e576101ef610134565b906024358252565b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57602061023236610183565b61023b366101bd565b9051905113604051908152f35b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57602061028336610183565b61028c366101bd565b6000610296610134565b5260006102a1610134565b528151815113156102b757505b60405190518152f35b90506102ae565b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760206103496b033b2e3c9fd0803ce800000061034361030c36610183565b610315366101bd565b906000610320610134565b52600061032b610134565b526103398151835190610ae8565b5051905190610ae8565b05610d68565b80610352610134565b52604051908152f35b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57602061039636610183565b61039f366101bd565b60006103a9610134565b5260006103b4610134565b528151815112156102b7575060405190518152f35b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57602061040436610183565b61040d366101bd565b906000610418610134565b526000610423610134565b525190519060008112817f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff03831381151661049b575b817f80000000000000000000000000000000000000000000000000000000000000000383121661048e575b0180610352610134565b610496610a39565b610484565b6104a3610a39565b610459565b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5761059961057e6104e736610183565b6105236104f3366101bd565b9160006104fe610134565b526000610509610134565b526105148151610a69565b508251156105b7575b51610a69565b90519081156105aa575b7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff82147f800000000000000000000000000000000000000000000000000000000000000082141661059d5705610d68565b610586610134565b8190526040519081529081906020820190565b0390f35b6105a5610a39565b610343565b6105b2610c24565b61052d565b6105bf610c24565b61051d565b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760206105ff36610183565b610608366101bd565b9051905112604051908152f35b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e576105996004356024356000610658610134565b526000610663610134565b52600061066e610134565b52601b8103610692575061057e90610c6a565b604051905181529081906020820190565b601b8111156106ce576106be916106b36106ae6106b993610b9d565b610bd7565b90610c54565b610c6a565b6106c6610134565b908152610681565b6106be916106ea826106b993601b106106f0575b601b03610bd7565b90610bf3565b6106f8610a39565b6106e2565b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57602061073836610183565b610741366101bd565b905190511215604051908152f35b503461000e5760607ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5761078836610183565b6024356044359182159283150361000e57610599926000601b84036107c45750506107b4915051610cff565b6040519081529081906020820190565b601b8411156107f35750506106ea6107e86107e16107ee94610b9d565b9251610cff565b91610bd7565b6107b4565b836107ee94601b10610857575b601b039091610820575b6106b36107e861081b939451610cff565b610cf3565b61082a8351610cff565b61083382610bd7565b90811561084a575b061561080a576001915061080a565b610852610c24565b61083b565b61085f610a39565b610800565b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57602061089f36610183565b6108a8366101bd565b9051905114604051908152f35b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760206108f036610183565b6108f9366101bd565b906000610904610134565b52600061090f610134565b525190519060008212827f8000000000000000000000000000000000000000000000000000000000000000018212811516610987575b827f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0182131661097a575b0380610352610134565b610982610a39565b610970565b61098f610a39565b610945565b503461000e5760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760006109ce610134565b5260006109d9610134565b526020610349600435610a69565b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e576020610a2236610183565b610a2b366101bd565b905190511315604051908152f35b507f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b6b033b2e3c9fd0803ce800000090600174279d346de4781f921dd7a89933d54d1f72927c70148211600083131616610adb575b60017fffffffffffffffffffffffd862cb921b87e06de2285766cc2ab2e08d6d838fec8212600083121616610acf570290565b610ad7610a39565b0290565b610ae3610a39565b610a9c565b600082136000821390837f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff818104851183851616610b90575b60008212927f800000000000000000000000000000000000000000000000000000000000000094848787058512911616610b83575b82600087129505861290851616610b76575b058312911616610acf570290565b610b7e610a39565b610b68565b610b8b610a39565b610b56565b610b98610a39565b610b21565b7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe590601b8110610bcb570190565b610bd3610a39565b0190565b604d8111610be6575b600a0a90565b610bee610a39565b610be0565b807fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff04821181151516610acf570290565b507f4e487b7100000000000000000000000000000000000000000000000000000000600052601260045260246000fd5b8115610c5e570490565b610c66610c24565b0490565b7f8000000000000000000000000000000000000000000000000000000000000000811015610c955790565b60646040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601b60248201527f5175616e744d6174683a206f7574206f6620696e742072616e676500000000006044820152fd5b81198111610bcb570190565b60008112610d0a5790565b60646040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601760248201527f5175616e744d6174683a206e6567617469766520696e740000000000000000006044820152fd5b60008112817f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff03600013811516610dd3575b817f80000000000000000000000000000000000000000000000000000000000000000360001216610dc85790565b610dd0610a39565b90565b610ddb610a39565b610d9a56fea26469706673582212205a820afb84957f90002b341e58b51416632051b160f18c1a071eb6b65ee03b7a64736f6c634300080e0033" . parse () . expect ("invalid bytecode")
+            "0x6080806040523461001657610e7a908161001c8239f35b600080fdfe6040608081526004908136101561001557600080fd5b600091823560e01c908163186c1a0614610a4557816323fe1cfb146109d65781632d5a6b3f146108c457816333293dc01461084d5781633366567c14610789578163465371971461061f57816366829be9146105ce57816377714493146104d0578163a07fdf1b1461047e578163bb27b976146102e7578163c334a50b14610296578163dc9ebe0b14610177578163e2052e0d14610111575063ffd908f2146100bd57600080fd5b3461010d57807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261010d576020906100f736610ae5565b61010036610b24565b9051905113159051908152f35b5080fd5b9050346101735760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610173576101629083602094610152610a96565b5261015b610a96565b5235610b5e565b908161016c610a96565b5251908152f35b8280fd5b82843461029357817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610293576101b036610ae5565b6101b936610b24565b90826101c3610a96565b52826101cd610a96565b5251905191808312837f800000000000000000000000000000000000000000000000000000000000000001831281151661026757837f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0183131661023b57506020935003908161016c610a96565b806011867f4e487b71000000000000000000000000000000000000000000000000000000006024945252fd5b6024826011887f4e487b7100000000000000000000000000000000000000000000000000000000835252fd5b80fd5b50503461010d57807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261010d576020906102d236610ae5565b6102db36610b24565b90519051149051908152f35b9050346101735760607ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101735761032136610ae5565b926024359060443580159081150361010d57601b8303610353575050505061034b60209251610e04565b905b51908152f35b601b83949693116000146103b45750601b831061023b575060209350906103a87fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe56103a16103ae9451610e04565b9201610cd4565b90610d11565b9061034d565b9280601b9392931061045257601b039082936103fd575b906103e26103dc6103e89351610e04565b91610cd4565b90610d42565b908219821161023b575060209350019061034d565b6104078151610e04565b61041083610cd4565b9081156104265706156103cb57600193506103cb565b60248560128a7f4e487b7100000000000000000000000000000000000000000000000000000000835252fd5b6024836011887f4e487b7100000000000000000000000000000000000000000000000000000000835252fd5b50503461010d57807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261010d576020906104ba36610ae5565b6104c336610b24565b9051905112159051908152f35b82843461029357817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610293578235906024359080610510610a96565b528061051a610a96565b5280610524610a96565b52601b82036105505750506020925061053c90610d7b565b610544610a96565b908152905b5190518152f35b601b8211156105ae57601b821061023b57506020935061059d916103e27fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe56105989301610cd4565b610d7b565b6105a5610a96565b90815290610549565b81601b1061023b57506020935061059d916103a861059892601b03610cd4565b50503461010d57807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261010d5760209061060a36610ae5565b61061336610b24565b90519051129051908152f35b83833461010d57807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261010d5761065836610ae5565b9161066236610b24565b928161066c610a96565b5281610676610a96565b526106818151610b5e565b5083511561075d576106939051610b5e565b9251801561075d577f8000000000000000000000000000000000000000000000000000000000000000937fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff82148582141661045257059281841290847f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0383138215166104525784900382121661073157602083838161016c610a96565b806011857f4e487b71000000000000000000000000000000000000000000000000000000006024945252fd5b6024826012877f4e487b7100000000000000000000000000000000000000000000000000000000835252fd5b82843461029357817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610293576107c236610ae5565b6107cb36610b24565b90826107d5610a96565b52826107df610a96565b5251905191808212827f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff03841381151661026757827f80000000000000000000000000000000000000000000000000000000000000000384121661023b57506020935001908161016c610a96565b50503461010d57807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261010d5760209161088936610ae5565b9061089336610b24565b908061089d610a96565b52806108a7610a96565b52508151815112156108bc5750905190518152f35b905090610549565b83833461010d57807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261010d576b033b2e3c9fd0803ce800000061094261090d36610ae5565b61091636610b24565b9085610920610a96565b528561092a610a96565b526109388151835190610bf0565b5051905190610bf0565b0591808312837f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0382138115166109aa57837f80000000000000000000000000000000000000000000000000000000000000000382121661073157602083838161016c610a96565b6024826011877f4e487b7100000000000000000000000000000000000000000000000000000000835252fd5b50503461010d57807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261010d57602091610a1236610ae5565b90610a1c36610b24565b9080610a26610a96565b5280610a30610a96565b52508151815113156108bc5750905190518152f35b50503461010d57807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261010d57602090610a8136610ae5565b610a8a36610b24565b90519051139051908152f35b604051906020820182811067ffffffffffffffff821117610ab657604052565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc6020910112610b1f57610b17610a96565b906004358252565b600080fd5b7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffdc6020910112610b1f57610b56610a96565b906024358252565b6000600174279d346de4781f921dd7a89933d54d1f72927c701483118284131616610bc35760017fffffffffffffffffffffffd862cb921b87e06de2285766cc2ab2e08d6d838fec83128284121616610bc357506b033b2e3c9fd0803ce80000000290565b807f4e487b7100000000000000000000000000000000000000000000000000000000602492526011600452fd5b60008082138184137f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff828216868204861116610c7a57838612917f800000000000000000000000000000000000000000000000000000000000000093838786058912911616610ca757868587129405861290841616610c7a578590058412911616610bc357500290565b6024847f4e487b710000000000000000000000000000000000000000000000000000000081526011600452fd5b6024857f4e487b710000000000000000000000000000000000000000000000000000000081526011600452fd5b604d8111610ce257600a0a90565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b807fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff04821181151516610ce2570290565b8115610d4c570490565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601260045260246000fd5b7f8000000000000000000000000000000000000000000000000000000000000000811015610da65790565b60646040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601b60248201527f5175616e744d6174683a206f7574206f6620696e742072616e676500000000006044820152fd5b60008112610e0f5790565b60646040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601760248201527f5175616e744d6174683a206e6567617469766520696e740000000000000000006044820152fdfea164736f6c634300080f000a" . parse () . expect ("invalid bytecode")
         });
     pub struct QuantMathTester<M>(ethers::contract::Contract<M>);
     impl<M> Clone for QuantMathTester<M> {
@@ -240,7 +240,7 @@ mod quantmathtester_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `addTest`function with signature `addTest((int256),(int256))` and selector `[51, 102, 86, 124]`"]
+    #[doc = "Container type for all input parameters for the `addTest` function with signature `addTest((int256),(int256))` and selector `[51, 102, 86, 124]`"]
     #[derive(
         Clone,
         Debug,
@@ -255,7 +255,7 @@ mod quantmathtester_mod {
         pub a: FixedPointInt,
         pub b: FixedPointInt,
     }
-    #[doc = "Container type for all input parameters for the `divTest`function with signature `divTest((int256),(int256))` and selector `[70, 83, 113, 151]`"]
+    #[doc = "Container type for all input parameters for the `divTest` function with signature `divTest((int256),(int256))` and selector `[70, 83, 113, 151]`"]
     #[derive(
         Clone,
         Debug,
@@ -270,7 +270,7 @@ mod quantmathtester_mod {
         pub a: FixedPointInt,
         pub b: FixedPointInt,
     }
-    #[doc = "Container type for all input parameters for the `fromScaledUintTest`function with signature `fromScaledUintTest(uint256,uint256)` and selector `[119, 113, 68, 147]`"]
+    #[doc = "Container type for all input parameters for the `fromScaledUintTest` function with signature `fromScaledUintTest(uint256,uint256)` and selector `[119, 113, 68, 147]`"]
     #[derive(
         Clone,
         Debug,
@@ -288,7 +288,7 @@ mod quantmathtester_mod {
         pub a: ethers::core::types::U256,
         pub decimals: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `fromUnscaledIntTest`function with signature `fromUnscaledIntTest(int256)` and selector `[226, 5, 46, 13]`"]
+    #[doc = "Container type for all input parameters for the `fromUnscaledIntTest` function with signature `fromUnscaledIntTest(int256)` and selector `[226, 5, 46, 13]`"]
     #[derive(
         Clone,
         Debug,
@@ -302,7 +302,7 @@ mod quantmathtester_mod {
     pub struct FromUnscaledIntTestCall {
         pub a: I256,
     }
-    #[doc = "Container type for all input parameters for the `isEqualTest`function with signature `isEqualTest((int256),(int256))` and selector `[195, 52, 165, 11]`"]
+    #[doc = "Container type for all input parameters for the `isEqualTest` function with signature `isEqualTest((int256),(int256))` and selector `[195, 52, 165, 11]`"]
     #[derive(
         Clone,
         Debug,
@@ -317,7 +317,7 @@ mod quantmathtester_mod {
         pub a: FixedPointInt,
         pub b: FixedPointInt,
     }
-    #[doc = "Container type for all input parameters for the `isGreaterThanOrEqualTest`function with signature `isGreaterThanOrEqualTest((int256),(int256))` and selector `[255, 217, 8, 242]`"]
+    #[doc = "Container type for all input parameters for the `isGreaterThanOrEqualTest` function with signature `isGreaterThanOrEqualTest((int256),(int256))` and selector `[255, 217, 8, 242]`"]
     #[derive(
         Clone,
         Debug,
@@ -335,7 +335,7 @@ mod quantmathtester_mod {
         pub a: FixedPointInt,
         pub b: FixedPointInt,
     }
-    #[doc = "Container type for all input parameters for the `isGreaterThanTest`function with signature `isGreaterThanTest((int256),(int256))` and selector `[102, 130, 155, 233]`"]
+    #[doc = "Container type for all input parameters for the `isGreaterThanTest` function with signature `isGreaterThanTest((int256),(int256))` and selector `[102, 130, 155, 233]`"]
     #[derive(
         Clone,
         Debug,
@@ -353,7 +353,7 @@ mod quantmathtester_mod {
         pub a: FixedPointInt,
         pub b: FixedPointInt,
     }
-    #[doc = "Container type for all input parameters for the `isLessThanOrEqualTest`function with signature `isLessThanOrEqualTest((int256),(int256))` and selector `[160, 127, 223, 27]`"]
+    #[doc = "Container type for all input parameters for the `isLessThanOrEqualTest` function with signature `isLessThanOrEqualTest((int256),(int256))` and selector `[160, 127, 223, 27]`"]
     #[derive(
         Clone,
         Debug,
@@ -371,7 +371,7 @@ mod quantmathtester_mod {
         pub a: FixedPointInt,
         pub b: FixedPointInt,
     }
-    #[doc = "Container type for all input parameters for the `isLessThanTest`function with signature `isLessThanTest((int256),(int256))` and selector `[24, 108, 26, 6]`"]
+    #[doc = "Container type for all input parameters for the `isLessThanTest` function with signature `isLessThanTest((int256),(int256))` and selector `[24, 108, 26, 6]`"]
     #[derive(
         Clone,
         Debug,
@@ -386,7 +386,7 @@ mod quantmathtester_mod {
         pub a: FixedPointInt,
         pub b: FixedPointInt,
     }
-    #[doc = "Container type for all input parameters for the `maxTest`function with signature `maxTest((int256),(int256))` and selector `[51, 41, 61, 192]`"]
+    #[doc = "Container type for all input parameters for the `maxTest` function with signature `maxTest((int256),(int256))` and selector `[51, 41, 61, 192]`"]
     #[derive(
         Clone,
         Debug,
@@ -401,7 +401,7 @@ mod quantmathtester_mod {
         pub a: FixedPointInt,
         pub b: FixedPointInt,
     }
-    #[doc = "Container type for all input parameters for the `minTest`function with signature `minTest((int256),(int256))` and selector `[35, 254, 28, 251]`"]
+    #[doc = "Container type for all input parameters for the `minTest` function with signature `minTest((int256),(int256))` and selector `[35, 254, 28, 251]`"]
     #[derive(
         Clone,
         Debug,
@@ -416,7 +416,7 @@ mod quantmathtester_mod {
         pub a: FixedPointInt,
         pub b: FixedPointInt,
     }
-    #[doc = "Container type for all input parameters for the `mulTest`function with signature `mulTest((int256),(int256))` and selector `[45, 90, 107, 63]`"]
+    #[doc = "Container type for all input parameters for the `mulTest` function with signature `mulTest((int256),(int256))` and selector `[45, 90, 107, 63]`"]
     #[derive(
         Clone,
         Debug,
@@ -431,7 +431,7 @@ mod quantmathtester_mod {
         pub a: FixedPointInt,
         pub b: FixedPointInt,
     }
-    #[doc = "Container type for all input parameters for the `subTest`function with signature `subTest((int256),(int256))` and selector `[220, 158, 190, 11]`"]
+    #[doc = "Container type for all input parameters for the `subTest` function with signature `subTest((int256),(int256))` and selector `[220, 158, 190, 11]`"]
     #[derive(
         Clone,
         Debug,
@@ -446,7 +446,7 @@ mod quantmathtester_mod {
         pub a: FixedPointInt,
         pub b: FixedPointInt,
     }
-    #[doc = "Container type for all input parameters for the `toScaledUintTest`function with signature `toScaledUintTest((int256),uint256,bool)` and selector `[187, 39, 185, 118]`"]
+    #[doc = "Container type for all input parameters for the `toScaledUintTest` function with signature `toScaledUintTest((int256),uint256,bool)` and selector `[187, 39, 185, 118]`"]
     #[derive(
         Clone,
         Debug,
@@ -669,6 +669,160 @@ mod quantmathtester_mod {
             QuantMathTesterCalls::ToScaledUintTest(var)
         }
     }
+    #[doc = "Container type for all return fields from the `addTest` function with signature `addTest((int256),(int256))` and selector `[51, 102, 86, 124]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AddTestReturn(pub (I256,));
+    #[doc = "Container type for all return fields from the `divTest` function with signature `divTest((int256),(int256))` and selector `[70, 83, 113, 151]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DivTestReturn(pub (I256,));
+    #[doc = "Container type for all return fields from the `fromScaledUintTest` function with signature `fromScaledUintTest(uint256,uint256)` and selector `[119, 113, 68, 147]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct FromScaledUintTestReturn(pub (I256,));
+    #[doc = "Container type for all return fields from the `fromUnscaledIntTest` function with signature `fromUnscaledIntTest(int256)` and selector `[226, 5, 46, 13]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct FromUnscaledIntTestReturn(pub (I256,));
+    #[doc = "Container type for all return fields from the `isEqualTest` function with signature `isEqualTest((int256),(int256))` and selector `[195, 52, 165, 11]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsEqualTestReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isGreaterThanOrEqualTest` function with signature `isGreaterThanOrEqualTest((int256),(int256))` and selector `[255, 217, 8, 242]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsGreaterThanOrEqualTestReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isGreaterThanTest` function with signature `isGreaterThanTest((int256),(int256))` and selector `[102, 130, 155, 233]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsGreaterThanTestReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isLessThanOrEqualTest` function with signature `isLessThanOrEqualTest((int256),(int256))` and selector `[160, 127, 223, 27]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsLessThanOrEqualTestReturn(pub bool);
+    #[doc = "Container type for all return fields from the `isLessThanTest` function with signature `isLessThanTest((int256),(int256))` and selector `[24, 108, 26, 6]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsLessThanTestReturn(pub bool);
+    #[doc = "Container type for all return fields from the `maxTest` function with signature `maxTest((int256),(int256))` and selector `[51, 41, 61, 192]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct MaxTestReturn(pub (I256,));
+    #[doc = "Container type for all return fields from the `minTest` function with signature `minTest((int256),(int256))` and selector `[35, 254, 28, 251]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct MinTestReturn(pub (I256,));
+    #[doc = "Container type for all return fields from the `mulTest` function with signature `mulTest((int256),(int256))` and selector `[45, 90, 107, 63]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct MulTestReturn(pub (I256,));
+    #[doc = "Container type for all return fields from the `subTest` function with signature `subTest((int256),(int256))` and selector `[220, 158, 190, 11]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SubTestReturn(pub (I256,));
+    #[doc = "Container type for all return fields from the `toScaledUintTest` function with signature `toScaledUintTest((int256),uint256,bool)` and selector `[187, 39, 185, 118]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ToScaledUintTestReturn(pub ethers::core::types::U256);
     #[doc = "`FixedPointInt(int256)`"]
     #[derive(
         Clone,

@@ -1,6 +1,6 @@
-pub use address_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod address_mod {
+pub use address::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod address {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,11 +17,13 @@ mod address_mod {
     #[doc = "Address was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static ADDRESS_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     #[doc = r" Bytecode of the #name contract"]
     pub static ADDRESS_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60808060405234601757603a9081601d823930815050f35b600080fdfe600080fdfea26469706673582212208d2d8ce813f78e834b5b1fbaaa658629cf1b65762d2686757c89c980f89ba14d64736f6c634300080e0033" . parse () . expect ("invalid bytecode")
+            "0x6080806040523460175760119081601d823930815050f35b600080fdfe600080fdfea164736f6c634300080f000a" . parse () . expect ("invalid bytecode")
         });
     pub struct Address<M>(ethers::contract::Contract<M>);
     impl<M> Clone for Address<M> {

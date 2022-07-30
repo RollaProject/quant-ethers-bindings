@@ -1,6 +1,6 @@
-pub use stdstorage_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod stdstorage_mod {
+pub use std_storage::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod std_storage {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,12 +18,12 @@ mod stdstorage_mod {
     use std::sync::Arc;
     pub static STDSTORAGE_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"bytes4\",\"name\":\"fsig\",\"type\":\"bytes4\",\"components\":[],\"indexed\":false},{\"internalType\":\"bytes32\",\"name\":\"keysHash\",\"type\":\"bytes32\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"slot\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"SlotFound\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"slot\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"WARNING_UninitedSlot\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"b\",\"type\":\"bytes\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"offset\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"bytesToBytes32\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"bytes4\",\"name\":\"fsig\",\"type\":\"bytes4\",\"components\":[],\"indexed\":false},{\"internalType\":\"bytes32\",\"name\":\"keysHash\",\"type\":\"bytes32\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"slot\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"SlotFound\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"who\",\"type\":\"address\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"slot\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"WARNING_UninitedSlot\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"b\",\"type\":\"bytes\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"offset\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"bytesToBytes32\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static STDSTORAGE_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x6080806040523461001a5761030b9081610020823930815050f35b600080fdfe6080604052600436101561001257600080fd5b6000803560e01c63535849391461002857600080fd5b60407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101255767ffffffffffffffff600435818111610121573660238201121561012157806004013590828211610114575b604051927fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0603f81601f860116011684019084821090821117610107575b604052818352366024838301011161010357926020826100ef949360246100ff97018386013783010152602435906101ca565b6040519081529081906020820190565b0390f35b8380fd5b61010f610128565b6100bc565b61011c610128565b61007e565b8280fd5b80fd5b507f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b507f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b807fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff04600811811515166101bd575b60031b90565b6101c5610158565b6101b7565b8051919291600091602091828111156102c957509293919290805b84925b8184106101f757505050505090565b909192939594841987116102bc575b84870190825182101561028d57908201840151600191907fff000000000000000000000000000000000000000000000000000000000000001661024887610188565b1c17947fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8114610280575b01929190959394956101e8565b610288610158565b610273565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b6102c4610158565b610206565b949293949190916101e556fea26469706673582212200bccf88dccab171227afd1694fed2382dbdae96a51b5098a7ac7e1be7f84e19464736f6c634300080e0033" . parse () . expect ("invalid bytecode")
+            "0x6080806040523461001a576102869081610020823930815050f35b600080fdfe60806004908136101561001157600080fd5b600091823560e01c63535849391461002857600080fd5b60407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126102455767ffffffffffffffff9281358481116102755736602382011215610275578083013594808611610249577fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0603f81601f8901160116850190858210908211176102495760405284845260249436868284010111610245579180918387959460209889930183890137860101528235918194805187811160001461023a5750869291909493945b82955b84871061010c578888604051908152f35b90919293949596871982116101b957878201835181101561020f57897fff00000000000000000000000000000000000000000000000000000000000000918501015116887fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff04600811891515166101e4578860031b1c17967fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff81146101b9576001019594939291906100fb565b86856011867f4e487b7100000000000000000000000000000000000000000000000000000000835252fd5b87866011877f4e487b7100000000000000000000000000000000000000000000000000000000835252fd5b87866032877f4e487b7100000000000000000000000000000000000000000000000000000000835252fd5b9291909493946100f8565b8280fd5b6024836041867f4e487b7100000000000000000000000000000000000000000000000000000000835252fd5b5080fdfea164736f6c634300080f000a" . parse () . expect ("invalid bytecode")
         });
     pub struct stdStorage<M>(ethers::contract::Contract<M>);
     impl<M> Clone for stdStorage<M> {
@@ -183,7 +183,7 @@ mod stdstorage_mod {
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `bytesToBytes32`function with signature `bytesToBytes32(bytes,uint256)` and selector `[83, 88, 73, 57]`"]
+    #[doc = "Container type for all input parameters for the `bytesToBytes32` function with signature `bytesToBytes32(bytes,uint256)` and selector `[83, 88, 73, 57]`"]
     #[derive(
         Clone,
         Debug,
@@ -198,4 +198,15 @@ mod stdstorage_mod {
         pub b: ethers::core::types::Bytes,
         pub offset: ethers::core::types::U256,
     }
+    #[doc = "Container type for all return fields from the `bytesToBytes32` function with signature `bytesToBytes32(bytes,uint256)` and selector `[83, 88, 73, 57]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct BytesToBytes32Return(pub [u8; 32]);
 }

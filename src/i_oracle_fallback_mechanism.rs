@@ -1,6 +1,6 @@
-pub use ioraclefallbackmechanism_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod ioraclefallbackmechanism_mod {
+pub use i_oracle_fallback_mechanism::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod i_oracle_fallback_mechanism {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,7 +18,7 @@ mod ioraclefallbackmechanism_mod {
     use std::sync::Arc;
     pub static IORACLEFALLBACKMECHANISM_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTimestamp\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_price\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setExpiryPriceInRegistryFallback\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTimestamp\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_price\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setExpiryPriceInRegistryFallback\",\"outputs\":[]}]") . expect ("invalid abi")
         });
     pub struct IOracleFallbackMechanism<M>(ethers::contract::Contract<M>);
     impl<M> Clone for IOracleFallbackMechanism<M> {
@@ -73,7 +73,7 @@ mod ioraclefallbackmechanism_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `setExpiryPriceInRegistryFallback`function with signature `setExpiryPriceInRegistryFallback(address,uint88,uint256)` and selector `[110, 227, 130, 123]`"]
+    #[doc = "Container type for all input parameters for the `setExpiryPriceInRegistryFallback` function with signature `setExpiryPriceInRegistryFallback(address,uint88,uint256)` and selector `[110, 227, 130, 123]`"]
     #[derive(
         Clone,
         Debug,

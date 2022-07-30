@@ -1,6 +1,6 @@
-pub use storageslot_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod storageslot_mod {
+pub use lib_string::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod lib_string {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -14,35 +14,37 @@ mod storageslot_mod {
         types::*,
     };
     use ethers::providers::Middleware;
-    #[doc = "StorageSlot was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
+    #[doc = "LibString was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
-    pub static STORAGESLOT_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
-    #[doc = r" Bytecode of the #name contract"]
-    pub static STORAGESLOT_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
+    pub static LIBSTRING_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            "0x60808060405234601757603a9081601d823930815050f35b600080fdfe600080fdfea26469706673582212207db6dec77e90c72de04d703f8c9f639628fccd7128fac5c6b2e7f4c7afa62b1764736f6c634300080e0033" . parse () . expect ("invalid bytecode")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[],\"type\":\"error\",\"name\":\"HexLengthInsufficient\",\"outputs\":[]}]") . expect ("invalid abi")
         });
-    pub struct StorageSlot<M>(ethers::contract::Contract<M>);
-    impl<M> Clone for StorageSlot<M> {
+    #[doc = r" Bytecode of the #name contract"]
+    pub static LIBSTRING_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
+        ethers::contract::Lazy::new(|| {
+            "0x6080806040523460175760119081601d823930815050f35b600080fdfe600080fdfea164736f6c634300080f000a" . parse () . expect ("invalid bytecode")
+        });
+    pub struct LibString<M>(ethers::contract::Contract<M>);
+    impl<M> Clone for LibString<M> {
         fn clone(&self) -> Self {
-            StorageSlot(self.0.clone())
+            LibString(self.0.clone())
         }
     }
-    impl<M> std::ops::Deref for StorageSlot<M> {
+    impl<M> std::ops::Deref for LibString<M> {
         type Target = ethers::contract::Contract<M>;
         fn deref(&self) -> &Self::Target {
             &self.0
         }
     }
-    impl<M: ethers::providers::Middleware> std::fmt::Debug for StorageSlot<M> {
+    impl<M: ethers::providers::Middleware> std::fmt::Debug for LibString<M> {
         fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-            f.debug_tuple(stringify!(StorageSlot))
+            f.debug_tuple(stringify!(LibString))
                 .field(&self.address())
                 .finish()
         }
     }
-    impl<M: ethers::providers::Middleware> StorageSlot<M> {
+    impl<M: ethers::providers::Middleware> LibString<M> {
         #[doc = r" Creates a new contract instance with the specified `ethers`"]
         #[doc = r" client at the given `Address`. The contract derefs to a `ethers::Contract`"]
         #[doc = r" object"]
@@ -50,7 +52,7 @@ mod storageslot_mod {
             address: T,
             client: ::std::sync::Arc<M>,
         ) -> Self {
-            ethers::contract::Contract::new(address.into(), STORAGESLOT_ABI.clone(), client).into()
+            ethers::contract::Contract::new(address.into(), LIBSTRING_ABI.clone(), client).into()
         }
         #[doc = r" Constructs the general purpose `Deployer` instance based on the provided constructor arguments and sends it."]
         #[doc = r" Returns a new instance of a deployer that returns an instance of this contract after sending the transaction"]
@@ -83,8 +85,8 @@ mod storageslot_mod {
             ethers::contract::ContractError<M>,
         > {
             let factory = ethers::contract::ContractFactory::new(
-                STORAGESLOT_ABI.clone(),
-                STORAGESLOT_BYTECODE.clone().into(),
+                LIBSTRING_ABI.clone(),
+                LIBSTRING_BYTECODE.clone().into(),
                 client,
             );
             let deployer = factory.deploy(constructor_args)?;
@@ -92,7 +94,7 @@ mod storageslot_mod {
             Ok(deployer)
         }
     }
-    impl<M: ethers::providers::Middleware> From<ethers::contract::Contract<M>> for StorageSlot<M> {
+    impl<M: ethers::providers::Middleware> From<ethers::contract::Contract<M>> for LibString<M> {
         fn from(contract: ethers::contract::Contract<M>) -> Self {
             Self(contract)
         }

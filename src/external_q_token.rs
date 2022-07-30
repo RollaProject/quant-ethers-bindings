@@ -1,6 +1,6 @@
-pub use externalqtoken_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod externalqtoken_mod {
+pub use external_q_token::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod external_q_token {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,12 +18,12 @@ mod externalqtoken_mod {
     use std::sync::Arc;
     pub static EXTERNALQTOKEN_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"Approval\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"Transfer\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"DOMAIN_SEPARATOR\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"burn\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"controller\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"_controller\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"expiryTime\",\"outputs\":[{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"isCall\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"_isCall\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"mint\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"nameStr\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"nonces\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"oracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"permissionlessMint\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"permit\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"strikeAsset\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"_strikeAsset\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"strikePrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"_strikePrice\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"symbolStr\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"underlyingAsset\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"_underlyingAsset\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"Approval\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"Transfer\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"DOMAIN_SEPARATOR\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"burn\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"controller\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"_controller\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"expiryTime\",\"outputs\":[{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"isCall\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"_isCall\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"mint\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"nameStr\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"nonces\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"oracle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"permissionlessMint\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"permit\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"strikeAsset\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"_strikeAsset\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"strikePrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"_strikePrice\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"symbolStr\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"underlyingAsset\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"_underlyingAsset\",\"type\":\"address\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static EXTERNALQTOKEN_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x6080806040523461001657611778908161001c8239f35b600080fdfe60806040526004361015610013575b600080fd5b60003560e01c806306fdde03146101cb578063095ea7b3146101c257806316920f19146101b957806317d69bc8146101b057806318160ddd146101a757806323b872dd1461019e578063313ce567146101955780633644e5151461018c57806340c10f19146101835780636d6364781461017a57806370a08231146101715780637158da7c146101685780637dc0d1d01461015f5780637ecebe001461015657806395d89b411461014d57806399bc0aea146101445780639dc29fac1461013b578063a9059cbb14610132578063c52987cf14610129578063d505accf14610120578063dd62ed3e146101175763f77c47911461010f57600080fd5b61000e6112df565b5061000e611249565b5061000e610fc9565b5061000e610f59565b5061000e610e92565b5061000e610da9565b5061000e610d36565b5061000e610bca565b5061000e610b64565b5061000e610afe565b5061000e610a98565b5061000e610a32565b5061000e6109bd565b5061000e6108d4565b5061000e610892565b5061000e61081f565b5061000e61064e565b5061000e610611565b5061000e61059e565b5061000e6104ea565b5061000e610427565b5061000e61024a565b919091602080825283519081818401526000945b828610610234575050601f817fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0926040959611610227575b0116010190565b6000858286010152610220565b85810182015184870160400152948101946101e8565b503461000e576000807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126103de576102ac7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b90604051916102ba836113f1565b600492838152602090818101926080368537845b67ffffffffffffffff81168781101561035a578160051b908451111561032e57908185681fffffffffffffffe060019486013592168601015267ffffffffffffffff809116908114610321575b016102ce565b610329611345565b61031b565b60248760328a7f4e487b7100000000000000000000000000000000000000000000000000000000835252fd5b87858888608088015160f81c9081604051947fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0603f8301168601604052818652850191865afa156103b757604051806103b384826101d4565b0390f35b90507f3a008ffa000000000000000000000000000000000000000000000000000000008152fd5b80fd5b6004359073ffffffffffffffffffffffffffffffffffffffff8216820361000e57565b6024359073ffffffffffffffffffffffffffffffffffffffff8216820361000e57565b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5761045f6103e1565b73ffffffffffffffffffffffffffffffffffffffff60243591336000526002602052826104b08260406000209073ffffffffffffffffffffffffffffffffffffffff16600052602052604060002090565b5560405192835216907f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b92560203392a3602060405160018152f35b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5773ffffffffffffffffffffffffffffffffffffffff6105376103e1565b602435907fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef6020600094859385855481198111610591575b01855516938484526001825260408420818154019055604051908152a3604051f35b610599611345565b61056f565b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760206101156106047ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b013560601c604051908152f35b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e576020600054604051908152f35b503461000e5760607ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e576106866103e1565b61068e610404565b907fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef6044359273ffffffffffffffffffffffffffffffffffffffff90610759828516948560005260026020528661070860406000203373ffffffffffffffffffffffffffffffffffffffff16600052602052604060002090565b547fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff81036107ae575b505073ffffffffffffffffffffffffffffffffffffffff166000526001602052604060002090565b610764868254611375565b90556107908173ffffffffffffffffffffffffffffffffffffffff166000526001602052604060002090565b8054860190556040519485521692602090a360405160018152602090f35b818110610812575b0361080a336107e58473ffffffffffffffffffffffffffffffffffffffff166000526002602052604060002090565b9073ffffffffffffffffffffffffffffffffffffffff16600052602052604060002090565b558638610731565b61081a611345565b6107b6565b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760206101006108857ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b013560f81c604051908152f35b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760206108cc61150b565b604051908152f35b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5773ffffffffffffffffffffffffffffffffffffffff6109216103e1565b6024359061096861016961095c7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b013560601c33146116dd565b7fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef60206000948593858554811981116105915701855516938484526001825260408420818154019055604051908152a3604051f35b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e576020610148610a237ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b013560f81c6040519015158152f35b503461000e5760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5773ffffffffffffffffffffffffffffffffffffffff610a7f6103e1565b1660005260016020526020604060002054604051908152f35b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760206101016106047ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760206101296106047ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b503461000e5760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5773ffffffffffffffffffffffffffffffffffffffff610bb16103e1565b1660005260036020526020604060002054604051908152f35b503461000e576000807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126103de57610c2c7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b9060405191610c3a836113f1565b6004928381526020908181019260809081368637855b67ffffffffffffffff811688811015610cde578160051b9085511115610cb257908186681fffffffffffffffe0866001958701013592168701015267ffffffffffffffff809116908114610ca5575b01610c50565b610cad611345565b610c9f565b60248860328b7f4e487b7100000000000000000000000000000000000000000000000000000000835252fd5b888689898789015160f81c9081604051947fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0603f8301168601604052818652850191865afa156103b757604051806103b384826101d4565b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57602061013d610d9c7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b013560a81c604051908152f35b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e576020610de36103e1565b73ffffffffffffffffffffffffffffffffffffffff60243591610e3361016961095c7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef60009384938385526001825260408520818154818110610e85575b039055808554038555604051908152a3604051f35b610e8d611345565b610e70565b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e57610eca6103e1565b73ffffffffffffffffffffffffffffffffffffffff602435913360005260016020526040600020838154818110610f4c575b039055169081600052600160205260406000208181540190556040519081527fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef60203392a3602060405160018152f35b610f54611345565b610efc565b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e576020610149610fbf7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b0135604051908152f35b503461000e5760e07ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e576110016103e1565b611009610404565b604435906064359060843560ff8116810361000e5760006020917f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925946110514282101561138c565b61117d61118961105f61150b565b928a8a61110761108f8373ffffffffffffffffffffffffffffffffffffffff166000526003602052604060002090565b938454946001860190556040519485938d8d8601968791959493909260a09360c08401977f6e71edae12b1b97f4d1f60370fef10105fa2faae0126114a169c64845d6126c9855273ffffffffffffffffffffffffffffffffffffffff8092166020860152166040840152606083015260808201520152565b03916111397fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe093848101835282611458565b519020604051938491898301968790916042927f19010000000000000000000000000000000000000000000000000000000000008352600283015260228201520190565b03908101835282611458565b5190206040805191825260ff92909216602082015260a4359181019190915260c435606082015281805260809060015afa1561123c575b600051908361121e826107e573ffffffffffffffffffffffffffffffffffffffff956111f88782168015159081611230575b506114a6565b73ffffffffffffffffffffffffffffffffffffffff166000526002602052604060002090565b556040519384528116931691602090a3005b9050888c1614386111f2565b611244611499565b6111c0565b503461000e5760407ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760206112d66112866103e1565b73ffffffffffffffffffffffffffffffffffffffff6112a3610404565b91166000526002835260406000209073ffffffffffffffffffffffffffffffffffffffff16600052602052604060002090565b54604051908152f35b503461000e5760007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261000e5760206101696106047ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b507f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b818110611380570390565b611388611345565b0390565b1561139357565b60646040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601760248201527f5045524d49545f444541444c494e455f455850495245440000000000000000006044820152fd5b60a0810190811067ffffffffffffffff82111761140d57604052565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b60c0810190811067ffffffffffffffff82111761140d57604052565b90601f7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0910116810190811067ffffffffffffffff82111761140d57604052565b506040513d6000823e3d90fd5b156114ad57565b60646040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152600e60248201527f494e56414c49445f5349474e45520000000000000000000000000000000000006044820152fd5b61153c7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b90604051611549816113f1565b60049081815260209081810192608036853760005b67ffffffffffffffff8116828110156115ec578160051b90845111156115be57908185681fffffffffffffffe06001948b013592168601015267ffffffffffffffff8091169081146115b1575b0161155e565b6115b9611345565b6115ab565b6032837f4e487b71000000000000000000000000000000000000000000000000000000006000525260246000fd5b505092919394506080015160f81c9182604051927fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0603f8301168401604052818452858401948591845afa156116b5575051902090604051908101917f8b73c3c69bb8fe3d512ecc4cf759cc79239f7b179b0ffacaa9a75d522b39400f835260408201527fc89efdaa54c0f20c7adf612882df0950f5a951637e0307cdcb4c672f298b8bc660608201524660808201523060a082015260a081526116af8161143c565b51902090565b7f3a008ffa000000000000000000000000000000000000000000000000000000006000526000fd5b156116e457565b60646040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601c60248201527f51546f6b656e3a2063616c6c657220213d20636f6e74726f6c6c6572000000006044820152fdfea2646970667358221220950a3d1486f7c6e4e0072f7b695936d4e59fdcd31c5a3e4358078b763dd9cfb464736f6c634300080e0033" . parse () . expect ("invalid bytecode")
+            "0x60808060405234610016576111a8908161001c8239f35b600080fdfe608060408181526004918236101561001657600080fd5b600092833560e01c91826306fdde0314610ea157508163095ea7b314610e0457816316920f1914610d6357816317d69bc814610cfc57816318160ddd14610cc157816323b872dd14610ba6578163313ce56714610b335781633644e51514610af157816340c10f19146109ec5781636d6364781461097757816370a08231146109155781637158da7c146108ae5781637dc0d1d0146108475781637ecebe00146107e557816395d89b411461076f57816399bc0aea146106fc5781639dc29fac1461061c578163a9059cbb1461056f578163c52987cf146104ff578163d505accf146101ff57508063dd62ed3e1461018c5763f77c47911461011757600080fd5b3461018857817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101885760209061016961017c7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b013560601c9051908152f35b5080fd5b503461018857807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261018857806020926101c7610f59565b6101cf610f81565b73ffffffffffffffffffffffffffffffffffffffff91821683526002865283832091168252845220549051908152f35b9050346104fb5760e07ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126104fb57610238610f59565b610240610f81565b604435606435936084359360ff85168095036104f75742861061049a5786610266610fde565b9473ffffffffffffffffffffffffffffffffffffffff80931696878b5260209660038852838c20998a549a60018c019055858551948b8b8701977f6e71edae12b1b97f4d1f60370fef10105fa2faae0126114a169c64845d6126c98952870152169a8b606086015288608086015260a085015260c084015260c0835260e0830167ffffffffffffffff948482108683111761046e57818d52845190206101008501927f19010000000000000000000000000000000000000000000000000000000000008452610102860152610122850152604281526101608401948186109086111761044257848c52519020835261018082015260a4356101a082015260c4356101c0909101528880528490899060809060015afa1561043857875116908115158061042f575b156103d35750907f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b9259291875260028252858720858852825280868820558551908152a351f35b606490848851917f08c379a0000000000000000000000000000000000000000000000000000000008352820152600e60248201527f494e56414c49445f5349474e45520000000000000000000000000000000000006044820152fd5b5084821461038d565b86513d89823e3d90fd5b60248d6041897f4e487b7100000000000000000000000000000000000000000000000000000000835252fd5b60248e60418a7f4e487b7100000000000000000000000000000000000000000000000000000000835252fd5b60648260208951917f08c379a0000000000000000000000000000000000000000000000000000000008352820152601760248201527f5045524d49545f444541444c494e455f455850495245440000000000000000006044820152fd5b8780fd5b8280fd5b50503461018857817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610188576020906101496105667ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b01359051908152f35b50503461018857807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610188576020916105aa610f59565b8273ffffffffffffffffffffffffffffffffffffffff60243592338552600187528285206105d9858254610fa4565b90551692838152600186522081815401905582519081527fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef843392a35160018152f35b50503461018857807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101885781610655610f59565b7fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef602073ffffffffffffffffffffffffffffffffffffffff602435936106d46101696106c87ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b013560601c3314611136565b1692838552600182528585206106eb828254610fa4565b90558085540385558551908152a351f35b50503461018857817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101885760209061013d6107637ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b013560a81c9051908152f35b50503461018857817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101885751806107e160de367ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe81013560f01c90039081013560f81c90607e0183610f13565b0390f35b5050346101885760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610188578060209273ffffffffffffffffffffffffffffffffffffffff610837610f59565b1681526003845220549051908152f35b50503461018857817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101885760209061012961017c7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b50503461018857817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101885760209061010161017c7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b5050346101885760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610188578060209273ffffffffffffffffffffffffffffffffffffffff610967610f59565b1681526001845220549051908152f35b50503461018857817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610188576020906101486109de7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b013560f81c90519015158152f35b9050346104fb57817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126104fb57610a24610f59565b60243591610a5f6101696106c87ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b84549083198211610ac55750602073ffffffffffffffffffffffffffffffffffffffff8693857fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef940185551693848452600182528584208181540190558551908152a351f35b8560116024927f4e487b7100000000000000000000000000000000000000000000000000000000835252fd5b50503461018857817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261018857602090610b2c610fde565b9051908152f35b50503461018857817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261018857602090610100610b9a7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b013560f81c9051908152f35b5050346101885760607ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261018857610bdf610f59565b91610be8610f81565b7fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef6044359173ffffffffffffffffffffffffffffffffffffffff8096169283855285602097889360028552828820338952855282882054847fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff8203610c9e575b505086885260018552828820610c7f858254610fa4565b9055169586815260018452208181540190558551908152a35160018152f35b610ca791610fa4565b87895260028652838920338a528652838920553884610c68565b50503461018857817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261018857602091549051908152f35b50503461018857817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101885760209061011561017c7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c36030190565b9050346104fb57817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126104fb57610d9b610f59565b83546024359283198211610ac55750602073ffffffffffffffffffffffffffffffffffffffff8693857fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef940185551693848452600182528584208181540190558551908152a351f35b50503461018857807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126101885760209181610e40610f59565b916024359182913381526002875273ffffffffffffffffffffffffffffffffffffffff8282209516948582528752205582519081527f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925843392a35160018152f35b8434610f1057807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610f105750806107e17ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c360390605e82013560f81c910183610f13565b80fd5b90601f836040947fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe093602086528160208701528686013760008582860101520116010190565b6004359073ffffffffffffffffffffffffffffffffffffffff82168203610f7c57565b600080fd5b6024359073ffffffffffffffffffffffffffffffffffffffff82168203610f7c57565b818110610faf570390565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe8036013560f01c360390605e82013560f81c9067ffffffffffffffff9283831161110757604051917fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0603f81601f870116011683018381108682111761110757604052838352602083019336828285010111610f7c578060209260009401863783010152519020906040519060208201927f8b73c3c69bb8fe3d512ecc4cf759cc79239f7b179b0ffacaa9a75d522b39400f845260408301527fc89efdaa54c0f20c7adf612882df0950f5a951637e0307cdcb4c672f298b8bc660608301524660808301523060a083015260a0825260c0820190828210908211176111075760405251902090565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b1561113d57565b60646040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601c60248201527f51546f6b656e3a2063616c6c657220213d20636f6e74726f6c6c6572000000006044820152fdfea164736f6c634300080f000a" . parse () . expect ("invalid bytecode")
         });
     pub struct ExternalQToken<M>(ethers::contract::Contract<M>);
     impl<M> Clone for ExternalQToken<M> {
@@ -364,7 +364,7 @@ mod externalqtoken_mod {
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `DOMAIN_SEPARATOR`function with signature `DOMAIN_SEPARATOR()` and selector `[54, 68, 229, 21]`"]
+    #[doc = "Container type for all input parameters for the `DOMAIN_SEPARATOR` function with signature `DOMAIN_SEPARATOR()` and selector `[54, 68, 229, 21]`"]
     #[derive(
         Clone,
         Debug,
@@ -376,7 +376,7 @@ mod externalqtoken_mod {
     )]
     #[ethcall(name = "DOMAIN_SEPARATOR", abi = "DOMAIN_SEPARATOR()")]
     pub struct DomainSeparatorCall;
-    #[doc = "Container type for all input parameters for the `allowance`function with signature `allowance(address,address)` and selector `[221, 98, 237, 62]`"]
+    #[doc = "Container type for all input parameters for the `allowance` function with signature `allowance(address,address)` and selector `[221, 98, 237, 62]`"]
     #[derive(
         Clone,
         Debug,
@@ -391,7 +391,7 @@ mod externalqtoken_mod {
         pub ethers::core::types::Address,
         pub ethers::core::types::Address,
     );
-    #[doc = "Container type for all input parameters for the `approve`function with signature `approve(address,uint256)` and selector `[9, 94, 167, 179]`"]
+    #[doc = "Container type for all input parameters for the `approve` function with signature `approve(address,uint256)` and selector `[9, 94, 167, 179]`"]
     #[derive(
         Clone,
         Debug,
@@ -406,7 +406,7 @@ mod externalqtoken_mod {
         pub spender: ethers::core::types::Address,
         pub amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `balanceOf`function with signature `balanceOf(address)` and selector `[112, 160, 130, 49]`"]
+    #[doc = "Container type for all input parameters for the `balanceOf` function with signature `balanceOf(address)` and selector `[112, 160, 130, 49]`"]
     #[derive(
         Clone,
         Debug,
@@ -418,7 +418,7 @@ mod externalqtoken_mod {
     )]
     #[ethcall(name = "balanceOf", abi = "balanceOf(address)")]
     pub struct BalanceOfCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `burn`function with signature `burn(address,uint256)` and selector `[157, 194, 159, 172]`"]
+    #[doc = "Container type for all input parameters for the `burn` function with signature `burn(address,uint256)` and selector `[157, 194, 159, 172]`"]
     #[derive(
         Clone,
         Debug,
@@ -433,7 +433,7 @@ mod externalqtoken_mod {
         pub account: ethers::core::types::Address,
         pub amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `controller`function with signature `controller()` and selector `[247, 124, 71, 145]`"]
+    #[doc = "Container type for all input parameters for the `controller` function with signature `controller()` and selector `[247, 124, 71, 145]`"]
     #[derive(
         Clone,
         Debug,
@@ -445,7 +445,7 @@ mod externalqtoken_mod {
     )]
     #[ethcall(name = "controller", abi = "controller()")]
     pub struct ControllerCall;
-    #[doc = "Container type for all input parameters for the `decimals`function with signature `decimals()` and selector `[49, 60, 229, 103]`"]
+    #[doc = "Container type for all input parameters for the `decimals` function with signature `decimals()` and selector `[49, 60, 229, 103]`"]
     #[derive(
         Clone,
         Debug,
@@ -457,7 +457,7 @@ mod externalqtoken_mod {
     )]
     #[ethcall(name = "decimals", abi = "decimals()")]
     pub struct DecimalsCall;
-    #[doc = "Container type for all input parameters for the `expiryTime`function with signature `expiryTime()` and selector `[153, 188, 10, 234]`"]
+    #[doc = "Container type for all input parameters for the `expiryTime` function with signature `expiryTime()` and selector `[153, 188, 10, 234]`"]
     #[derive(
         Clone,
         Debug,
@@ -469,7 +469,7 @@ mod externalqtoken_mod {
     )]
     #[ethcall(name = "expiryTime", abi = "expiryTime()")]
     pub struct ExpiryTimeCall;
-    #[doc = "Container type for all input parameters for the `isCall`function with signature `isCall()` and selector `[109, 99, 100, 120]`"]
+    #[doc = "Container type for all input parameters for the `isCall` function with signature `isCall()` and selector `[109, 99, 100, 120]`"]
     #[derive(
         Clone,
         Debug,
@@ -481,7 +481,7 @@ mod externalqtoken_mod {
     )]
     #[ethcall(name = "isCall", abi = "isCall()")]
     pub struct IsCallCall;
-    #[doc = "Container type for all input parameters for the `mint`function with signature `mint(address,uint256)` and selector `[64, 193, 15, 25]`"]
+    #[doc = "Container type for all input parameters for the `mint` function with signature `mint(address,uint256)` and selector `[64, 193, 15, 25]`"]
     #[derive(
         Clone,
         Debug,
@@ -496,7 +496,7 @@ mod externalqtoken_mod {
         pub account: ethers::core::types::Address,
         pub amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `name`function with signature `name()` and selector `[6, 253, 222, 3]`"]
+    #[doc = "Container type for all input parameters for the `name` function with signature `name()` and selector `[6, 253, 222, 3]`"]
     #[derive(
         Clone,
         Debug,
@@ -508,7 +508,7 @@ mod externalqtoken_mod {
     )]
     #[ethcall(name = "name", abi = "name()")]
     pub struct NameCall;
-    #[doc = "Container type for all input parameters for the `nonces`function with signature `nonces(address)` and selector `[126, 206, 190, 0]`"]
+    #[doc = "Container type for all input parameters for the `nonces` function with signature `nonces(address)` and selector `[126, 206, 190, 0]`"]
     #[derive(
         Clone,
         Debug,
@@ -520,7 +520,7 @@ mod externalqtoken_mod {
     )]
     #[ethcall(name = "nonces", abi = "nonces(address)")]
     pub struct NoncesCall(pub ethers::core::types::Address);
-    #[doc = "Container type for all input parameters for the `oracle`function with signature `oracle()` and selector `[125, 192, 209, 208]`"]
+    #[doc = "Container type for all input parameters for the `oracle` function with signature `oracle()` and selector `[125, 192, 209, 208]`"]
     #[derive(
         Clone,
         Debug,
@@ -532,7 +532,7 @@ mod externalqtoken_mod {
     )]
     #[ethcall(name = "oracle", abi = "oracle()")]
     pub struct OracleCall;
-    #[doc = "Container type for all input parameters for the `permissionlessMint`function with signature `permissionlessMint(address,uint256)` and selector `[22, 146, 15, 25]`"]
+    #[doc = "Container type for all input parameters for the `permissionlessMint` function with signature `permissionlessMint(address,uint256)` and selector `[22, 146, 15, 25]`"]
     #[derive(
         Clone,
         Debug,
@@ -550,7 +550,7 @@ mod externalqtoken_mod {
         pub account: ethers::core::types::Address,
         pub amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `permit`function with signature `permit(address,address,uint256,uint256,uint8,bytes32,bytes32)` and selector `[213, 5, 172, 207]`"]
+    #[doc = "Container type for all input parameters for the `permit` function with signature `permit(address,address,uint256,uint256,uint8,bytes32,bytes32)` and selector `[213, 5, 172, 207]`"]
     #[derive(
         Clone,
         Debug,
@@ -573,7 +573,7 @@ mod externalqtoken_mod {
         pub r: [u8; 32],
         pub s: [u8; 32],
     }
-    #[doc = "Container type for all input parameters for the `strikeAsset`function with signature `strikeAsset()` and selector `[23, 214, 155, 200]`"]
+    #[doc = "Container type for all input parameters for the `strikeAsset` function with signature `strikeAsset()` and selector `[23, 214, 155, 200]`"]
     #[derive(
         Clone,
         Debug,
@@ -585,7 +585,7 @@ mod externalqtoken_mod {
     )]
     #[ethcall(name = "strikeAsset", abi = "strikeAsset()")]
     pub struct StrikeAssetCall;
-    #[doc = "Container type for all input parameters for the `strikePrice`function with signature `strikePrice()` and selector `[197, 41, 135, 207]`"]
+    #[doc = "Container type for all input parameters for the `strikePrice` function with signature `strikePrice()` and selector `[197, 41, 135, 207]`"]
     #[derive(
         Clone,
         Debug,
@@ -597,7 +597,7 @@ mod externalqtoken_mod {
     )]
     #[ethcall(name = "strikePrice", abi = "strikePrice()")]
     pub struct StrikePriceCall;
-    #[doc = "Container type for all input parameters for the `symbol`function with signature `symbol()` and selector `[149, 216, 155, 65]`"]
+    #[doc = "Container type for all input parameters for the `symbol` function with signature `symbol()` and selector `[149, 216, 155, 65]`"]
     #[derive(
         Clone,
         Debug,
@@ -609,7 +609,7 @@ mod externalqtoken_mod {
     )]
     #[ethcall(name = "symbol", abi = "symbol()")]
     pub struct SymbolCall;
-    #[doc = "Container type for all input parameters for the `totalSupply`function with signature `totalSupply()` and selector `[24, 22, 13, 221]`"]
+    #[doc = "Container type for all input parameters for the `totalSupply` function with signature `totalSupply()` and selector `[24, 22, 13, 221]`"]
     #[derive(
         Clone,
         Debug,
@@ -621,7 +621,7 @@ mod externalqtoken_mod {
     )]
     #[ethcall(name = "totalSupply", abi = "totalSupply()")]
     pub struct TotalSupplyCall;
-    #[doc = "Container type for all input parameters for the `transfer`function with signature `transfer(address,uint256)` and selector `[169, 5, 156, 187]`"]
+    #[doc = "Container type for all input parameters for the `transfer` function with signature `transfer(address,uint256)` and selector `[169, 5, 156, 187]`"]
     #[derive(
         Clone,
         Debug,
@@ -636,7 +636,7 @@ mod externalqtoken_mod {
         pub to: ethers::core::types::Address,
         pub amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `transferFrom`function with signature `transferFrom(address,address,uint256)` and selector `[35, 184, 114, 221]`"]
+    #[doc = "Container type for all input parameters for the `transferFrom` function with signature `transferFrom(address,address,uint256)` and selector `[35, 184, 114, 221]`"]
     #[derive(
         Clone,
         Debug,
@@ -652,7 +652,7 @@ mod externalqtoken_mod {
         pub to: ethers::core::types::Address,
         pub amount: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `underlyingAsset`function with signature `underlyingAsset()` and selector `[113, 88, 218, 124]`"]
+    #[doc = "Container type for all input parameters for the `underlyingAsset` function with signature `underlyingAsset()` and selector `[113, 88, 218, 124]`"]
     #[derive(
         Clone,
         Debug,
@@ -958,5 +958,221 @@ mod externalqtoken_mod {
         fn from(var: UnderlyingAssetCall) -> Self {
             ExternalQTokenCalls::UnderlyingAsset(var)
         }
+    }
+    #[doc = "Container type for all return fields from the `DOMAIN_SEPARATOR` function with signature `DOMAIN_SEPARATOR()` and selector `[54, 68, 229, 21]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DomainSeparatorReturn(pub [u8; 32]);
+    #[doc = "Container type for all return fields from the `allowance` function with signature `allowance(address,address)` and selector `[221, 98, 237, 62]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AllowanceReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `approve` function with signature `approve(address,uint256)` and selector `[9, 94, 167, 179]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ApproveReturn(pub bool);
+    #[doc = "Container type for all return fields from the `balanceOf` function with signature `balanceOf(address)` and selector `[112, 160, 130, 49]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct BalanceOfReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `controller` function with signature `controller()` and selector `[247, 124, 71, 145]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ControllerReturn {
+        pub controller: ethers::core::types::Address,
+    }
+    #[doc = "Container type for all return fields from the `decimals` function with signature `decimals()` and selector `[49, 60, 229, 103]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DecimalsReturn(pub u8);
+    #[doc = "Container type for all return fields from the `expiryTime` function with signature `expiryTime()` and selector `[153, 188, 10, 234]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ExpiryTimeReturn {
+        pub expiry_time: u128,
+    }
+    #[doc = "Container type for all return fields from the `isCall` function with signature `isCall()` and selector `[109, 99, 100, 120]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct IsCallReturn {
+        pub is_call: bool,
+    }
+    #[doc = "Container type for all return fields from the `name` function with signature `name()` and selector `[6, 253, 222, 3]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct NameReturn {
+        pub name_str: String,
+    }
+    #[doc = "Container type for all return fields from the `nonces` function with signature `nonces(address)` and selector `[126, 206, 190, 0]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct NoncesReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `oracle` function with signature `oracle()` and selector `[125, 192, 209, 208]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OracleReturn {
+        pub oracle: ethers::core::types::Address,
+    }
+    #[doc = "Container type for all return fields from the `strikeAsset` function with signature `strikeAsset()` and selector `[23, 214, 155, 200]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct StrikeAssetReturn {
+        pub strike_asset: ethers::core::types::Address,
+    }
+    #[doc = "Container type for all return fields from the `strikePrice` function with signature `strikePrice()` and selector `[197, 41, 135, 207]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct StrikePriceReturn {
+        pub strike_price: ethers::core::types::U256,
+    }
+    #[doc = "Container type for all return fields from the `symbol` function with signature `symbol()` and selector `[149, 216, 155, 65]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct SymbolReturn {
+        pub symbol_str: String,
+    }
+    #[doc = "Container type for all return fields from the `totalSupply` function with signature `totalSupply()` and selector `[24, 22, 13, 221]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct TotalSupplyReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `transfer` function with signature `transfer(address,uint256)` and selector `[169, 5, 156, 187]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct TransferReturn(pub bool);
+    #[doc = "Container type for all return fields from the `transferFrom` function with signature `transferFrom(address,address,uint256)` and selector `[35, 184, 114, 221]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct TransferFromReturn(pub bool);
+    #[doc = "Container type for all return fields from the `underlyingAsset` function with signature `underlyingAsset()` and selector `[113, 88, 218, 124]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct UnderlyingAssetReturn {
+        pub underlying_asset: ethers::core::types::Address,
     }
 }

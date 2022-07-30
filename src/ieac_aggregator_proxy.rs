@@ -1,6 +1,6 @@
-pub use ieacaggregatorproxy_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod ieacaggregatorproxy_mod {
+pub use ieac_aggregator_proxy::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod ieac_aggregator_proxy {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,7 +18,7 @@ mod ieacaggregatorproxy_mod {
     use std::sync::Arc;
     pub static IEACAGGREGATORPROXY_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"current\",\"type\":\"int256\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"AnswerUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"startedBy\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewRound\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"OwnershipTransferRequested\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"OwnershipTransferred\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"acceptOwnership\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"accessController\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"aggregator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_aggregator\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"confirmAggregator\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"description\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_roundId\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint80\",\"name\":\"_roundId\",\"type\":\"uint80\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_roundId\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestRound\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"phaseAggregators\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"phaseId\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_aggregator\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"proposeAggregator\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"proposedAggregator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint80\",\"name\":\"_roundId\",\"type\":\"uint80\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"proposedGetRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"proposedLatestRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_accessController\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setController\",\"outputs\":[]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"transferOwnership\",\"outputs\":[]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"version\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"current\",\"type\":\"int256\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"AnswerUpdated\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"roundId\",\"type\":\"uint256\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"startedBy\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"NewRound\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"OwnershipTransferRequested\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\",\"components\":[],\"indexed\":true}],\"type\":\"event\",\"name\":\"OwnershipTransferred\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"accessController\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"aggregator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"description\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_roundId\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint80\",\"name\":\"_roundId\",\"type\":\"uint80\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_roundId\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestAnswer\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestRound\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"latestTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"phaseAggregators\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"phaseId\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"proposedAggregator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint80\",\"name\":\"_roundId\",\"type\":\"uint80\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"proposedGetRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"proposedLatestRoundData\",\"outputs\":[{\"internalType\":\"uint80\",\"name\":\"roundId\",\"type\":\"uint80\",\"components\":[]},{\"internalType\":\"int256\",\"name\":\"answer\",\"type\":\"int256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"startedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"updatedAt\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint80\",\"name\":\"answeredInRound\",\"type\":\"uint80\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"version\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     pub struct IEACAggregatorProxy<M>(ethers::contract::Contract<M>);
     impl<M> Clone for IEACAggregatorProxy<M> {
@@ -50,12 +50,6 @@ mod ieacaggregatorproxy_mod {
             ethers::contract::Contract::new(address.into(), IEACAGGREGATORPROXY_ABI.clone(), client)
                 .into()
         }
-        #[doc = "Calls the contract's `acceptOwnership` (0x79ba5097) function"]
-        pub fn accept_ownership(&self) -> ethers::contract::builders::ContractCall<M, ()> {
-            self.0
-                .method_hash([121, 186, 80, 151], ())
-                .expect("method not found (this should never happen)")
-        }
         #[doc = "Calls the contract's `accessController` (0xbc43cbaf) function"]
         pub fn access_controller(
             &self,
@@ -70,15 +64,6 @@ mod ieacaggregatorproxy_mod {
         ) -> ethers::contract::builders::ContractCall<M, ethers::core::types::Address> {
             self.0
                 .method_hash([36, 90, 123, 252], ())
-                .expect("method not found (this should never happen)")
-        }
-        #[doc = "Calls the contract's `confirmAggregator` (0xa928c096) function"]
-        pub fn confirm_aggregator(
-            &self,
-            aggregator: ethers::core::types::Address,
-        ) -> ethers::contract::builders::ContractCall<M, ()> {
-            self.0
-                .method_hash([169, 40, 192, 150], aggregator)
                 .expect("method not found (this should never happen)")
         }
         #[doc = "Calls the contract's `decimals` (0x313ce567) function"]
@@ -191,15 +176,6 @@ mod ieacaggregatorproxy_mod {
                 .method_hash([88, 48, 59, 16], ())
                 .expect("method not found (this should never happen)")
         }
-        #[doc = "Calls the contract's `proposeAggregator` (0xf8a2abd3) function"]
-        pub fn propose_aggregator(
-            &self,
-            aggregator: ethers::core::types::Address,
-        ) -> ethers::contract::builders::ContractCall<M, ()> {
-            self.0
-                .method_hash([248, 162, 171, 211], aggregator)
-                .expect("method not found (this should never happen)")
-        }
         #[doc = "Calls the contract's `proposedAggregator` (0xe8c4be30) function"]
         pub fn proposed_aggregator(
             &self,
@@ -241,24 +217,6 @@ mod ieacaggregatorproxy_mod {
         > {
             self.0
                 .method_hash([143, 107, 77, 145], ())
-                .expect("method not found (this should never happen)")
-        }
-        #[doc = "Calls the contract's `setController` (0x92eefe9b) function"]
-        pub fn set_controller(
-            &self,
-            access_controller: ethers::core::types::Address,
-        ) -> ethers::contract::builders::ContractCall<M, ()> {
-            self.0
-                .method_hash([146, 238, 254, 155], access_controller)
-                .expect("method not found (this should never happen)")
-        }
-        #[doc = "Calls the contract's `transferOwnership` (0xf2fde38b) function"]
-        pub fn transfer_ownership(
-            &self,
-            to: ethers::core::types::Address,
-        ) -> ethers::contract::builders::ContractCall<M, ()> {
-            self.0
-                .method_hash([242, 253, 227, 139], to)
                 .expect("method not found (this should never happen)")
         }
         #[doc = "Calls the contract's `version` (0x54fd4d50) function"]
@@ -418,19 +376,7 @@ mod ieacaggregatorproxy_mod {
             }
         }
     }
-    #[doc = "Container type for all input parameters for the `acceptOwnership`function with signature `acceptOwnership()` and selector `[121, 186, 80, 151]`"]
-    #[derive(
-        Clone,
-        Debug,
-        Default,
-        Eq,
-        PartialEq,
-        ethers :: contract :: EthCall,
-        ethers :: contract :: EthDisplay,
-    )]
-    #[ethcall(name = "acceptOwnership", abi = "acceptOwnership()")]
-    pub struct AcceptOwnershipCall;
-    #[doc = "Container type for all input parameters for the `accessController`function with signature `accessController()` and selector `[188, 67, 203, 175]`"]
+    #[doc = "Container type for all input parameters for the `accessController` function with signature `accessController()` and selector `[188, 67, 203, 175]`"]
     #[derive(
         Clone,
         Debug,
@@ -442,7 +388,7 @@ mod ieacaggregatorproxy_mod {
     )]
     #[ethcall(name = "accessController", abi = "accessController()")]
     pub struct AccessControllerCall;
-    #[doc = "Container type for all input parameters for the `aggregator`function with signature `aggregator()` and selector `[36, 90, 123, 252]`"]
+    #[doc = "Container type for all input parameters for the `aggregator` function with signature `aggregator()` and selector `[36, 90, 123, 252]`"]
     #[derive(
         Clone,
         Debug,
@@ -454,21 +400,7 @@ mod ieacaggregatorproxy_mod {
     )]
     #[ethcall(name = "aggregator", abi = "aggregator()")]
     pub struct AggregatorCall;
-    #[doc = "Container type for all input parameters for the `confirmAggregator`function with signature `confirmAggregator(address)` and selector `[169, 40, 192, 150]`"]
-    #[derive(
-        Clone,
-        Debug,
-        Default,
-        Eq,
-        PartialEq,
-        ethers :: contract :: EthCall,
-        ethers :: contract :: EthDisplay,
-    )]
-    #[ethcall(name = "confirmAggregator", abi = "confirmAggregator(address)")]
-    pub struct ConfirmAggregatorCall {
-        pub aggregator: ethers::core::types::Address,
-    }
-    #[doc = "Container type for all input parameters for the `decimals`function with signature `decimals()` and selector `[49, 60, 229, 103]`"]
+    #[doc = "Container type for all input parameters for the `decimals` function with signature `decimals()` and selector `[49, 60, 229, 103]`"]
     #[derive(
         Clone,
         Debug,
@@ -480,7 +412,7 @@ mod ieacaggregatorproxy_mod {
     )]
     #[ethcall(name = "decimals", abi = "decimals()")]
     pub struct DecimalsCall;
-    #[doc = "Container type for all input parameters for the `description`function with signature `description()` and selector `[114, 132, 228, 22]`"]
+    #[doc = "Container type for all input parameters for the `description` function with signature `description()` and selector `[114, 132, 228, 22]`"]
     #[derive(
         Clone,
         Debug,
@@ -492,7 +424,7 @@ mod ieacaggregatorproxy_mod {
     )]
     #[ethcall(name = "description", abi = "description()")]
     pub struct DescriptionCall;
-    #[doc = "Container type for all input parameters for the `getAnswer`function with signature `getAnswer(uint256)` and selector `[181, 171, 88, 220]`"]
+    #[doc = "Container type for all input parameters for the `getAnswer` function with signature `getAnswer(uint256)` and selector `[181, 171, 88, 220]`"]
     #[derive(
         Clone,
         Debug,
@@ -506,7 +438,7 @@ mod ieacaggregatorproxy_mod {
     pub struct GetAnswerCall {
         pub round_id: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `getRoundData`function with signature `getRoundData(uint80)` and selector `[154, 111, 200, 245]`"]
+    #[doc = "Container type for all input parameters for the `getRoundData` function with signature `getRoundData(uint80)` and selector `[154, 111, 200, 245]`"]
     #[derive(
         Clone,
         Debug,
@@ -520,7 +452,7 @@ mod ieacaggregatorproxy_mod {
     pub struct GetRoundDataCall {
         pub round_id: u128,
     }
-    #[doc = "Container type for all input parameters for the `getTimestamp`function with signature `getTimestamp(uint256)` and selector `[182, 51, 98, 12]`"]
+    #[doc = "Container type for all input parameters for the `getTimestamp` function with signature `getTimestamp(uint256)` and selector `[182, 51, 98, 12]`"]
     #[derive(
         Clone,
         Debug,
@@ -534,7 +466,7 @@ mod ieacaggregatorproxy_mod {
     pub struct GetTimestampCall {
         pub round_id: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `latestAnswer`function with signature `latestAnswer()` and selector `[80, 210, 91, 205]`"]
+    #[doc = "Container type for all input parameters for the `latestAnswer` function with signature `latestAnswer()` and selector `[80, 210, 91, 205]`"]
     #[derive(
         Clone,
         Debug,
@@ -546,7 +478,7 @@ mod ieacaggregatorproxy_mod {
     )]
     #[ethcall(name = "latestAnswer", abi = "latestAnswer()")]
     pub struct LatestAnswerCall;
-    #[doc = "Container type for all input parameters for the `latestRound`function with signature `latestRound()` and selector `[102, 138, 15, 2]`"]
+    #[doc = "Container type for all input parameters for the `latestRound` function with signature `latestRound()` and selector `[102, 138, 15, 2]`"]
     #[derive(
         Clone,
         Debug,
@@ -558,7 +490,7 @@ mod ieacaggregatorproxy_mod {
     )]
     #[ethcall(name = "latestRound", abi = "latestRound()")]
     pub struct LatestRoundCall;
-    #[doc = "Container type for all input parameters for the `latestRoundData`function with signature `latestRoundData()` and selector `[254, 175, 150, 140]`"]
+    #[doc = "Container type for all input parameters for the `latestRoundData` function with signature `latestRoundData()` and selector `[254, 175, 150, 140]`"]
     #[derive(
         Clone,
         Debug,
@@ -570,7 +502,7 @@ mod ieacaggregatorproxy_mod {
     )]
     #[ethcall(name = "latestRoundData", abi = "latestRoundData()")]
     pub struct LatestRoundDataCall;
-    #[doc = "Container type for all input parameters for the `latestTimestamp`function with signature `latestTimestamp()` and selector `[130, 5, 191, 106]`"]
+    #[doc = "Container type for all input parameters for the `latestTimestamp` function with signature `latestTimestamp()` and selector `[130, 5, 191, 106]`"]
     #[derive(
         Clone,
         Debug,
@@ -582,7 +514,7 @@ mod ieacaggregatorproxy_mod {
     )]
     #[ethcall(name = "latestTimestamp", abi = "latestTimestamp()")]
     pub struct LatestTimestampCall;
-    #[doc = "Container type for all input parameters for the `owner`function with signature `owner()` and selector `[141, 165, 203, 91]`"]
+    #[doc = "Container type for all input parameters for the `owner` function with signature `owner()` and selector `[141, 165, 203, 91]`"]
     #[derive(
         Clone,
         Debug,
@@ -594,7 +526,7 @@ mod ieacaggregatorproxy_mod {
     )]
     #[ethcall(name = "owner", abi = "owner()")]
     pub struct OwnerCall;
-    #[doc = "Container type for all input parameters for the `phaseAggregators`function with signature `phaseAggregators(uint16)` and selector `[193, 89, 115, 4]`"]
+    #[doc = "Container type for all input parameters for the `phaseAggregators` function with signature `phaseAggregators(uint16)` and selector `[193, 89, 115, 4]`"]
     #[derive(
         Clone,
         Debug,
@@ -606,7 +538,7 @@ mod ieacaggregatorproxy_mod {
     )]
     #[ethcall(name = "phaseAggregators", abi = "phaseAggregators(uint16)")]
     pub struct PhaseAggregatorsCall(pub u16);
-    #[doc = "Container type for all input parameters for the `phaseId`function with signature `phaseId()` and selector `[88, 48, 59, 16]`"]
+    #[doc = "Container type for all input parameters for the `phaseId` function with signature `phaseId()` and selector `[88, 48, 59, 16]`"]
     #[derive(
         Clone,
         Debug,
@@ -618,21 +550,7 @@ mod ieacaggregatorproxy_mod {
     )]
     #[ethcall(name = "phaseId", abi = "phaseId()")]
     pub struct PhaseIdCall;
-    #[doc = "Container type for all input parameters for the `proposeAggregator`function with signature `proposeAggregator(address)` and selector `[248, 162, 171, 211]`"]
-    #[derive(
-        Clone,
-        Debug,
-        Default,
-        Eq,
-        PartialEq,
-        ethers :: contract :: EthCall,
-        ethers :: contract :: EthDisplay,
-    )]
-    #[ethcall(name = "proposeAggregator", abi = "proposeAggregator(address)")]
-    pub struct ProposeAggregatorCall {
-        pub aggregator: ethers::core::types::Address,
-    }
-    #[doc = "Container type for all input parameters for the `proposedAggregator`function with signature `proposedAggregator()` and selector `[232, 196, 190, 48]`"]
+    #[doc = "Container type for all input parameters for the `proposedAggregator` function with signature `proposedAggregator()` and selector `[232, 196, 190, 48]`"]
     #[derive(
         Clone,
         Debug,
@@ -644,7 +562,7 @@ mod ieacaggregatorproxy_mod {
     )]
     #[ethcall(name = "proposedAggregator", abi = "proposedAggregator()")]
     pub struct ProposedAggregatorCall;
-    #[doc = "Container type for all input parameters for the `proposedGetRoundData`function with signature `proposedGetRoundData(uint80)` and selector `[96, 1, 172, 83]`"]
+    #[doc = "Container type for all input parameters for the `proposedGetRoundData` function with signature `proposedGetRoundData(uint80)` and selector `[96, 1, 172, 83]`"]
     #[derive(
         Clone,
         Debug,
@@ -658,7 +576,7 @@ mod ieacaggregatorproxy_mod {
     pub struct ProposedGetRoundDataCall {
         pub round_id: u128,
     }
-    #[doc = "Container type for all input parameters for the `proposedLatestRoundData`function with signature `proposedLatestRoundData()` and selector `[143, 107, 77, 145]`"]
+    #[doc = "Container type for all input parameters for the `proposedLatestRoundData` function with signature `proposedLatestRoundData()` and selector `[143, 107, 77, 145]`"]
     #[derive(
         Clone,
         Debug,
@@ -670,35 +588,7 @@ mod ieacaggregatorproxy_mod {
     )]
     #[ethcall(name = "proposedLatestRoundData", abi = "proposedLatestRoundData()")]
     pub struct ProposedLatestRoundDataCall;
-    #[doc = "Container type for all input parameters for the `setController`function with signature `setController(address)` and selector `[146, 238, 254, 155]`"]
-    #[derive(
-        Clone,
-        Debug,
-        Default,
-        Eq,
-        PartialEq,
-        ethers :: contract :: EthCall,
-        ethers :: contract :: EthDisplay,
-    )]
-    #[ethcall(name = "setController", abi = "setController(address)")]
-    pub struct SetControllerCall {
-        pub access_controller: ethers::core::types::Address,
-    }
-    #[doc = "Container type for all input parameters for the `transferOwnership`function with signature `transferOwnership(address)` and selector `[242, 253, 227, 139]`"]
-    #[derive(
-        Clone,
-        Debug,
-        Default,
-        Eq,
-        PartialEq,
-        ethers :: contract :: EthCall,
-        ethers :: contract :: EthDisplay,
-    )]
-    #[ethcall(name = "transferOwnership", abi = "transferOwnership(address)")]
-    pub struct TransferOwnershipCall {
-        pub to: ethers::core::types::Address,
-    }
-    #[doc = "Container type for all input parameters for the `version`function with signature `version()` and selector `[84, 253, 77, 80]`"]
+    #[doc = "Container type for all input parameters for the `version` function with signature `version()` and selector `[84, 253, 77, 80]`"]
     #[derive(
         Clone,
         Debug,
@@ -712,10 +602,8 @@ mod ieacaggregatorproxy_mod {
     pub struct VersionCall;
     #[derive(Debug, Clone, PartialEq, Eq, ethers :: contract :: EthAbiType)]
     pub enum IEACAggregatorProxyCalls {
-        AcceptOwnership(AcceptOwnershipCall),
         AccessController(AccessControllerCall),
         Aggregator(AggregatorCall),
-        ConfirmAggregator(ConfirmAggregatorCall),
         Decimals(DecimalsCall),
         Description(DescriptionCall),
         GetAnswer(GetAnswerCall),
@@ -728,21 +616,13 @@ mod ieacaggregatorproxy_mod {
         Owner(OwnerCall),
         PhaseAggregators(PhaseAggregatorsCall),
         PhaseId(PhaseIdCall),
-        ProposeAggregator(ProposeAggregatorCall),
         ProposedAggregator(ProposedAggregatorCall),
         ProposedGetRoundData(ProposedGetRoundDataCall),
         ProposedLatestRoundData(ProposedLatestRoundDataCall),
-        SetController(SetControllerCall),
-        TransferOwnership(TransferOwnershipCall),
         Version(VersionCall),
     }
     impl ethers::core::abi::AbiDecode for IEACAggregatorProxyCalls {
         fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
-            if let Ok(decoded) =
-                <AcceptOwnershipCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
-            {
-                return Ok(IEACAggregatorProxyCalls::AcceptOwnership(decoded));
-            }
             if let Ok(decoded) =
                 <AccessControllerCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
@@ -752,11 +632,6 @@ mod ieacaggregatorproxy_mod {
                 <AggregatorCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
                 return Ok(IEACAggregatorProxyCalls::Aggregator(decoded));
-            }
-            if let Ok(decoded) =
-                <ConfirmAggregatorCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
-            {
-                return Ok(IEACAggregatorProxyCalls::ConfirmAggregator(decoded));
             }
             if let Ok(decoded) =
                 <DecimalsCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
@@ -818,11 +693,6 @@ mod ieacaggregatorproxy_mod {
                 return Ok(IEACAggregatorProxyCalls::PhaseId(decoded));
             }
             if let Ok(decoded) =
-                <ProposeAggregatorCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
-            {
-                return Ok(IEACAggregatorProxyCalls::ProposeAggregator(decoded));
-            }
-            if let Ok(decoded) =
                 <ProposedAggregatorCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
                 return Ok(IEACAggregatorProxyCalls::ProposedAggregator(decoded));
@@ -838,16 +708,6 @@ mod ieacaggregatorproxy_mod {
                 return Ok(IEACAggregatorProxyCalls::ProposedLatestRoundData(decoded));
             }
             if let Ok(decoded) =
-                <SetControllerCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
-            {
-                return Ok(IEACAggregatorProxyCalls::SetController(decoded));
-            }
-            if let Ok(decoded) =
-                <TransferOwnershipCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
-            {
-                return Ok(IEACAggregatorProxyCalls::TransferOwnership(decoded));
-            }
-            if let Ok(decoded) =
                 <VersionCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
             {
                 return Ok(IEACAggregatorProxyCalls::Version(decoded));
@@ -858,10 +718,8 @@ mod ieacaggregatorproxy_mod {
     impl ethers::core::abi::AbiEncode for IEACAggregatorProxyCalls {
         fn encode(self) -> Vec<u8> {
             match self {
-                IEACAggregatorProxyCalls::AcceptOwnership(element) => element.encode(),
                 IEACAggregatorProxyCalls::AccessController(element) => element.encode(),
                 IEACAggregatorProxyCalls::Aggregator(element) => element.encode(),
-                IEACAggregatorProxyCalls::ConfirmAggregator(element) => element.encode(),
                 IEACAggregatorProxyCalls::Decimals(element) => element.encode(),
                 IEACAggregatorProxyCalls::Description(element) => element.encode(),
                 IEACAggregatorProxyCalls::GetAnswer(element) => element.encode(),
@@ -874,12 +732,9 @@ mod ieacaggregatorproxy_mod {
                 IEACAggregatorProxyCalls::Owner(element) => element.encode(),
                 IEACAggregatorProxyCalls::PhaseAggregators(element) => element.encode(),
                 IEACAggregatorProxyCalls::PhaseId(element) => element.encode(),
-                IEACAggregatorProxyCalls::ProposeAggregator(element) => element.encode(),
                 IEACAggregatorProxyCalls::ProposedAggregator(element) => element.encode(),
                 IEACAggregatorProxyCalls::ProposedGetRoundData(element) => element.encode(),
                 IEACAggregatorProxyCalls::ProposedLatestRoundData(element) => element.encode(),
-                IEACAggregatorProxyCalls::SetController(element) => element.encode(),
-                IEACAggregatorProxyCalls::TransferOwnership(element) => element.encode(),
                 IEACAggregatorProxyCalls::Version(element) => element.encode(),
             }
         }
@@ -887,10 +742,8 @@ mod ieacaggregatorproxy_mod {
     impl ::std::fmt::Display for IEACAggregatorProxyCalls {
         fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
             match self {
-                IEACAggregatorProxyCalls::AcceptOwnership(element) => element.fmt(f),
                 IEACAggregatorProxyCalls::AccessController(element) => element.fmt(f),
                 IEACAggregatorProxyCalls::Aggregator(element) => element.fmt(f),
-                IEACAggregatorProxyCalls::ConfirmAggregator(element) => element.fmt(f),
                 IEACAggregatorProxyCalls::Decimals(element) => element.fmt(f),
                 IEACAggregatorProxyCalls::Description(element) => element.fmt(f),
                 IEACAggregatorProxyCalls::GetAnswer(element) => element.fmt(f),
@@ -903,19 +756,11 @@ mod ieacaggregatorproxy_mod {
                 IEACAggregatorProxyCalls::Owner(element) => element.fmt(f),
                 IEACAggregatorProxyCalls::PhaseAggregators(element) => element.fmt(f),
                 IEACAggregatorProxyCalls::PhaseId(element) => element.fmt(f),
-                IEACAggregatorProxyCalls::ProposeAggregator(element) => element.fmt(f),
                 IEACAggregatorProxyCalls::ProposedAggregator(element) => element.fmt(f),
                 IEACAggregatorProxyCalls::ProposedGetRoundData(element) => element.fmt(f),
                 IEACAggregatorProxyCalls::ProposedLatestRoundData(element) => element.fmt(f),
-                IEACAggregatorProxyCalls::SetController(element) => element.fmt(f),
-                IEACAggregatorProxyCalls::TransferOwnership(element) => element.fmt(f),
                 IEACAggregatorProxyCalls::Version(element) => element.fmt(f),
             }
-        }
-    }
-    impl ::std::convert::From<AcceptOwnershipCall> for IEACAggregatorProxyCalls {
-        fn from(var: AcceptOwnershipCall) -> Self {
-            IEACAggregatorProxyCalls::AcceptOwnership(var)
         }
     }
     impl ::std::convert::From<AccessControllerCall> for IEACAggregatorProxyCalls {
@@ -926,11 +771,6 @@ mod ieacaggregatorproxy_mod {
     impl ::std::convert::From<AggregatorCall> for IEACAggregatorProxyCalls {
         fn from(var: AggregatorCall) -> Self {
             IEACAggregatorProxyCalls::Aggregator(var)
-        }
-    }
-    impl ::std::convert::From<ConfirmAggregatorCall> for IEACAggregatorProxyCalls {
-        fn from(var: ConfirmAggregatorCall) -> Self {
-            IEACAggregatorProxyCalls::ConfirmAggregator(var)
         }
     }
     impl ::std::convert::From<DecimalsCall> for IEACAggregatorProxyCalls {
@@ -993,11 +833,6 @@ mod ieacaggregatorproxy_mod {
             IEACAggregatorProxyCalls::PhaseId(var)
         }
     }
-    impl ::std::convert::From<ProposeAggregatorCall> for IEACAggregatorProxyCalls {
-        fn from(var: ProposeAggregatorCall) -> Self {
-            IEACAggregatorProxyCalls::ProposeAggregator(var)
-        }
-    }
     impl ::std::convert::From<ProposedAggregatorCall> for IEACAggregatorProxyCalls {
         fn from(var: ProposedAggregatorCall) -> Self {
             IEACAggregatorProxyCalls::ProposedAggregator(var)
@@ -1013,19 +848,231 @@ mod ieacaggregatorproxy_mod {
             IEACAggregatorProxyCalls::ProposedLatestRoundData(var)
         }
     }
-    impl ::std::convert::From<SetControllerCall> for IEACAggregatorProxyCalls {
-        fn from(var: SetControllerCall) -> Self {
-            IEACAggregatorProxyCalls::SetController(var)
-        }
-    }
-    impl ::std::convert::From<TransferOwnershipCall> for IEACAggregatorProxyCalls {
-        fn from(var: TransferOwnershipCall) -> Self {
-            IEACAggregatorProxyCalls::TransferOwnership(var)
-        }
-    }
     impl ::std::convert::From<VersionCall> for IEACAggregatorProxyCalls {
         fn from(var: VersionCall) -> Self {
             IEACAggregatorProxyCalls::Version(var)
         }
     }
+    #[doc = "Container type for all return fields from the `accessController` function with signature `accessController()` and selector `[188, 67, 203, 175]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AccessControllerReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `aggregator` function with signature `aggregator()` and selector `[36, 90, 123, 252]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct AggregatorReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `decimals` function with signature `decimals()` and selector `[49, 60, 229, 103]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DecimalsReturn(pub u8);
+    #[doc = "Container type for all return fields from the `description` function with signature `description()` and selector `[114, 132, 228, 22]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct DescriptionReturn(pub String);
+    #[doc = "Container type for all return fields from the `getAnswer` function with signature `getAnswer(uint256)` and selector `[181, 171, 88, 220]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetAnswerReturn(pub I256);
+    #[doc = "Container type for all return fields from the `getRoundData` function with signature `getRoundData(uint80)` and selector `[154, 111, 200, 245]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetRoundDataReturn {
+        pub round_id: u128,
+        pub answer: I256,
+        pub started_at: ethers::core::types::U256,
+        pub updated_at: ethers::core::types::U256,
+        pub answered_in_round: u128,
+    }
+    #[doc = "Container type for all return fields from the `getTimestamp` function with signature `getTimestamp(uint256)` and selector `[182, 51, 98, 12]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetTimestampReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `latestAnswer` function with signature `latestAnswer()` and selector `[80, 210, 91, 205]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestAnswerReturn(pub I256);
+    #[doc = "Container type for all return fields from the `latestRound` function with signature `latestRound()` and selector `[102, 138, 15, 2]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestRoundReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `latestRoundData` function with signature `latestRoundData()` and selector `[254, 175, 150, 140]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestRoundDataReturn {
+        pub round_id: u128,
+        pub answer: I256,
+        pub started_at: ethers::core::types::U256,
+        pub updated_at: ethers::core::types::U256,
+        pub answered_in_round: u128,
+    }
+    #[doc = "Container type for all return fields from the `latestTimestamp` function with signature `latestTimestamp()` and selector `[130, 5, 191, 106]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct LatestTimestampReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `owner` function with signature `owner()` and selector `[141, 165, 203, 91]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OwnerReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `phaseAggregators` function with signature `phaseAggregators(uint16)` and selector `[193, 89, 115, 4]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PhaseAggregatorsReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `phaseId` function with signature `phaseId()` and selector `[88, 48, 59, 16]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct PhaseIdReturn(pub u16);
+    #[doc = "Container type for all return fields from the `proposedAggregator` function with signature `proposedAggregator()` and selector `[232, 196, 190, 48]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ProposedAggregatorReturn(pub ethers::core::types::Address);
+    #[doc = "Container type for all return fields from the `proposedGetRoundData` function with signature `proposedGetRoundData(uint80)` and selector `[96, 1, 172, 83]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ProposedGetRoundDataReturn {
+        pub round_id: u128,
+        pub answer: I256,
+        pub started_at: ethers::core::types::U256,
+        pub updated_at: ethers::core::types::U256,
+        pub answered_in_round: u128,
+    }
+    #[doc = "Container type for all return fields from the `proposedLatestRoundData` function with signature `proposedLatestRoundData()` and selector `[143, 107, 77, 145]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ProposedLatestRoundDataReturn {
+        pub round_id: u128,
+        pub answer: I256,
+        pub started_at: ethers::core::types::U256,
+        pub updated_at: ethers::core::types::U256,
+        pub answered_in_round: u128,
+    }
+    #[doc = "Container type for all return fields from the `version` function with signature `version()` and selector `[84, 253, 77, 80]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct VersionReturn(pub ethers::core::types::U256);
 }

@@ -1,6 +1,6 @@
-pub use signedconvertertester_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod signedconvertertester_mod {
+pub use signed_converter_tester::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod signed_converter_tester {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,12 +18,12 @@ mod signedconvertertester_mod {
     use std::sync::Arc;
     pub static SIGNEDCONVERTERTESTER_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"a\",\"type\":\"int256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"fromIntTest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"fromUintTest\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"a\",\"type\":\"int256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"fromIntTest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"a\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"fromUintTest\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static SIGNEDCONVERTERTESTER_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60808060405234610016576101da908161001c8239f35b600080fdfe608080604052600436101561001357600080fd5b60003560e01c90816385ba2da11461003e575063c27b828b14610036575b600080fd5b610031610100565b346100315760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011261003157600435907f80000000000000000000000000000000000000000000000000000000000000008210156100a457604051828152602090f35b807f08c379a0000000000000000000000000000000000000000000000000000000006064925260206004820152601b60248201527f5175616e744d6174683a206f7574206f6620696e742072616e676500000000006044820152fd5b50346100315760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc360112610031576004356000811261014657602090604051908152f35b60646040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601760248201527f5175616e744d6174683a206e6567617469766520696e740000000000000000006044820152fdfea2646970667358221220e5f6b681aea407643d8699864455f1705b2b408a310789b5fffc2dfe8f9b0cf864736f6c634300080e0033" . parse () . expect ("invalid bytecode")
+            "0x60808060405234610016576101ad908161001c8239f35b600080fdfe608080604052600436101561001357600080fd5b600090813560e01c90816385ba2da1146100dc575063c27b828b1461003757600080fd5b346100d95760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126100d95760043590811261007b57602090604051908152f35b60646040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601760248201527f5175616e744d6174683a206e6567617469766520696e740000000000000000006044820152fd5b80fd5b82346100d95760207ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc3601126100d95750600435907f800000000000000000000000000000000000000000000000000000000000000082101561014457602082604051908152f35b807f08c379a0000000000000000000000000000000000000000000000000000000006064925260206004820152601b60248201527f5175616e744d6174683a206f7574206f6620696e742072616e676500000000006044820152fdfea164736f6c634300080f000a" . parse () . expect ("invalid bytecode")
         });
     pub struct SignedConverterTester<M>(ethers::contract::Contract<M>);
     impl<M> Clone for SignedConverterTester<M> {
@@ -124,7 +124,7 @@ mod signedconvertertester_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `fromIntTest`function with signature `fromIntTest(int256)` and selector `[194, 123, 130, 139]`"]
+    #[doc = "Container type for all input parameters for the `fromIntTest` function with signature `fromIntTest(int256)` and selector `[194, 123, 130, 139]`"]
     #[derive(
         Clone,
         Debug,
@@ -138,7 +138,7 @@ mod signedconvertertester_mod {
     pub struct FromIntTestCall {
         pub a: I256,
     }
-    #[doc = "Container type for all input parameters for the `fromUintTest`function with signature `fromUintTest(uint256)` and selector `[133, 186, 45, 161]`"]
+    #[doc = "Container type for all input parameters for the `fromUintTest` function with signature `fromUintTest(uint256)` and selector `[133, 186, 45, 161]`"]
     #[derive(
         Clone,
         Debug,
@@ -198,4 +198,26 @@ mod signedconvertertester_mod {
             SignedConverterTesterCalls::FromUintTest(var)
         }
     }
+    #[doc = "Container type for all return fields from the `fromIntTest` function with signature `fromIntTest(int256)` and selector `[194, 123, 130, 139]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct FromIntTestReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `fromUintTest` function with signature `fromUintTest(uint256)` and selector `[133, 186, 45, 161]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct FromUintTestReturn(pub I256);
 }

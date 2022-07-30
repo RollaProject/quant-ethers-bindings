@@ -1,6 +1,6 @@
-pub use ipriceregistry_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod ipriceregistry_mod {
+pub use i_price_registry::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod i_price_registry {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -19,7 +19,7 @@ mod ipriceregistry_mod {
     use std::sync::Arc;
     pub static IPRICEREGISTRY_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint8\",\"name\":\"_settlementPriceDecimals\",\"type\":\"uint8\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"_settlementPrice\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"PriceStored\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getOptionPriceStatus\",\"outputs\":[{\"internalType\":\"enum PriceStatus\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getSettlementPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getSettlementPriceWithDecimals\",\"outputs\":[{\"internalType\":\"struct PriceWithDecimals\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"decimals\",\"type\":\"uint8\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"hasSettlementPrice\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"oracleRegistry\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"_settlementPriceDecimals\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_settlementPrice\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setSettlementPrice\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[],\"indexed\":true},{\"internalType\":\"uint8\",\"name\":\"_settlementPriceDecimals\",\"type\":\"uint8\",\"components\":[],\"indexed\":false},{\"internalType\":\"uint256\",\"name\":\"_settlementPrice\",\"type\":\"uint256\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"PriceStored\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getOptionPriceStatus\",\"outputs\":[{\"internalType\":\"enum PriceStatus\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getSettlementPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"getSettlementPriceWithDecimals\",\"outputs\":[{\"internalType\":\"struct PriceWithDecimals\",\"name\":\"\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"decimals\",\"type\":\"uint8\",\"components\":[]}]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_oracle\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]}],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"hasSettlementPrice\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"oracleRegistry\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_asset\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint88\",\"name\":\"_expiryTime\",\"type\":\"uint88\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"_settlementPriceDecimals\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"_settlementPrice\",\"type\":\"uint256\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"setSettlementPrice\",\"outputs\":[]}]") . expect ("invalid abi")
         });
     pub struct IPriceRegistry<M>(ethers::contract::Contract<M>);
     impl<M> Clone for IPriceRegistry<M> {
@@ -162,7 +162,7 @@ mod ipriceregistry_mod {
         pub settlement_price_decimals: u8,
         pub settlement_price: ethers::core::types::U256,
     }
-    #[doc = "Container type for all input parameters for the `getOptionPriceStatus`function with signature `getOptionPriceStatus(address,uint88,address)` and selector `[141, 246, 71, 93]`"]
+    #[doc = "Container type for all input parameters for the `getOptionPriceStatus` function with signature `getOptionPriceStatus(address,uint88,address)` and selector `[141, 246, 71, 93]`"]
     #[derive(
         Clone,
         Debug,
@@ -181,7 +181,7 @@ mod ipriceregistry_mod {
         pub expiry_time: u128,
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getSettlementPrice`function with signature `getSettlementPrice(address,uint88,address)` and selector `[38, 254, 165, 114]`"]
+    #[doc = "Container type for all input parameters for the `getSettlementPrice` function with signature `getSettlementPrice(address,uint88,address)` and selector `[38, 254, 165, 114]`"]
     #[derive(
         Clone,
         Debug,
@@ -200,7 +200,7 @@ mod ipriceregistry_mod {
         pub expiry_time: u128,
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `getSettlementPriceWithDecimals`function with signature `getSettlementPriceWithDecimals(address,uint88,address)` and selector `[129, 129, 130, 38]`"]
+    #[doc = "Container type for all input parameters for the `getSettlementPriceWithDecimals` function with signature `getSettlementPriceWithDecimals(address,uint88,address)` and selector `[129, 129, 130, 38]`"]
     #[derive(
         Clone,
         Debug,
@@ -219,7 +219,7 @@ mod ipriceregistry_mod {
         pub expiry_time: u128,
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `hasSettlementPrice`function with signature `hasSettlementPrice(address,uint88,address)` and selector `[248, 239, 11, 230]`"]
+    #[doc = "Container type for all input parameters for the `hasSettlementPrice` function with signature `hasSettlementPrice(address,uint88,address)` and selector `[248, 239, 11, 230]`"]
     #[derive(
         Clone,
         Debug,
@@ -238,7 +238,7 @@ mod ipriceregistry_mod {
         pub expiry_time: u128,
         pub asset: ethers::core::types::Address,
     }
-    #[doc = "Container type for all input parameters for the `oracleRegistry`function with signature `oracleRegistry()` and selector `[75, 185, 58, 177]`"]
+    #[doc = "Container type for all input parameters for the `oracleRegistry` function with signature `oracleRegistry()` and selector `[75, 185, 58, 177]`"]
     #[derive(
         Clone,
         Debug,
@@ -250,7 +250,7 @@ mod ipriceregistry_mod {
     )]
     #[ethcall(name = "oracleRegistry", abi = "oracleRegistry()")]
     pub struct OracleRegistryCall;
-    #[doc = "Container type for all input parameters for the `setSettlementPrice`function with signature `setSettlementPrice(address,uint88,uint8,uint256)` and selector `[234, 230, 95, 8]`"]
+    #[doc = "Container type for all input parameters for the `setSettlementPrice` function with signature `setSettlementPrice(address,uint88,uint8,uint256)` and selector `[234, 230, 95, 8]`"]
     #[derive(
         Clone,
         Debug,
@@ -370,4 +370,59 @@ mod ipriceregistry_mod {
             IPriceRegistryCalls::SetSettlementPrice(var)
         }
     }
+    #[doc = "Container type for all return fields from the `getOptionPriceStatus` function with signature `getOptionPriceStatus(address,uint88,address)` and selector `[141, 246, 71, 93]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetOptionPriceStatusReturn(pub u8);
+    #[doc = "Container type for all return fields from the `getSettlementPrice` function with signature `getSettlementPrice(address,uint88,address)` and selector `[38, 254, 165, 114]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetSettlementPriceReturn(pub ethers::core::types::U256);
+    #[doc = "Container type for all return fields from the `getSettlementPriceWithDecimals` function with signature `getSettlementPriceWithDecimals(address,uint88,address)` and selector `[129, 129, 130, 38]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct GetSettlementPriceWithDecimalsReturn(pub (ethers::core::types::U256, u8));
+    #[doc = "Container type for all return fields from the `hasSettlementPrice` function with signature `hasSettlementPrice(address,uint88,address)` and selector `[248, 239, 11, 230]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct HasSettlementPriceReturn(pub bool);
+    #[doc = "Container type for all return fields from the `oracleRegistry` function with signature `oracleRegistry()` and selector `[75, 185, 58, 177]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct OracleRegistryReturn(pub ethers::core::types::Address);
 }

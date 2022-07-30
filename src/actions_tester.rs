@@ -1,6 +1,6 @@
-pub use actionstester_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod actionstester_mod {
+pub use actions_tester::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod actions_tester {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -19,12 +19,12 @@ mod actionstester_mod {
     use std::sync::Arc;
     pub static ACTIONSTESTER_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseCallArgsTest\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseClaimCollateralArgsTest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseCollateralTokenApprovalArgsTest\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseExerciseArgsTest\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseMintOptionArgsTest\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseMintSpreadArgsTest\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseNeutralizeArgsTest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseQTokenPermitArgsTest\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseCallArgsTest\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseClaimCollateralArgsTest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseCollateralTokenApprovalArgsTest\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseExerciseArgsTest\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseMintOptionArgsTest\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseMintSpreadArgsTest\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseNeutralizeArgsTest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]}]},{\"inputs\":[{\"internalType\":\"struct ActionArgs\",\"name\":\"args\",\"type\":\"tuple\",\"components\":[{\"internalType\":\"enum ActionType\",\"name\":\"actionType\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"qToken\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"secondaryAddress\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"secondaryUint\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}]}],\"stateMutability\":\"pure\",\"type\":\"function\",\"name\":\"parseQTokenPermitArgsTest\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\",\"components\":[]},{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]}]") . expect ("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static ACTIONSTESTER_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x6080806040523461001657610751908161001c8239f35b600080fdfe60806040526004361015610013575b600080fd5b60003560e01c80631cc21e15146100b3578063554fd854146100aa5780636482b5b8146100a157806367e68ebf1461009857806381e620231461008f57806398f251a014610086578063b58b337b1461007d5763bc43519e1461007557600080fd5b61000e610617565b5061000e61055d565b5061000e610520565b5061000e610440565b5061000e61038f565b5061000e6102ed565b5061000e6102db565b3461000e576100d26100c436610210565b90608060a083015192015190565b60408051928352602083019190915290f35b0390f35b507f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6040519060e0820182811067ffffffffffffffff82111761013857604052565b6101406100e8565b604052565b3590600882101561000e57565b359073ffffffffffffffffffffffffffffffffffffffff8216820361000e57565b81601f8201121561000e5780359067ffffffffffffffff92838311610203575b604051937fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0603f81601f8701160116850190858210908211176101f6575b6040528284526020838301011161000e57816000926020809301838601378301015290565b6101fe6100e8565b6101d1565b61020b6100e8565b610193565b7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc60208183011261000e576004359167ffffffffffffffff9182841161000e5760e090848303011261000e57610264610118565b9261027181600401610145565b845261027f60248201610152565b602085015261029060448201610152565b60408501526102a160648201610152565b60608501526084810135608085015260a481013560a085015260c481013592831161000e576102d39201600401610173565b60c082015290565b503461000e576100d26100c436610210565b503461000e576102fc36610210565b60c08101519060608280518101031261000e578161031f6020610100940161070d565b9060ff606060408301519201519273ffffffffffffffffffffffffffffffffffffffff8060208701511695816040820151169160608201511660a060808301519201519260405198895260208901526040880152606087015260808601521660a084015260c083015260e0820152f35b503461000e5761039e36610210565b606060c073ffffffffffffffffffffffffffffffffffffffff828401511692015191604051928391825260206040818401528151918260408501526000915b838310610428575050817fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe092601f921161041b575b01168101030190f35b6000858286010152610412565b818301810151878401870152869450918201916103dd565b503461000e5761044f36610210565b608081019081511561049c576020818101516040928301519351835173ffffffffffffffffffffffffffffffffffffffff9283168152919094169181019190915290810191909152606090f35b60846040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152602b60248201527f416374696f6e733a2063616e6e6f74206d696e742030206f7074696f6e73206660448201527f726f6d20737072656164730000000000000000000000000000000000000000006064820152fd5b503461000e57604061053136610210565b608073ffffffffffffffffffffffffffffffffffffffff60208301511691015182519182526020820152f35b503461000e5761056c36610210565b60808101908151156105b95760608181015160209283015193516040805173ffffffffffffffffffffffffffffffffffffffff938416815292909516938201939093529283019190915290f35b60646040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601e60248201527f416374696f6e733a2063616e6e6f74206d696e742030206f7074696f6e7300006044820152fd5b503461000e5761062636610210565b60c081015160808180518101031261000e57602081015190811515820361000e578061065760406100e4930161070d565b906080606082015191015191610684604087015173ffffffffffffffffffffffffffffffffffffffff1690565b946106a6606088015173ffffffffffffffffffffffffffffffffffffffff1690565b9660a06080820151910151916040519889988994909360ff9360e097939a99989561010088019b73ffffffffffffffffffffffffffffffffffffffff809216895216602088015215156040870152606086015260808501521660a083015260c08201520152565b519060ff8216820361000e5756fea2646970667358221220f52610c16594673a3b97c4f0503ccc89ca89e01495c0b73a7bea1e8d418c581b64736f6c634300080e0033" . parse () . expect ("invalid bytecode")
+            "0x6080806040523461001657610655908161001c8239f35b600080fdfe604060808152600436101561001357600080fd5b6000803560e01c80631cc21e1514610449578063554fd854146104495780636482b5b8146103a257806367e68ebf146102f257806381e620231461021357806398f251a0146101d7578063b58b337b146101235763bc43519e1461007657600080fd5b3461011c5761008436610495565b60c081015160808180518101031261011f5760208101519283151580940361011c575060ff846100b861010096840161063a565b90608060608501519401519473ffffffffffffffffffffffffffffffffffffffff96878383015116976060830151169260a06080840151930151938151998a5260208a0152880152606087015260808601521660a084015260c083015260e0820152f35b80fd5b8280fd5b503461011c575061013336610495565b608081019182511561017a576060828101516020938401519451925173ffffffffffffffffffffffffffffffffffffffff9182168152941692840192909252604083015290f35b606490517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601e60248201527f416374696f6e733a2063616e6e6f74206d696e742030206f7074696f6e7300006044820152fd5b503461011c57506101e736610495565b608073ffffffffffffffffffffffffffffffffffffffff60208301511691015182519182526020820152f35b503461011c575061022336610495565b608081019182511561026f57602082810151928201519351915173ffffffffffffffffffffffffffffffffffffffff938416815292909316928201929092526040810191909152606090f35b608490517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152602b60248201527f416374696f6e733a2063616e6e6f74206d696e742030206f7074696f6e73206660448201527f726f6d20737072656164730000000000000000000000000000000000000000006064820152fd5b503461011c579061030236610495565b60609160c073ffffffffffffffffffffffffffffffffffffffff8484015116920151938151948593845260209083828601528051809486015282915b84831061038a57505091601f91817fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0941161037e575b5001168101030190f35b85828601015238610374565b8183018101518884018801528795509182019161033e565b509034610445576103b236610495565b60c081015160608180518101031261044157610100935060ff6103d76020830161063a565b6060858401519301519373ffffffffffffffffffffffffffffffffffffffff908160208201511696828183015116926060830151169060a06080840151930151938151998a5260208a0152880152606087015260808601521660a084015260c083015260e0820152f35b8380fd5b5080fd5b503461011c575061045936610495565b608060a082015191015182519182526020820152f35b359073ffffffffffffffffffffffffffffffffffffffff8216820361049057565b600080fd5b7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc6020818301126104905760049081359267ffffffffffffffff918285116104905760e0908583030112610490576040519360e085018581108482111761060c576040528084013560088110156104905785526105146024820161046f565b60208601526105256044820161046f565b60408601526105366064820161046f565b60608601526084810135608086015260a481013560a086015260c4810135908382116104905701908060238301121561049057838201359280841161060c57604051947fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0603f81601f8801160116860191868310908311176105de5750604052828452602483830101116104905781600092602460209301838601378301015260c082015290565b6041907f4e487b71000000000000000000000000000000000000000000000000000000006000525260246000fd5b6041857f4e487b71000000000000000000000000000000000000000000000000000000006000525260246000fd5b519060ff821682036104905756fea164736f6c634300080f000a" . parse () . expect ("invalid bytecode")
         });
     pub struct ActionsTester<M>(ethers::contract::Contract<M>);
     impl<M> Clone for ActionsTester<M> {
@@ -223,7 +223,7 @@ mod actionstester_mod {
             Self(contract)
         }
     }
-    #[doc = "Container type for all input parameters for the `parseCallArgsTest`function with signature `parseCallArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[103, 230, 142, 191]`"]
+    #[doc = "Container type for all input parameters for the `parseCallArgsTest` function with signature `parseCallArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[103, 230, 142, 191]`"]
     #[derive(
         Clone,
         Debug,
@@ -240,7 +240,7 @@ mod actionstester_mod {
     pub struct ParseCallArgsTestCall {
         pub args: ActionArgs,
     }
-    #[doc = "Container type for all input parameters for the `parseClaimCollateralArgsTest`function with signature `parseClaimCollateralArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[85, 79, 216, 84]`"]
+    #[doc = "Container type for all input parameters for the `parseClaimCollateralArgsTest` function with signature `parseClaimCollateralArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[85, 79, 216, 84]`"]
     #[derive(
         Clone,
         Debug,
@@ -257,7 +257,7 @@ mod actionstester_mod {
     pub struct ParseClaimCollateralArgsTestCall {
         pub args: ActionArgs,
     }
-    #[doc = "Container type for all input parameters for the `parseCollateralTokenApprovalArgsTest`function with signature `parseCollateralTokenApprovalArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[188, 67, 81, 158]`"]
+    #[doc = "Container type for all input parameters for the `parseCollateralTokenApprovalArgsTest` function with signature `parseCollateralTokenApprovalArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[188, 67, 81, 158]`"]
     #[derive(
         Clone,
         Debug,
@@ -274,7 +274,7 @@ mod actionstester_mod {
     pub struct ParseCollateralTokenApprovalArgsTestCall {
         pub args: ActionArgs,
     }
-    #[doc = "Container type for all input parameters for the `parseExerciseArgsTest`function with signature `parseExerciseArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[152, 242, 81, 160]`"]
+    #[doc = "Container type for all input parameters for the `parseExerciseArgsTest` function with signature `parseExerciseArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[152, 242, 81, 160]`"]
     #[derive(
         Clone,
         Debug,
@@ -291,7 +291,7 @@ mod actionstester_mod {
     pub struct ParseExerciseArgsTestCall {
         pub args: ActionArgs,
     }
-    #[doc = "Container type for all input parameters for the `parseMintOptionArgsTest`function with signature `parseMintOptionArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[181, 139, 51, 123]`"]
+    #[doc = "Container type for all input parameters for the `parseMintOptionArgsTest` function with signature `parseMintOptionArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[181, 139, 51, 123]`"]
     #[derive(
         Clone,
         Debug,
@@ -308,7 +308,7 @@ mod actionstester_mod {
     pub struct ParseMintOptionArgsTestCall {
         pub args: ActionArgs,
     }
-    #[doc = "Container type for all input parameters for the `parseMintSpreadArgsTest`function with signature `parseMintSpreadArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[129, 230, 32, 35]`"]
+    #[doc = "Container type for all input parameters for the `parseMintSpreadArgsTest` function with signature `parseMintSpreadArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[129, 230, 32, 35]`"]
     #[derive(
         Clone,
         Debug,
@@ -325,7 +325,7 @@ mod actionstester_mod {
     pub struct ParseMintSpreadArgsTestCall {
         pub args: ActionArgs,
     }
-    #[doc = "Container type for all input parameters for the `parseNeutralizeArgsTest`function with signature `parseNeutralizeArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[28, 194, 30, 21]`"]
+    #[doc = "Container type for all input parameters for the `parseNeutralizeArgsTest` function with signature `parseNeutralizeArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[28, 194, 30, 21]`"]
     #[derive(
         Clone,
         Debug,
@@ -342,7 +342,7 @@ mod actionstester_mod {
     pub struct ParseNeutralizeArgsTestCall {
         pub args: ActionArgs,
     }
-    #[doc = "Container type for all input parameters for the `parseQTokenPermitArgsTest`function with signature `parseQTokenPermitArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[100, 130, 181, 184]`"]
+    #[doc = "Container type for all input parameters for the `parseQTokenPermitArgsTest` function with signature `parseQTokenPermitArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[100, 130, 181, 184]`"]
     #[derive(
         Clone,
         Debug,
@@ -493,4 +493,130 @@ mod actionstester_mod {
             ActionsTesterCalls::ParseQTokenPermitArgsTest(var)
         }
     }
+    #[doc = "Container type for all return fields from the `parseCallArgsTest` function with signature `parseCallArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[103, 230, 142, 191]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ParseCallArgsTestReturn(
+        pub ethers::core::types::Address,
+        pub ethers::core::types::Bytes,
+    );
+    #[doc = "Container type for all return fields from the `parseClaimCollateralArgsTest` function with signature `parseClaimCollateralArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[85, 79, 216, 84]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ParseClaimCollateralArgsTestReturn(
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+    );
+    #[doc = "Container type for all return fields from the `parseCollateralTokenApprovalArgsTest` function with signature `parseCollateralTokenApprovalArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[188, 67, 81, 158]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ParseCollateralTokenApprovalArgsTestReturn(
+        pub ethers::core::types::Address,
+        pub ethers::core::types::Address,
+        pub bool,
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+        pub u8,
+        pub [u8; 32],
+        pub [u8; 32],
+    );
+    #[doc = "Container type for all return fields from the `parseExerciseArgsTest` function with signature `parseExerciseArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[152, 242, 81, 160]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ParseExerciseArgsTestReturn(
+        pub ethers::core::types::Address,
+        pub ethers::core::types::U256,
+    );
+    #[doc = "Container type for all return fields from the `parseMintOptionArgsTest` function with signature `parseMintOptionArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[181, 139, 51, 123]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ParseMintOptionArgsTestReturn(
+        pub ethers::core::types::Address,
+        pub ethers::core::types::Address,
+        pub ethers::core::types::U256,
+    );
+    #[doc = "Container type for all return fields from the `parseMintSpreadArgsTest` function with signature `parseMintSpreadArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[129, 230, 32, 35]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ParseMintSpreadArgsTestReturn(
+        pub ethers::core::types::Address,
+        pub ethers::core::types::Address,
+        pub ethers::core::types::U256,
+    );
+    #[doc = "Container type for all return fields from the `parseNeutralizeArgsTest` function with signature `parseNeutralizeArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[28, 194, 30, 21]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ParseNeutralizeArgsTestReturn(
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+    );
+    #[doc = "Container type for all return fields from the `parseQTokenPermitArgsTest` function with signature `parseQTokenPermitArgsTest((uint8,address,address,address,uint256,uint256,bytes))` and selector `[100, 130, 181, 184]`"]
+    #[derive(
+        Clone,
+        Debug,
+        Default,
+        Eq,
+        PartialEq,
+        ethers :: contract :: EthAbiType,
+        ethers :: contract :: EthAbiCodec,
+    )]
+    pub struct ParseQTokenPermitArgsTestReturn(
+        pub ethers::core::types::Address,
+        pub ethers::core::types::Address,
+        pub ethers::core::types::Address,
+        pub ethers::core::types::U256,
+        pub ethers::core::types::U256,
+        pub u8,
+        pub [u8; 32],
+        pub [u8; 32],
+    );
 }

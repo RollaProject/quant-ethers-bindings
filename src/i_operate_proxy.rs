@@ -1,6 +1,6 @@
-pub use ioperateproxy_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod ioperateproxy_mod {
+pub use i_operate_proxy::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod i_operate_proxy {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,7 +18,7 @@ mod ioperateproxy_mod {
     use std::sync::Arc;
     pub static IOPERATEPROXY_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"originalSender\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"bytes\",\"name\":\"returnData\",\"type\":\"bytes\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"FunctionCallExecuted\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"callee\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"callFunction\",\"outputs\":[]}]") . expect ("invalid abi")
+            ethers :: core :: utils :: __serde_json :: from_str ("[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"originalSender\",\"type\":\"address\",\"components\":[],\"indexed\":true},{\"internalType\":\"bytes\",\"name\":\"returnData\",\"type\":\"bytes\",\"components\":[],\"indexed\":false}],\"type\":\"event\",\"name\":\"FunctionCallExecuted\",\"outputs\":[],\"anonymous\":false},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"callee\",\"type\":\"address\",\"components\":[]},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\",\"components\":[]}],\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"name\":\"callFunction\",\"outputs\":[]}]") . expect ("invalid abi")
         });
     pub struct IOperateProxy<M>(ethers::contract::Contract<M>);
     impl<M> Clone for IOperateProxy<M> {
@@ -94,7 +94,7 @@ mod ioperateproxy_mod {
         pub original_sender: ethers::core::types::Address,
         pub return_data: ethers::core::types::Bytes,
     }
-    #[doc = "Container type for all input parameters for the `callFunction`function with signature `callFunction(address,bytes)` and selector `[156, 35, 218, 80]`"]
+    #[doc = "Container type for all input parameters for the `callFunction` function with signature `callFunction(address,bytes)` and selector `[156, 35, 218, 80]`"]
     #[derive(
         Clone,
         Debug,

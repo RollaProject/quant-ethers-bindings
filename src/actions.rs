@@ -1,6 +1,6 @@
-pub use actions_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod actions_mod {
+pub use actions::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod actions {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -17,11 +17,13 @@ mod actions_mod {
     #[doc = "Actions was auto-generated with ethers-rs Abigen. More information at: https://github.com/gakonst/ethers-rs"]
     use std::sync::Arc;
     pub static ACTIONS_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
-        ethers::contract::Lazy::new(|| serde_json::from_str("[]").expect("invalid abi"));
+        ethers::contract::Lazy::new(|| {
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
+        });
     #[doc = r" Bytecode of the #name contract"]
     pub static ACTIONS_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x60808060405234601757603a9081601d823930815050f35b600080fdfe600080fdfea26469706673582212202f67e9d3a25f854a351ac4ba46200800018c09c581d142a630ee1aa3d4f5d74064736f6c634300080e0033" . parse () . expect ("invalid bytecode")
+            "0x6080806040523460175760119081601d823930815050f35b600080fdfe600080fdfea164736f6c634300080f000a" . parse () . expect ("invalid bytecode")
         });
     pub struct Actions<M>(ethers::contract::Contract<M>);
     impl<M> Clone for Actions<M> {

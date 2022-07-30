@@ -1,6 +1,6 @@
-pub use optionsutils_mod::*;
-#[allow(clippy::too_many_arguments)]
-mod optionsutils_mod {
+pub use options_utils::*;
+#[allow(clippy::too_many_arguments, non_camel_case_types)]
+pub mod options_utils {
     #![allow(clippy::enum_variant_names)]
     #![allow(dead_code)]
     #![allow(clippy::type_complexity)]
@@ -18,12 +18,12 @@ mod optionsutils_mod {
     use std::sync::Arc;
     pub static OPTIONSUTILS_ABI: ethers::contract::Lazy<ethers::core::abi::Abi> =
         ethers::contract::Lazy::new(|| {
-            serde_json :: from_str ("[{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"SALT\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\",\"components\":[]}]},{\"inputs\":[],\"stateMutability\":\"view\",\"type\":\"function\",\"name\":\"STRIKE_PRICE_DECIMALS\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\",\"components\":[]}]}]") . expect ("invalid abi")
+            ethers::core::utils::__serde_json::from_str("[]").expect("invalid abi")
         });
     #[doc = r" Bytecode of the #name contract"]
     pub static OPTIONSUTILS_BYTECODE: ethers::contract::Lazy<ethers::core::types::Bytes> =
         ethers::contract::Lazy::new(|| {
-            "0x608080604052346100195760f6908161001f823930815050f35b600080fdfe6080806040526004361015601257600080fd5b600090813560e01c908163b9cc8f16146089575063ba9a91a514603457600080fd5b807ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011260865760206040517f524f4c4c412e46494e414e4345000000000000000000000000000000000000008152f35b80fd5b9050817ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc36011260bc5780601260209252f35b5080fdfea2646970667358221220594822aa59b383b4afa591bc413fd61209655069450e0259faf91345ced4b7c164736f6c634300080e0033" . parse () . expect ("invalid bytecode")
+            "0x6080806040523460175760119081601d823930815050f35b600080fdfe600080fdfea164736f6c634300080f000a" . parse () . expect ("invalid bytecode")
         });
     pub struct OptionsUtils<M>(ethers::contract::Contract<M>);
     impl<M> Clone for OptionsUtils<M> {
@@ -93,90 +93,10 @@ mod optionsutils_mod {
             let deployer = ethers::contract::ContractDeployer::new(deployer);
             Ok(deployer)
         }
-        #[doc = "Calls the contract's `SALT` (0xba9a91a5) function"]
-        pub fn salt(&self) -> ethers::contract::builders::ContractCall<M, [u8; 32]> {
-            self.0
-                .method_hash([186, 154, 145, 165], ())
-                .expect("method not found (this should never happen)")
-        }
-        #[doc = "Calls the contract's `STRIKE_PRICE_DECIMALS` (0xb9cc8f16) function"]
-        pub fn strike_price_decimals(&self) -> ethers::contract::builders::ContractCall<M, u8> {
-            self.0
-                .method_hash([185, 204, 143, 22], ())
-                .expect("method not found (this should never happen)")
-        }
     }
     impl<M: ethers::providers::Middleware> From<ethers::contract::Contract<M>> for OptionsUtils<M> {
         fn from(contract: ethers::contract::Contract<M>) -> Self {
             Self(contract)
-        }
-    }
-    #[doc = "Container type for all input parameters for the `SALT`function with signature `SALT()` and selector `[186, 154, 145, 165]`"]
-    #[derive(
-        Clone,
-        Debug,
-        Default,
-        Eq,
-        PartialEq,
-        ethers :: contract :: EthCall,
-        ethers :: contract :: EthDisplay,
-    )]
-    #[ethcall(name = "SALT", abi = "SALT()")]
-    pub struct SaltCall;
-    #[doc = "Container type for all input parameters for the `STRIKE_PRICE_DECIMALS`function with signature `STRIKE_PRICE_DECIMALS()` and selector `[185, 204, 143, 22]`"]
-    #[derive(
-        Clone,
-        Debug,
-        Default,
-        Eq,
-        PartialEq,
-        ethers :: contract :: EthCall,
-        ethers :: contract :: EthDisplay,
-    )]
-    #[ethcall(name = "STRIKE_PRICE_DECIMALS", abi = "STRIKE_PRICE_DECIMALS()")]
-    pub struct StrikePriceDecimalsCall;
-    #[derive(Debug, Clone, PartialEq, Eq, ethers :: contract :: EthAbiType)]
-    pub enum OptionsUtilsCalls {
-        Salt(SaltCall),
-        StrikePriceDecimals(StrikePriceDecimalsCall),
-    }
-    impl ethers::core::abi::AbiDecode for OptionsUtilsCalls {
-        fn decode(data: impl AsRef<[u8]>) -> Result<Self, ethers::core::abi::AbiError> {
-            if let Ok(decoded) = <SaltCall as ethers::core::abi::AbiDecode>::decode(data.as_ref()) {
-                return Ok(OptionsUtilsCalls::Salt(decoded));
-            }
-            if let Ok(decoded) =
-                <StrikePriceDecimalsCall as ethers::core::abi::AbiDecode>::decode(data.as_ref())
-            {
-                return Ok(OptionsUtilsCalls::StrikePriceDecimals(decoded));
-            }
-            Err(ethers::core::abi::Error::InvalidData.into())
-        }
-    }
-    impl ethers::core::abi::AbiEncode for OptionsUtilsCalls {
-        fn encode(self) -> Vec<u8> {
-            match self {
-                OptionsUtilsCalls::Salt(element) => element.encode(),
-                OptionsUtilsCalls::StrikePriceDecimals(element) => element.encode(),
-            }
-        }
-    }
-    impl ::std::fmt::Display for OptionsUtilsCalls {
-        fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-            match self {
-                OptionsUtilsCalls::Salt(element) => element.fmt(f),
-                OptionsUtilsCalls::StrikePriceDecimals(element) => element.fmt(f),
-            }
-        }
-    }
-    impl ::std::convert::From<SaltCall> for OptionsUtilsCalls {
-        fn from(var: SaltCall) -> Self {
-            OptionsUtilsCalls::Salt(var)
-        }
-    }
-    impl ::std::convert::From<StrikePriceDecimalsCall> for OptionsUtilsCalls {
-        fn from(var: StrikePriceDecimalsCall) -> Self {
-            OptionsUtilsCalls::StrikePriceDecimals(var)
         }
     }
 }
